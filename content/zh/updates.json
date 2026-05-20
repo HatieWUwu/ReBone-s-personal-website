@@ -1,6 +1,6 @@
 {
-  "more_label": "查看更多",
-  "more_href": "#",
+  "more_label": "查看全部更新 ↗",
+  "more_href": "updates.html",
   "items": [
     {
       "date": "2026.05.22",
