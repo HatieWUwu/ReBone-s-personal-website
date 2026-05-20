@@ -1067,8 +1067,16 @@ function renderReflections(data) {
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // Single click handler on the whole SVG; hit-tests against circle geometry.
-  venn.style.cursor = 'pointer';
+  const pointer = document.getElementById('reflections-venn-pointer');
+  function setHover(id) {
+    venn.dataset.hover = id || '';
+    if (pointer) {
+      const region = id ? data.regions[id] : null;
+      pointer.textContent = region ? `当前：${region.title}` : '当前：—';
+    }
+  }
+
+  venn.style.cursor = 'crosshair';
   venn.addEventListener('click', (e) => {
     const pt = svgPointFromEvent(e);
     if (!pt) return;
@@ -1079,9 +1087,9 @@ function renderReflections(data) {
     const pt = svgPointFromEvent(e);
     if (!pt) return;
     const id = regionAtPoint(pt.x, pt.y);
-    venn.dataset.hover = id || '';
+    setHover(id);
   });
-  venn.addEventListener('mouseleave', () => { venn.dataset.hover = ''; });
+  venn.addEventListener('mouseleave', () => setHover(''));
 
   if (panelClose) {
     panelClose.addEventListener('click', () => {
