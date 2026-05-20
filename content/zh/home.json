@@ -9,7 +9,7 @@
     "menu_label": "内容",
     "extra_links": [
       {"label": "更新", "href": "#updates"},
-      {"label": "匿名提问箱", "href": "#inbox"}
+      {"label": "匿名留言箱", "href": "#inbox"}
     ]
   },
   "updates_label": "更新",
