@@ -261,11 +261,12 @@ function renderHomeInbox(home) {
       return;
     }
     const endpoint = home.inbox_endpoint || '';
+    const submittedAt = new Date().toISOString();
     const payload = {
       question: text,
       visibility,
       contact,
-      submittedAt: new Date().toISOString(),
+      submittedAt,
       sourceUrl: window.location.href,
     };
     if (statusEl) statusEl.textContent = isEnglishLang() ? 'Sending…' : '正在投递……';
@@ -278,7 +279,7 @@ function renderHomeInbox(home) {
         });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
       } else {
-        const subject = encodeURIComponent(visibility === 'public' ? '[公开] 匿名提问' : '[不公开] 匿名提问');
+        const subject = encodeURIComponent(visibility === 'public' ? '[公开] 匿名留言' : '[不公开] 匿名留言');
         const lines = [
           `可见性：${visibility === 'public' ? '公开' : '不公开'}`,
           contact ? `回信渠道：${contact}` : '',
@@ -286,6 +287,15 @@ function renderHomeInbox(home) {
           text,
         ].filter(Boolean);
         window.location.href = `mailto:wuruohan0522@gmail.com?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
+      }
+      // Local echo on the submitter's device until ReBone curates it into inbox.json.
+      if (visibility === 'public') {
+        try {
+          const key = 'rebone-inbox-pending';
+          const existing = JSON.parse(localStorage.getItem(key) || '[]');
+          existing.unshift({ submittedAt, question: text });
+          localStorage.setItem(key, JSON.stringify(existing.slice(0, 50)));
+        } catch (e) { /* localStorage may be blocked; ignore */ }
       }
       draftEl.value = '';
       if (contactInput) contactInput.value = '';
@@ -297,6 +307,46 @@ function renderHomeInbox(home) {
   });
 }
 
+async function initUpdatesArchive() {
+  const root = document.getElementById('updates-page-root');
+  if (!root) return;
+  try {
+    const data = await loadLocalizedJson('updates.json');
+    const listEl = document.getElementById('updates-archive-list');
+    const emptyEl = document.getElementById('updates-archive-empty');
+    if (!listEl) return;
+    listEl.innerHTML = '';
+    const items = data.items || [];
+    if (!items.length) {
+      if (emptyEl) emptyEl.style.display = '';
+      return;
+    }
+    if (emptyEl) emptyEl.style.display = 'none';
+    for (const item of items) {
+      const li = createElement('div', 'timeline-item');
+      const dot = createElement('span', 'timeline-dot');
+      dot.setAttribute('aria-hidden', 'true');
+      li.appendChild(dot);
+      const time = createElement('time', 'timeline-date', item.date || '');
+      if (item.datetime) time.dateTime = item.datetime;
+      li.appendChild(time);
+      const lines = Array.isArray(item.lines) && item.lines.length
+        ? item.lines
+        : Array.isArray(item.points) && item.points.length
+          ? item.points
+          : [item.title, item.summary].filter(Boolean);
+      const linesDiv = createElement('div', 'timeline-lines');
+      for (const line of lines) {
+        linesDiv.appendChild(createElement('p', '', line));
+      }
+      li.appendChild(linesDiv);
+      listEl.appendChild(li);
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function initInboxArchive() {
   const root = document.getElementById('inbox-page-root');
   if (!root) return;
@@ -306,23 +356,44 @@ async function initInboxArchive() {
     const introEl = document.getElementById('inbox-intro');
     const listEl = document.getElementById('inbox-archive-list');
     const emptyEl = document.getElementById('inbox-archive-empty');
-    if (titleEl) titleEl.textContent = data.title || (isEnglishLang() ? 'Public inbox' : '公开提问箱');
+    if (titleEl) titleEl.textContent = data.title || (isEnglishLang() ? 'Public inbox' : '公开留言箱');
     if (introEl) introEl.textContent = data.intro || '';
     if (!listEl) return;
     listEl.innerHTML = '';
-    if (!data.items || !data.items.length) {
+
+    let pending = [];
+    try {
+      pending = JSON.parse(localStorage.getItem('rebone-inbox-pending') || '[]');
+    } catch (e) { /* ignore */ }
+
+    const curated = data.items || [];
+    if (!curated.length && !pending.length) {
       if (emptyEl) {
-        emptyEl.textContent = data.empty_label || (isEnglishLang() ? 'No public questions yet.' : '暂时还没有公开问答。');
+        emptyEl.textContent = data.empty_label || (isEnglishLang() ? 'No public messages yet.' : '暂时还没有公开的留言。');
         emptyEl.style.display = '';
       }
       return;
     }
     if (emptyEl) emptyEl.style.display = 'none';
-    for (const item of data.items) {
+
+    for (const item of pending) {
+      const card = createElement('article', 'inbox-entry inbox-entry-pending');
+      const dateText = item.submittedAt
+        ? new Date(item.submittedAt).toLocaleDateString('zh-CN').replaceAll('/', '-')
+        : '';
+      if (dateText) card.appendChild(createElement('p', 'inbox-entry-date', `${dateText} · 你刚刚留下的（仅你这台设备可见，等待 ReBone 公开 + 回应）`));
+      card.appendChild(createElement('p', 'inbox-entry-question', item.question || ''));
+      listEl.appendChild(card);
+    }
+
+    for (const item of curated) {
       const card = createElement('article', 'inbox-entry');
       if (item.date) card.appendChild(createElement('p', 'inbox-entry-date', item.date));
-      card.appendChild(createElement('h3', 'inbox-entry-question', `Q. ${item.question || ''}`));
-      if (item.answer) card.appendChild(createElement('p', 'inbox-entry-answer', item.answer));
+      card.appendChild(createElement('p', 'inbox-entry-question', item.question || ''));
+      if (item.answer) {
+        card.appendChild(createElement('p', 'inbox-entry-answer-label', 'ReBone:'));
+        card.appendChild(createElement('p', 'inbox-entry-answer', item.answer));
+      }
       listEl.appendChild(card);
     }
   } catch (error) {
@@ -891,69 +962,113 @@ function renderExpressions(data) {
   }
 }
 
+function dateKey(s) {
+  if (!s) return '0000.00.00';
+  const m = String(s).match(/(\d{4})(?:[.\-/](\d{1,2}))?(?:[.\-/](\d{1,2}))?/);
+  if (!m) return '0000.00.00';
+  const y = m[1];
+  const mo = (m[2] || '00').padStart(2, '0');
+  const d = (m[3] || '00').padStart(2, '0');
+  return `${y}.${mo}.${d}`;
+}
+
 function renderReflections(data) {
   const title = document.getElementById('reflections-title');
   const subtitle = document.getElementById('reflections-subtitle');
   const intro = document.getElementById('reflections-intro');
   const footnote = document.getElementById('reflections-footnote');
   const railNav = document.getElementById('reflections-rail-nav');
-  const log = document.getElementById('reflections-log');
-  if (!title || !subtitle || !intro || !footnote || !log) return;
+  const statementsRoot = document.getElementById('reflections-statements');
+  const panel = document.getElementById('reflections-panel');
+  const panelTitle = document.getElementById('reflections-panel-title');
+  const panelKeywords = document.getElementById('reflections-panel-keywords');
+  const panelContent = document.getElementById('reflections-panel-content');
+  const panelClose = document.getElementById('reflections-panel-close');
+  const venn = document.getElementById('reflections-venn');
+  if (!title || !panel || !panelContent || !venn) return;
 
   title.textContent = data.title || 'Reflections';
-  subtitle.textContent = data.subtitle || '';
-  intro.innerHTML = '';
-  (data.intro || []).forEach(text => intro.appendChild(createElement('p', '', text)));
-  footnote.textContent = data.footnote || '';
+  if (subtitle) subtitle.textContent = data.subtitle || '';
+  if (intro) {
+    intro.innerHTML = '';
+    (data.intro || []).forEach(text => intro.appendChild(createElement('p', '', text)));
+  }
+  if (footnote) footnote.textContent = data.footnote || '';
 
-  // Preserve JSON region order
+  if (statementsRoot) {
+    statementsRoot.innerHTML = '';
+    for (const st of data.statements || []) {
+      const det = document.createElement('details');
+      det.className = 'reflections-statement';
+      const sum = createElement('summary', '', st.label || '');
+      det.appendChild(sum);
+      det.appendChild(createElement('p', '', st.text || ''));
+      statementsRoot.appendChild(det);
+    }
+  }
+
   const regionOrder = Object.keys(data.regions || {});
 
-  // Rail nav: jump to each region
   if (railNav) {
     railNav.innerHTML = '';
     for (const id of regionOrder) {
       const region = data.regions[id];
       if (!region) continue;
-      const a = createElement('a', '', `— ${region.title}`);
+      const a = createElement('a', '', region.title || id);
       a.href = `#region-${id}`;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        showRegion(id);
+      });
       railNav.appendChild(a);
     }
   }
 
-  // Log body: one section per region
-  log.innerHTML = '';
-  for (const id of regionOrder) {
+  function showRegion(id) {
     const region = data.regions[id];
-    if (!region) continue;
+    if (!region) return;
+    panelTitle.textContent = region.title || '';
+    panelKeywords.textContent = (region.keywords || []).map((k) => `· ${k}`).join(' ');
+    panelContent.innerHTML = '';
 
-    const section = createElement('section', 'reflections-region');
-    section.id = `region-${id}`;
-
-    const head = createElement('div', 'reflections-region-head');
-    head.appendChild(createElement('span', 'reflections-region-label', `§ ${id}`));
-    const titleEl = createElement('h2', 'reflections-region-title');
-    titleEl.appendChild(createElement('span', '', region.title || ''));
-    if (region.keywords && region.keywords.length) {
-      titleEl.appendChild(createElement('span', 'reflections-region-keywords', region.keywords.join(' · ')));
-    }
-    head.appendChild(titleEl);
-    section.appendChild(head);
-
-    for (const item of region.items || []) {
-      const row = createElement('div', 'reflections-row');
+    const items = (region.items || []).slice().sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)));
+    for (const item of items) {
+      const row = createElement('article', 'reflections-row');
       row.appendChild(createElement('span', 'reflections-row-date', item.date || '—'));
       const body = createElement('div', 'reflections-row-body');
       if (item.subtitle) body.appendChild(createElement('h3', 'reflections-row-subtitle', item.subtitle));
       body.appendChild(createElement('p', 'reflections-row-text', item.text || ''));
       row.appendChild(body);
-      section.appendChild(row);
+      panelContent.appendChild(row);
     }
 
-    log.appendChild(section);
+    panel.style.display = '';
+    venn.querySelectorAll('.venn-region, .venn-label, .venn-intersection').forEach((el) => {
+      el.classList.toggle('active', el.dataset.region === id);
+    });
+    if (railNav) {
+      railNav.querySelectorAll('a').forEach((a) => {
+        a.classList.toggle('active', a.getAttribute('href') === `#region-${id}`);
+      });
+    }
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  applyEnglishReadingMode(log);
+  venn.querySelectorAll('[data-region]').forEach((el) => {
+    el.style.cursor = 'pointer';
+    el.addEventListener('click', () => showRegion(el.dataset.region));
+  });
+
+  if (panelClose) {
+    panelClose.addEventListener('click', () => {
+      panel.style.display = 'none';
+      venn.querySelectorAll('.venn-region, .venn-label, .venn-intersection').forEach((el) => el.classList.remove('active'));
+    });
+  }
+
+  if (regionOrder.length) showRegion(regionOrder[0]);
+
+  applyEnglishReadingMode(panelContent);
 }
 
 function renderVisualArchive(data) {
@@ -1401,6 +1516,13 @@ async function initReflections() {
   }
 }
 
+function rescrollToHash() {
+  if (!window.location.hash) return;
+  const id = window.location.hash.slice(1);
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   if (window.ReBoneI18n?.initSiteChrome) {
     await window.ReBoneI18n.initSiteChrome();
@@ -1417,5 +1539,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     initFandomArchive(),
     initReflections(),
     initInboxArchive(),
+    initUpdatesArchive(),
   ]);
+  requestAnimationFrame(() => requestAnimationFrame(rescrollToHash));
 });

@@ -74,6 +74,7 @@ body {
     gap: 1.5rem;
     align-items: center;
     flex-wrap: wrap;
+    flex: 1;
 }
 .nav-link {
     font-family: var(--font-mono);
@@ -92,7 +93,7 @@ body {
 [data-language-switch="true"] {
     font-family: var(--font-mono);
     font-size: 0.78rem;
-    margin-left: 0.6rem;
+    margin-left: auto;
     color: rgba(255,255,255,0.7);
 }
 [data-language-switch="true"] button {
@@ -806,7 +807,171 @@ body {
 }
 .expressions-intro p:last-child { color: var(--ink-3); font-size: 0.88rem; }
 
-/* ───── Reflections log layout (S4) ───────────────────────── */
+/* ───── Reflections (Venn) ────────────────────────────────── */
+
+.reflections-intro p {
+    margin: 0 0 0.6rem;
+    font-size: 0.96rem;
+    color: var(--ink-2);
+    line-height: 1.85;
+    max-width: 40em;
+}
+.reflections-statements {
+    margin-bottom: 2.5rem;
+    border-top: 1px solid var(--rule-2);
+    border-bottom: 1px solid var(--rule-2);
+    padding: 0.4rem 0;
+}
+.reflections-statement {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule-2);
+}
+.reflections-statement:last-child { border-bottom: 0; }
+.reflections-statement > summary {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    letter-spacing: 0.04em;
+    padding: 0.15rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+.reflections-statement > summary::-webkit-details-marker { display: none; }
+.reflections-statement > summary::before {
+    content: '+';
+    color: var(--ink-3);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    width: 0.9rem;
+}
+.reflections-statement[open] > summary::before { content: '−'; }
+.reflections-statement p {
+    margin: 0.6rem 0 0;
+    font-size: 0.95rem;
+    color: var(--ink-2);
+    line-height: 1.85;
+    max-width: 40em;
+}
+
+.reflections-venn-wrap {
+    margin: 2.5rem 0 2rem;
+    text-align: center;
+}
+.reflections-venn-hint {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem;
+}
+.venn-stage {
+    display: flex;
+    justify-content: center;
+}
+.venn-svg {
+    width: 22rem;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+.venn-region {
+    fill: transparent;
+    stroke: var(--ink-3);
+    stroke-width: 1.4;
+    transition: fill 200ms ease, stroke 200ms ease;
+}
+.venn-region:hover { fill: rgba(26,26,26,0.05); }
+.venn-region.active { fill: rgba(26,26,26,0.08); stroke: var(--ink); }
+.venn-label {
+    font-family: var(--font-serif);
+    font-size: 14px;
+    font-weight: 500;
+    fill: var(--ink);
+    transition: opacity 150ms ease;
+}
+.venn-intersection {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    fill: var(--ink-3);
+    letter-spacing: 0.02em;
+    transition: fill 150ms ease;
+}
+.venn-intersection.active,
+.venn-intersection:hover,
+.venn-label:hover,
+.venn-label.active { fill: var(--ink); }
+.venn-center { fill: var(--ink); font-weight: 500; }
+
+.reflections-panel {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: 5rem;
+}
+.reflections-panel-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid var(--rule);
+}
+.reflections-panel-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: 0.01em;
+}
+.reflections-panel-keywords {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+    margin: 0;
+}
+.reflections-panel-close {
+    margin-left: auto;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 1.4rem;
+    color: var(--ink-3);
+    padding: 0 0.4rem;
+    line-height: 1;
+}
+.reflections-panel-close:hover { color: var(--ink); }
+.reflections-footnote {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+    margin: 2.5rem 0 0;
+    line-height: 1.7;
+}
+
+/* Inbox archive — pending entries shown locally + curated entries */
+.inbox-entry-answer-label {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+    margin: 0.4rem 0 0.3rem;
+    text-transform: uppercase;
+}
+.inbox-entry-pending {
+    opacity: 0.7;
+}
+.inbox-entry-pending .inbox-entry-question {
+    color: var(--ink-2);
+    font-weight: 400;
+}
+
+/* ───── Reflections log layout (legacy, used by panel rows) ─── */
 
 .reflections-region {
     margin-bottom: 3rem;

@@ -3,19 +3,18 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>404 | ReBone</title>
-    <meta name="robots" content="noindex" />
-    <meta name="description" content="这个页面不存在，返回 ReBone 首页继续浏览。" />
-    <link rel="canonical" href="https://rebone0522.com/404.html" />
+    <title>更新日志 | ReBone</title>
+    <meta name="description" content="ReBone 个人网站的全部更新记录。" />
+    <link rel="canonical" href="https://rebone0522.com/updates.html" />
     <meta property="og:site_name" content="ReBone" />
     <meta property="og:locale" content="zh_CN" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="404 | ReBone" />
-    <meta property="og:description" content="这个页面不存在，返回 ReBone 首页继续浏览。" />
-    <meta property="og:url" content="https://rebone0522.com/404.html" />
+    <meta property="og:title" content="更新日志 | ReBone" />
+    <meta property="og:description" content="ReBone 个人网站的全部更新记录。" />
+    <meta property="og:url" content="https://rebone0522.com/updates.html" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="404 | ReBone" />
-    <meta name="twitter:description" content="这个页面不存在，返回 ReBone 首页继续浏览。" />
+    <meta name="twitter:title" content="更新日志 | ReBone" />
+    <meta name="twitter:description" content="ReBone 个人网站的全部更新记录。" />
     <meta name="theme-color" content="#FAFAF8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,26 +37,30 @@
         </div>
     </nav>
 
-    <main class="shell">
+    <main id="updates-page-root" class="shell">
         <aside class="rail">
-            <p class="rail-label">Status</p>
-            <p class="rail-marker"><strong>404</strong></p>
+            <p class="rail-label">日志</p>
+            <p class="rail-marker"><strong>全部更新</strong></p>
 
-            <p class="rail-label">Type</p>
-            <p class="rail-marker">page not found</p>
-
-            <p class="rail-label">Action</p>
-            <p class="rail-text"><a href="index.html" style="color:var(--ink);text-decoration:underline;text-underline-offset:4px;">返回首页 ↗</a></p>
+            <p class="rail-label rail-label-link">
+                <a href="index.html#updates">回到首页更新</a>
+            </p>
+            <p class="rail-label rail-label-link">
+                <a href="index.html">回到首页</a>
+            </p>
         </aside>
 
         <div class="shell-gutter" aria-hidden="true"></div>
 
         <div class="main">
             <section class="page-hero">
-                <p class="page-eyebrow">— 404</p>
-                <h1 class="page-heading">这个页面不存在。</h1>
-                <p class="page-subhead">可能是链接已经变动，也可能是这个页面还没有被公开整理出来。</p>
+                <p class="page-eyebrow">— updates.md</p>
+                <h1 class="page-heading">更新日志</h1>
+                <p class="page-subhead">网站每一次有内容更新或调整，都会记录在这里，从最近到最早。</p>
             </section>
+
+            <div id="updates-archive-list"></div>
+            <p id="updates-archive-empty" class="inbox-empty" style="display:none">还没有任何更新记录。</p>
         </div>
     </main>
 
