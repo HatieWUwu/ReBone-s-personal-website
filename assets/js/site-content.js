@@ -977,7 +977,6 @@ function renderReflections(data) {
   const subtitle = document.getElementById('reflections-subtitle');
   const intro = document.getElementById('reflections-intro');
   const footnote = document.getElementById('reflections-footnote');
-  const railNav = document.getElementById('reflections-rail-nav');
   const statementsRoot = document.getElementById('reflections-statements');
   const panel = document.getElementById('reflections-panel');
   const panelTitle = document.getElementById('reflections-panel-title');
@@ -1007,21 +1006,39 @@ function renderReflections(data) {
     }
   }
 
-  const regionOrder = Object.keys(data.regions || {});
+  // Circle geometry in viewBox coords (must match SVG markup)
+  const circles = {
+    me:     { cx: 200, cy: 150, r: 95 },
+    human:  { cx: 155, cy: 230, r: 95 },
+    animal: { cx: 245, cy: 230, r: 95 },
+  };
 
-  if (railNav) {
-    railNav.innerHTML = '';
-    for (const id of regionOrder) {
-      const region = data.regions[id];
-      if (!region) continue;
-      const a = createElement('a', '', region.title || id);
-      a.href = `#region-${id}`;
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        showRegion(id);
-      });
-      railNav.appendChild(a);
-    }
+  function pointInCircle(x, y, c) {
+    const dx = x - c.cx, dy = y - c.cy;
+    return dx * dx + dy * dy <= c.r * c.r;
+  }
+
+  function regionAtPoint(x, y) {
+    const inMe = pointInCircle(x, y, circles.me);
+    const inHuman = pointInCircle(x, y, circles.human);
+    const inAnimal = pointInCircle(x, y, circles.animal);
+    if (inMe && inHuman && inAnimal) return 'life';
+    if (inMe && inHuman) return 'social';
+    if (inMe && inAnimal) return 'care';
+    if (inHuman && inAnimal) return 'reciprocity';
+    if (inMe) return 'me';
+    if (inHuman) return 'human';
+    if (inAnimal) return 'animal';
+    return null;
+  }
+
+  function svgPointFromEvent(e) {
+    const pt = venn.createSVGPoint();
+    pt.x = e.clientX;
+    pt.y = e.clientY;
+    const ctm = venn.getScreenCTM();
+    if (!ctm) return null;
+    return pt.matrixTransform(ctm.inverse());
   }
 
   function showRegion(id) {
@@ -1032,6 +1049,9 @@ function renderReflections(data) {
     panelContent.innerHTML = '';
 
     const items = (region.items || []).slice().sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)));
+    if (!items.length) {
+      panelContent.appendChild(createElement('p', 'reflections-row-empty', '这一块还在持续记录中。'));
+    }
     for (const item of items) {
       const row = createElement('article', 'reflections-row');
       row.appendChild(createElement('span', 'reflections-row-date', item.date || '—'));
@@ -1043,30 +1063,35 @@ function renderReflections(data) {
     }
 
     panel.style.display = '';
-    venn.querySelectorAll('.venn-region, .venn-label, .venn-intersection').forEach((el) => {
-      el.classList.toggle('active', el.dataset.region === id);
-    });
-    if (railNav) {
-      railNav.querySelectorAll('a').forEach((a) => {
-        a.classList.toggle('active', a.getAttribute('href') === `#region-${id}`);
-      });
-    }
+    venn.dataset.active = id;
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  venn.querySelectorAll('[data-region]').forEach((el) => {
-    el.style.cursor = 'pointer';
-    el.addEventListener('click', () => showRegion(el.dataset.region));
+  // Single click handler on the whole SVG; hit-tests against circle geometry.
+  venn.style.cursor = 'pointer';
+  venn.addEventListener('click', (e) => {
+    const pt = svgPointFromEvent(e);
+    if (!pt) return;
+    const id = regionAtPoint(pt.x, pt.y);
+    if (id) showRegion(id);
   });
+  venn.addEventListener('mousemove', (e) => {
+    const pt = svgPointFromEvent(e);
+    if (!pt) return;
+    const id = regionAtPoint(pt.x, pt.y);
+    venn.dataset.hover = id || '';
+  });
+  venn.addEventListener('mouseleave', () => { venn.dataset.hover = ''; });
 
   if (panelClose) {
     panelClose.addEventListener('click', () => {
       panel.style.display = 'none';
-      venn.querySelectorAll('.venn-region, .venn-label, .venn-intersection').forEach((el) => el.classList.remove('active'));
+      venn.dataset.active = '';
     });
   }
 
-  if (regionOrder.length) showRegion(regionOrder[0]);
+  // Open 我 by default — it's the user's own anchor.
+  if (data.regions.me) showRegion('me');
 
   applyEnglishReadingMode(panelContent);
 }

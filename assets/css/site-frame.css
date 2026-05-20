@@ -859,6 +859,7 @@ body {
 .reflections-venn-wrap {
     margin: 2.5rem 0 2rem;
     text-align: center;
+    scroll-margin-top: 5rem;
 }
 .reflections-venn-hint {
     font-family: var(--font-mono);
@@ -872,38 +873,77 @@ body {
     justify-content: center;
 }
 .venn-svg {
-    width: 22rem;
+    width: 24rem;
     max-width: 100%;
     height: auto;
     display: block;
 }
-.venn-region {
-    fill: transparent;
-    stroke: var(--ink-3);
-    stroke-width: 1.4;
-    transition: fill 200ms ease, stroke 200ms ease;
+.venn-circles circle {
+    mix-blend-mode: multiply;
+    transition: opacity 200ms ease;
 }
-.venn-region:hover { fill: rgba(26,26,26,0.05); }
-.venn-region.active { fill: rgba(26,26,26,0.08); stroke: var(--ink); }
+.venn-fill-me     { fill: rgba(232, 158, 110, 0.62); }   /* 我  · warm sand */
+.venn-fill-human  { fill: rgba(120, 174, 214, 0.58); }   /* 人类 · cool blue */
+.venn-fill-animal { fill: rgba(146, 200, 148, 0.60); }   /* 动物 · soft green */
+.venn-strokes circle {
+    fill: none;
+    stroke: rgba(26, 26, 26, 0.35);
+    stroke-width: 1.1;
+}
 .venn-label {
     font-family: var(--font-serif);
     font-size: 14px;
     font-weight: 500;
     fill: var(--ink);
-    transition: opacity 150ms ease;
+    pointer-events: none;
 }
 .venn-intersection {
     font-family: var(--font-mono);
     font-size: 11px;
-    fill: var(--ink-3);
+    fill: var(--ink);
     letter-spacing: 0.02em;
-    transition: fill 150ms ease;
+    pointer-events: none;
 }
-.venn-intersection.active,
-.venn-intersection:hover,
-.venn-label:hover,
-.venn-label.active { fill: var(--ink); }
-.venn-center { fill: var(--ink); font-weight: 500; }
+.venn-center { font-weight: 600; font-size: 12px; }
+
+/* Hover / active glow — slightly emphasizes the clicked region */
+.venn-svg:hover .venn-circles circle { opacity: 0.92; }
+.venn-svg[data-active="me"] .venn-fill-me,
+.venn-svg[data-active="human"] .venn-fill-human,
+.venn-svg[data-active="animal"] .venn-fill-animal { opacity: 1; }
+
+.reflections-venn-legend {
+    margin: 1rem 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--ink-3);
+    letter-spacing: 0.02em;
+}
+.venn-legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.venn-legend-item .dot {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 999px;
+}
+.dot-me     { background: rgba(232, 158, 110, 0.7); }
+.dot-human  { background: rgba(120, 174, 214, 0.7); }
+.dot-animal { background: rgba(146, 200, 148, 0.7); }
+
+.reflections-row-empty {
+    font-size: 0.9rem;
+    color: var(--ink-3);
+    line-height: 1.85;
+    margin: 1.4rem 0 0;
+}
 
 .reflections-panel {
     margin-top: 2.5rem;
