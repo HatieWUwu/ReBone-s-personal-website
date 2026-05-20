@@ -1102,6 +1102,72 @@ function renderReflections(data) {
   if (data.regions.me) showRegion('me');
 
   applyEnglishReadingMode(panelContent);
+
+  // View switching between 思考 / 资源推荐
+  const viewThinking = document.getElementById('view-thinking');
+  const viewResources = document.getElementById('view-resources');
+  const cards = document.querySelectorAll('.reflections-hub-card');
+  const railViewLinks = document.querySelectorAll('[data-view-link]');
+  function setView(name) {
+    if (!viewThinking || !viewResources) return;
+    viewThinking.hidden = name !== 'thinking';
+    viewResources.hidden = name !== 'resources';
+    cards.forEach((c) => c.setAttribute('aria-pressed', c.dataset.view === name ? 'true' : 'false'));
+    railViewLinks.forEach((a) => a.classList.toggle('active', a.dataset.viewLink === name));
+    if (name === 'resources') initResourcesView();
+  }
+  cards.forEach((c) => c.addEventListener('click', () => setView(c.dataset.view)));
+  railViewLinks.forEach((a) => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    setView(a.dataset.viewLink);
+  }));
+}
+
+let resourcesLoaded = false;
+async function initResourcesView() {
+  if (resourcesLoaded) return;
+  const intro = document.getElementById('resources-intro');
+  const list = document.getElementById('resources-list');
+  const empty = document.getElementById('resources-empty');
+  if (!list) return;
+  resourcesLoaded = true;
+  try {
+    const data = await loadLocalizedJson('resources.json');
+    if (intro) intro.textContent = data.intro || '';
+    list.innerHTML = '';
+    const groups = data.groups || [];
+    if (!groups.length) {
+      if (empty) empty.style.display = '';
+      return;
+    }
+    if (empty) empty.style.display = 'none';
+    for (const g of groups) {
+      const grp = createElement('section', 'resources-group');
+      grp.appendChild(createElement('h3', 'resources-group-title', g.title || ''));
+      const ul = createElement('ul', 'resources-items');
+      for (const item of g.items || []) {
+        const li = document.createElement('li');
+        if (item.url) {
+          const a = createElement('a', 'resources-item-link', item.label || item.url);
+          a.href = item.url;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          li.appendChild(a);
+        } else {
+          li.appendChild(createElement('span', 'resources-item-pending', item.label || '（待整理）'));
+        }
+        if (item.note) {
+          li.appendChild(document.createTextNode(' '));
+          li.appendChild(createElement('span', 'resources-item-note', item.note));
+        }
+        ul.appendChild(li);
+      }
+      grp.appendChild(ul);
+      list.appendChild(grp);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 function renderVisualArchive(data) {

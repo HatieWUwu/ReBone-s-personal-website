@@ -20,9 +20,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/tailwind.css" />
-    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260522e" />
-    <script src="assets/js/i18n.js?v=20260522e" defer></script>
-    <script src="assets/js/site-content.js?v=20260522e" defer></script>
+    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260522f" />
+    <script src="assets/js/i18n.js?v=20260522f" defer></script>
+    <script src="assets/js/site-content.js?v=20260522f" defer></script>
 </head>
 <body>
     <nav class="banner">
@@ -42,12 +42,11 @@
             <p class="rail-label">栏目</p>
             <p class="rail-marker"><strong>Reflections</strong></p>
 
-            <p class="rail-label rail-label-link">
-                <a href="#thinking">思考</a>
-            </p>
-            <p class="rail-label rail-label-link">
-                <a href="resources.html">资源推荐 ↗</a>
-            </p>
+            <p class="rail-label">查看</p>
+            <nav class="rail-nav" id="reflections-rail-views">
+                <a href="#" data-view-link="thinking" class="active">思考</a>
+                <a href="#" data-view-link="resources">资源推荐</a>
+            </nav>
         </aside>
 
         <div class="shell-gutter" aria-hidden="true"></div>
@@ -63,53 +62,59 @@
             <section id="reflections-statements" class="reflections-statements"></section>
 
             <nav class="reflections-hub" aria-label="reflections sections">
-                <a class="reflections-hub-card" href="#thinking">
-                    <p class="reflections-hub-eyebrow">— 01</p>
+                <button class="reflections-hub-card" type="button" data-view="thinking" aria-pressed="true">
                     <h2 class="reflections-hub-title">思考</h2>
                     <p class="reflections-hub-desc">围绕「我 / 人类 / 动物」及它们交叠之处展开。点击 Venn 的任意一块查看。</p>
-                </a>
-                <a class="reflections-hub-card" href="resources.html">
-                    <p class="reflections-hub-eyebrow">— 02</p>
-                    <h2 class="reflections-hub-title">资源推荐 <span class="reflections-hub-arrow">↗</span></h2>
+                </button>
+                <button class="reflections-hub-card" type="button" data-view="resources" aria-pressed="false">
+                    <h2 class="reflections-hub-title">资源推荐</h2>
                     <p class="reflections-hub-desc">那些真正帮过我、可以分享给别人的书、文章、工具、自学路径。</p>
-                </a>
+                </button>
             </nav>
 
-            <section id="thinking" class="reflections-venn-wrap">
-                <p class="reflections-venn-hint">
-                    点击任意一块（圆 / 交集 / 中心）查看那个区域的思考 ·
-                    <span class="reflections-venn-pointer" id="reflections-venn-pointer">当前：—</span>
-                </p>
-                <div class="venn-stage">
-                    <svg id="reflections-venn" class="venn-svg" viewBox="0 0 400 400" role="img" aria-label="reflections venn diagram">
-                        <g class="venn-circles" style="isolation:isolate">
-                            <circle class="venn-fill" cx="200" cy="150" r="95" />
-                            <circle class="venn-fill" cx="155" cy="230" r="95" />
-                            <circle class="venn-fill" cx="245" cy="230" r="95" />
-                        </g>
-                        <g class="venn-strokes">
-                            <circle cx="200" cy="150" r="95" />
-                            <circle cx="155" cy="230" r="95" />
-                            <circle cx="245" cy="230" r="95" />
-                        </g>
-                        <text class="venn-label" data-region="me" x="200" y="50" text-anchor="middle">我</text>
-                        <text class="venn-label" data-region="human" x="45" y="240" text-anchor="middle">人类</text>
-                        <text class="venn-label" data-region="animal" x="355" y="240" text-anchor="middle">动物</text>
-                        <text class="venn-intersection" data-region="social" x="140" y="183" text-anchor="middle">社交</text>
-                        <text class="venn-intersection" data-region="care" x="260" y="183" text-anchor="middle">照护</text>
-                        <text class="venn-intersection" data-region="reciprocity" x="200" y="282" text-anchor="middle">取予</text>
-                        <text class="venn-intersection venn-center" data-region="life" x="200" y="213" text-anchor="middle">生命</text>
-                    </svg>
-                </div>
+            <section id="view-thinking" class="reflections-view" data-view="thinking">
+                <section id="thinking" class="reflections-venn-wrap">
+                    <p class="reflections-venn-hint">
+                        点击任意一块（圆 / 交集 / 中心）查看那个区域的思考 ·
+                        <span class="reflections-venn-pointer" id="reflections-venn-pointer">当前：—</span>
+                    </p>
+                    <div class="venn-stage">
+                        <svg id="reflections-venn" class="venn-svg" viewBox="0 0 400 400" role="img" aria-label="reflections venn diagram">
+                            <g class="venn-circles" style="isolation:isolate">
+                                <circle class="venn-fill" cx="200" cy="150" r="95" />
+                                <circle class="venn-fill" cx="155" cy="230" r="95" />
+                                <circle class="venn-fill" cx="245" cy="230" r="95" />
+                            </g>
+                            <g class="venn-strokes">
+                                <circle cx="200" cy="150" r="95" />
+                                <circle cx="155" cy="230" r="95" />
+                                <circle cx="245" cy="230" r="95" />
+                            </g>
+                            <text class="venn-label" data-region="me" x="200" y="30" text-anchor="middle">我</text>
+                            <text class="venn-label" data-region="human" x="28" y="245" text-anchor="middle">人类</text>
+                            <text class="venn-label" data-region="animal" x="372" y="245" text-anchor="middle">动物</text>
+                            <text class="venn-intersection" data-region="social" x="140" y="183" text-anchor="middle">社交</text>
+                            <text class="venn-intersection" data-region="care" x="260" y="183" text-anchor="middle">照护</text>
+                            <text class="venn-intersection" data-region="reciprocity" x="200" y="282" text-anchor="middle">取予</text>
+                            <text class="venn-intersection venn-center" data-region="life" x="200" y="213" text-anchor="middle">生命</text>
+                        </svg>
+                    </div>
+                </section>
+
+                <section id="reflections-panel" class="reflections-panel" style="display:none">
+                    <header class="reflections-panel-head">
+                        <h2 id="reflections-panel-title" class="reflections-panel-title"></h2>
+                        <p id="reflections-panel-keywords" class="reflections-panel-keywords"></p>
+                        <button id="reflections-panel-close" type="button" class="reflections-panel-close" aria-label="close">×</button>
+                    </header>
+                    <div id="reflections-panel-content"></div>
+                </section>
             </section>
 
-            <section id="reflections-panel" class="reflections-panel" style="display:none">
-                <header class="reflections-panel-head">
-                    <h2 id="reflections-panel-title" class="reflections-panel-title"></h2>
-                    <p id="reflections-panel-keywords" class="reflections-panel-keywords"></p>
-                    <button id="reflections-panel-close" type="button" class="reflections-panel-close" aria-label="close">×</button>
-                </header>
-                <div id="reflections-panel-content"></div>
+            <section id="view-resources" class="reflections-view" data-view="resources" hidden>
+                <p id="resources-intro" class="reflections-venn-hint reflections-resources-intro"></p>
+                <div id="resources-list"></div>
+                <p id="resources-empty" class="inbox-empty" style="display:none">这块还在整理中。</p>
             </section>
 
             <p id="reflections-footnote" class="reflections-footnote"></p>
