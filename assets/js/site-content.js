@@ -85,6 +85,32 @@ function appendList(parent, items, { ordered = false, className = 'space-y-2 tex
   return list;
 }
 
+function renderHomeRail(home) {
+  const railRoot = document.getElementById('home-rail');
+  if (!railRoot) return;
+  railRoot.innerHTML = '';
+
+  const menuLabel = home.rail?.menu_label || (isEnglishLang() ? 'Contents' : '内容');
+  railRoot.appendChild(createElement('p', 'rail-label', menuLabel));
+  const menu = createElement('nav', 'rail-nav');
+  for (const item of home.sections || []) {
+    const a = createElement('a', '', `— ${item.title}`);
+    a.href = item.href;
+    menu.appendChild(a);
+  }
+  railRoot.appendChild(menu);
+
+  const extras = home.rail?.extra_links || [];
+  for (const link of extras) {
+    railRoot.appendChild(createElement('p', 'rail-label', link.label));
+    const wrap = createElement('nav', 'rail-nav');
+    const a = createElement('a', '', `— ${isEnglishLang() ? 'jump' : '跳转'}`);
+    a.href = link.href;
+    wrap.appendChild(a);
+    railRoot.appendChild(wrap);
+  }
+}
+
 function renderHome(home, updates) {
   const heading = document.getElementById('home-heading');
   const introLabel = document.getElementById('home-intro-label');
@@ -93,12 +119,10 @@ function renderHome(home, updates) {
   const updatesLabel = document.getElementById('updates-label');
   const updatesList = document.getElementById('updates-list');
   const credits = document.getElementById('home-credits');
-  const inboxTitle = document.getElementById('inbox-title');
-  const inboxIntro = document.getElementById('inbox-intro');
-  const inboxDraft = document.getElementById('inbox-draft');
-  const inboxButton = document.getElementById('inbox-button');
 
   if (!heading || !introLabel || !introPoints || !links || !updatesList || !credits) return;
+
+  renderHomeRail(home);
 
   heading.textContent = home.heading || '';
   introLabel.textContent = home.intro_label || '';
@@ -107,6 +131,8 @@ function renderHome(home, updates) {
     introPoints.appendChild(createElement('li', '', point));
   }
 
+  const suffix = home.last_updated_suffix || (isEnglishLang() ? 'updated' : '更新');
+
   links.innerHTML = '';
   for (const item of home.sections || []) {
     const anchor = createElement('a', 'section-card');
@@ -114,13 +140,15 @@ function renderHome(home, updates) {
     anchor.appendChild(createElement('div', 'section-card-title', item.title));
     anchor.appendChild(createElement('p', 'section-card-desc', item.description));
     const footer = createElement('div', 'section-card-footer');
-    footer.appendChild(createElement('span', 'section-card-latest', home.latest_label || (isEnglishLang() ? 'Latest:' : '最近更新:')));
+    if (item.last_updated) {
+      footer.appendChild(createElement('span', 'section-card-latest', `${item.last_updated} ${suffix}`));
+    }
     footer.appendChild(createElement('span', 'section-card-arrow', '↗'));
     anchor.appendChild(footer);
     links.appendChild(anchor);
   }
 
-  if (updatesLabel) updatesLabel.textContent = home.updates_label || 'Updates';
+  if (updatesLabel) updatesLabel.textContent = home.updates_label || (isEnglishLang() ? 'Updates' : '更新');
   updatesList.innerHTML = '';
   for (const item of updates.items || []) {
     const li = createElement('div', 'timeline-item');
@@ -162,14 +190,139 @@ function renderHome(home, updates) {
     }
   }
 
-  if (inboxTitle) inboxTitle.textContent = home.inbox_title || (isEnglishLang() ? 'Anonymous letterbox' : '匿名投信箱');
-  if (inboxIntro) inboxIntro.textContent = home.inbox_intro || '';
-  if (inboxDraft) inboxDraft.placeholder = home.inbox_placeholder || '';
-  if (inboxButton) inboxButton.textContent = home.inbox_button || (isEnglishLang() ? 'Send (not connected yet)' : '投递（施工中）');
+  renderHomeInbox(home);
 
   credits.innerHTML = '';
   for (const line of home.credits || []) {
     credits.appendChild(createElement('p', '', line));
+  }
+}
+
+function renderHomeInbox(home) {
+  const titleEl = document.getElementById('inbox-title');
+  const introEl = document.getElementById('inbox-intro');
+  const draftEl = document.getElementById('inbox-draft');
+  const buttonEl = document.getElementById('inbox-button');
+  const archiveEl = document.getElementById('inbox-archive-link');
+  const visibilityLabel = document.getElementById('inbox-visibility-label');
+  const visibilityPublic = document.getElementById('inbox-visibility-public');
+  const visibilityPrivate = document.getElementById('inbox-visibility-private');
+  const contactRow = document.getElementById('inbox-contact-row');
+  const contactLabel = document.getElementById('inbox-contact-label');
+  const contactInput = document.getElementById('inbox-contact');
+  const statusEl = document.getElementById('inbox-status');
+
+  if (titleEl) titleEl.textContent = home.inbox_title || (isEnglishLang() ? 'Anonymous inbox' : '匿名提问箱');
+  if (introEl) introEl.textContent = home.inbox_intro || '';
+  if (draftEl) draftEl.placeholder = home.inbox_placeholder || '';
+  if (buttonEl) buttonEl.textContent = home.inbox_button || (isEnglishLang() ? 'Send' : '投递');
+  if (archiveEl) {
+    archiveEl.textContent = home.inbox_archive_label || '↗';
+    if (home.inbox_archive_href) archiveEl.href = home.inbox_archive_href;
+  }
+  if (visibilityLabel) visibilityLabel.textContent = home.inbox_visibility_label || (isEnglishLang() ? 'Visibility' : '可见性');
+  if (visibilityPublic) {
+    const lbl = visibilityPublic.querySelector('span');
+    if (lbl) lbl.textContent = home.inbox_visibility_public || (isEnglishLang() ? 'Public' : '公开');
+  }
+  if (visibilityPrivate) {
+    const lbl = visibilityPrivate.querySelector('span');
+    if (lbl) lbl.textContent = home.inbox_visibility_private || (isEnglishLang() ? 'Private' : '不公开');
+  }
+  if (contactLabel) contactLabel.textContent = home.inbox_contact_label || (isEnglishLang() ? 'Reply channel (required if private)' : '回信渠道（不公开时必填）');
+  if (contactInput) contactInput.placeholder = home.inbox_contact_placeholder || '';
+
+  if (!buttonEl || !draftEl) return;
+
+  const radios = document.querySelectorAll('input[name="inbox-visibility"]');
+  function syncContactVisibility() {
+    const checked = document.querySelector('input[name="inbox-visibility"]:checked');
+    const isPrivate = checked && checked.value === 'private';
+    if (contactRow) contactRow.style.display = isPrivate ? '' : 'none';
+  }
+  radios.forEach((r) => r.addEventListener('change', syncContactVisibility));
+  syncContactVisibility();
+
+  buttonEl.disabled = false;
+  buttonEl.addEventListener('click', async () => {
+    const text = draftEl.value.trim();
+    if (!text) {
+      if (statusEl) statusEl.textContent = isEnglishLang() ? 'Please write something first.' : '先写点什么再投递。';
+      return;
+    }
+    const visibility = (document.querySelector('input[name="inbox-visibility"]:checked')?.value) || 'public';
+    const contact = contactInput?.value.trim() || '';
+    if (visibility === 'private' && !contact) {
+      if (statusEl) statusEl.textContent = isEnglishLang() ? 'Private replies need a contact channel.' : '不公开时需要留个回信渠道。';
+      return;
+    }
+    const endpoint = home.inbox_endpoint || '';
+    const payload = {
+      question: text,
+      visibility,
+      contact,
+      submittedAt: new Date().toISOString(),
+      sourceUrl: window.location.href,
+    };
+    if (statusEl) statusEl.textContent = isEnglishLang() ? 'Sending…' : '正在投递……';
+    try {
+      if (endpoint) {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      } else {
+        const subject = encodeURIComponent(visibility === 'public' ? '[公开] 匿名提问' : '[不公开] 匿名提问');
+        const lines = [
+          `可见性：${visibility === 'public' ? '公开' : '不公开'}`,
+          contact ? `回信渠道：${contact}` : '',
+          '',
+          text,
+        ].filter(Boolean);
+        window.location.href = `mailto:wuruohan0522@gmail.com?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
+      }
+      draftEl.value = '';
+      if (contactInput) contactInput.value = '';
+      if (statusEl) statusEl.textContent = home.inbox_sent_message || (isEnglishLang() ? 'Sent, thank you.' : '已记下，谢谢你写给我。');
+    } catch (err) {
+      console.error(err);
+      if (statusEl) statusEl.textContent = isEnglishLang() ? 'Sending failed. Try again later.' : '投递失败了，稍后再试。';
+    }
+  });
+}
+
+async function initInboxArchive() {
+  const root = document.getElementById('inbox-page-root');
+  if (!root) return;
+  try {
+    const data = await loadLocalizedJson('inbox.json');
+    const titleEl = document.getElementById('inbox-title');
+    const introEl = document.getElementById('inbox-intro');
+    const listEl = document.getElementById('inbox-archive-list');
+    const emptyEl = document.getElementById('inbox-archive-empty');
+    if (titleEl) titleEl.textContent = data.title || (isEnglishLang() ? 'Public inbox' : '公开提问箱');
+    if (introEl) introEl.textContent = data.intro || '';
+    if (!listEl) return;
+    listEl.innerHTML = '';
+    if (!data.items || !data.items.length) {
+      if (emptyEl) {
+        emptyEl.textContent = data.empty_label || (isEnglishLang() ? 'No public questions yet.' : '暂时还没有公开问答。');
+        emptyEl.style.display = '';
+      }
+      return;
+    }
+    if (emptyEl) emptyEl.style.display = 'none';
+    for (const item of data.items) {
+      const card = createElement('article', 'inbox-entry');
+      if (item.date) card.appendChild(createElement('p', 'inbox-entry-date', item.date));
+      card.appendChild(createElement('h3', 'inbox-entry-question', `Q. ${item.question || ''}`));
+      if (item.answer) card.appendChild(createElement('p', 'inbox-entry-answer', item.answer));
+      listEl.appendChild(card);
+    }
+  } catch (error) {
+    console.error(error);
   }
 }
 
@@ -183,51 +336,61 @@ function renderSolutions(data) {
   title.textContent = data.title || 'Solutions';
   intro.textContent = data.intro || '';
 
+  const allLabel = (data.filters && data.filters[0]) || (isEnglishLang() ? 'All' : '全部');
+  let activeFilter = allLabel;
+
+  function buildCardEl(card) {
+    const anchor = createElement('a', 'frame-card');
+    anchor.href = card.href;
+
+    const head = createElement('div', 'frame-card-head');
+    head.appendChild(createElement('span', 'frame-card-ref', card.ref || ''));
+    if (card.tags && card.tags.length) {
+      const tagStrip = createElement('span', 'frame-card-tags');
+      for (const t of card.tags) tagStrip.appendChild(createElement('span', 'frame-card-tag', t));
+      head.appendChild(tagStrip);
+    }
+    head.appendChild(createElement('span', 'frame-card-arrow', '→'));
+    anchor.appendChild(head);
+
+    anchor.appendChild(createElement('h3', 'frame-card-title', card.title || ''));
+    if (card.subtitle) anchor.appendChild(createElement('p', 'frame-card-subtitle', card.subtitle));
+    if (card.summary) anchor.appendChild(createElement('p', 'frame-card-summary', card.summary));
+    if (card.moves && card.moves.length) {
+      const ul = createElement('ul', 'frame-card-moves');
+      for (const m of card.moves) ul.appendChild(createElement('li', '', m));
+      anchor.appendChild(ul);
+    }
+    if (card.date) anchor.appendChild(createElement('p', 'frame-card-date', card.date));
+
+    return anchor;
+  }
+
+  function applyFilter() {
+    cards.innerHTML = '';
+    const list = (data.cards || []).filter((c) => activeFilter === allLabel || (c.tags || []).includes(activeFilter));
+    if (!list.length) {
+      cards.appendChild(createElement('p', 'frame-empty', isEnglishLang() ? 'No items match this filter.' : '这个分类下还没有内容。'));
+      return;
+    }
+    for (const card of list) cards.appendChild(buildCardEl(card));
+  }
+
   if (filters) {
     filters.innerHTML = '';
     (data.filters || []).forEach((label, index) => {
       const btn = createElement('button', `filter-button${index === 0 ? ' active' : ''}`, label);
       btn.type = 'button';
+      btn.addEventListener('click', () => {
+        activeFilter = label;
+        filters.querySelectorAll('.filter-button').forEach((b) => b.classList.toggle('active', b === btn));
+        applyFilter();
+      });
       filters.appendChild(btn);
     });
   }
 
-  cards.innerHTML = '';
-  for (const card of data.cards || []) {
-    const anchor = createElement('a', 'archive-card');
-    anchor.href = card.href;
-
-    if (card.image) {
-      const imageWrap = createElement('div', 'archive-card-image');
-      const img = document.createElement('img');
-      img.src = card.image;
-      img.alt = card.image_alt || card.title || '';
-      img.loading = 'lazy';
-      imageWrap.appendChild(img);
-      anchor.appendChild(imageWrap);
-    }
-
-    const body = createElement('div', 'archive-card-body');
-
-    const head = createElement('div', 'archive-card-head');
-    head.appendChild(createElement('h3', 'archive-card-title', card.title || ''));
-    body.appendChild(head);
-
-    if (card.date) body.appendChild(createElement('p', 'archive-card-date', card.date));
-    if (card.summary) body.appendChild(createElement('p', 'archive-card-summary', card.summary));
-    if (card.quote) body.appendChild(createElement('blockquote', 'archive-card-quote', card.quote));
-
-    if (card.tags && card.tags.length) {
-      const tags = createElement('div', 'archive-card-tags');
-      for (const tag of card.tags) {
-        tags.appendChild(createElement('span', 'archive-card-tag', tag));
-      }
-      body.appendChild(tags);
-    }
-
-    anchor.appendChild(body);
-    cards.appendChild(anchor);
-  }
+  applyFilter();
 }
 
 function renderProjectBlock(parent, block) {
@@ -1226,5 +1389,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     initSoundArchive(),
     initFandomArchive(),
     initReflections(),
+    initInboxArchive(),
   ]);
 });

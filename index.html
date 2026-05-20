@@ -18,12 +18,12 @@
     <meta name="theme-color" content="#FAFAF8" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="preload" as="image" href="assets/nav-bg.PNG" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="assets/nav-bg.webp" />
     <link rel="stylesheet" href="assets/tailwind.css" />
-    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260520b" />
-    <script src="assets/js/i18n.js?v=20260520b" defer></script>
-    <script src="assets/js/site-content.js?v=20260520b" defer></script>
+    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260522" />
+    <script src="assets/js/i18n.js?v=20260522" defer></script>
+    <script src="assets/js/site-content.js?v=20260522" defer></script>
 </head>
 <body>
     <nav class="banner">
@@ -39,73 +39,27 @@
     </nav>
 
     <main id="home-content-root" class="shell">
-        <aside class="rail">
-            <p class="rail-label">ReBone</p>
-            <p class="rail-text">系统整理我看见、思考、创造的一切。</p>
-
-            <p class="rail-label">On this page</p>
-            <nav class="rail-nav" aria-label="page sections">
-                <a href="#front">— Front matter</a>
-                <a href="#sections">— Sections</a>
-                <a href="#updates">— Updates</a>
-                <a href="#inbox">— Inbox</a>
-            </nav>
+        <aside id="home-rail" class="rail">
+            <!-- populated by renderHomeRail -->
         </aside>
 
         <div class="shell-gutter" aria-hidden="true"></div>
 
         <div class="main">
             <section id="front" class="page-hero">
-                <p class="page-eyebrow">— Front matter</p>
-                <h1 id="home-heading" class="page-heading">系统整理我看见、思考、创造的一切，
-给未来某个陌生人的启发。</h1>
-                <p id="home-intro-label" class="intro-label">这个网站的意义是：</p>
-                <ol id="home-intro-points" class="intro-points">
-                    <li>系统性地整理并存档有关「我」的所有事</li>
-                    <li>给不受限的观者潜在的启发与意义</li>
-                </ol>
+                <p class="page-eyebrow">— 前言</p>
+                <h1 id="home-heading" class="page-heading"></h1>
+                <p id="home-intro-label" class="intro-label"></p>
+                <ol id="home-intro-points" class="intro-points"></ol>
             </section>
 
             <section id="sections">
-                <div id="home-links">
-                    <a href="solutions.html" class="section-card">
-                        <div class="section-card-title">Solutions</div>
-                        <p class="section-card-desc">听见真实声音，改善客观困境。</p>
-                        <div class="section-card-footer">
-                            <span class="section-card-latest">最近更新</span>
-                            <span class="section-card-arrow">↗</span>
-                        </div>
-                    </a>
-                    <a href="expressions.html" class="section-card">
-                        <div class="section-card-title">Expressions</div>
-                        <p class="section-card-desc">"为爱发电"的作品表达，包括视觉与听觉。</p>
-                        <div class="section-card-footer">
-                            <span class="section-card-latest">最近更新</span>
-                            <span class="section-card-arrow">↗</span>
-                        </div>
-                    </a>
-                    <a href="reflections.html" class="section-card">
-                        <div class="section-card-title">Reflections</div>
-                        <p class="section-card-desc">输入、输出间，在大脑进行的迭代过程。</p>
-                        <div class="section-card-footer">
-                            <span class="section-card-latest">最近更新</span>
-                            <span class="section-card-arrow">↗</span>
-                        </div>
-                    </a>
-                    <a href="readme.html" class="section-card">
-                        <div class="section-card-title">README.md</div>
-                        <p class="section-card-desc">如果社交有说明会让你更自在。</p>
-                        <div class="section-card-footer">
-                            <span class="section-card-latest">最近更新</span>
-                            <span class="section-card-arrow">↗</span>
-                        </div>
-                    </a>
-                </div>
+                <div id="home-links"></div>
             </section>
 
             <section id="updates" class="panel">
                 <h3 class="panel-head">
-                    <span id="updates-label">Updates</span>
+                    <span id="updates-label">更新</span>
                 </h3>
                 <div id="updates-list"></div>
                 <div id="updates-more" class="updates-more" style="display:none"></div>
@@ -113,11 +67,30 @@
 
             <section id="inbox" class="panel letterbox-panel">
                 <h3 class="panel-head">
-                    <span id="inbox-title">匿名信箱</span>
+                    <span id="inbox-title">匿名提问箱</span>
+                    <a id="inbox-archive-link" href="inbox.html">查看公开提问箱 ↗</a>
                 </h3>
-                <p id="inbox-intro" class="letterbox-strip">如果你想留下些什么，可以先写在这里。正式提交入口之后再接上。</p>
-                <textarea id="inbox-draft" class="letterbox-input" placeholder="写给 ReBone 的匿名信……"></textarea>
-                <button id="inbox-button" type="button" disabled class="letterbox-button">投递（施工中）</button>
+                <p id="inbox-intro" class="letterbox-strip"></p>
+                <textarea id="inbox-draft" class="letterbox-input" placeholder=""></textarea>
+                <div class="letterbox-meta">
+                    <span id="inbox-visibility-label" class="letterbox-meta-label">可见性</span>
+                    <label id="inbox-visibility-public" class="letterbox-radio">
+                        <input type="radio" name="inbox-visibility" value="public" checked />
+                        <span>公开</span>
+                    </label>
+                    <label id="inbox-visibility-private" class="letterbox-radio">
+                        <input type="radio" name="inbox-visibility" value="private" />
+                        <span>不公开</span>
+                    </label>
+                </div>
+                <div id="inbox-contact-row" class="letterbox-contact" style="display:none">
+                    <label id="inbox-contact-label" for="inbox-contact" class="letterbox-meta-label">回信渠道</label>
+                    <input id="inbox-contact" type="text" class="letterbox-contact-input" />
+                </div>
+                <div class="letterbox-actions">
+                    <button id="inbox-button" type="button" class="letterbox-button">投递</button>
+                    <span id="inbox-status" class="letterbox-status"></span>
+                </div>
             </section>
 
             <div id="home-credits"></div>
