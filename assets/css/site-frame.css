@@ -26,6 +26,7 @@
 
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 body {
     background: var(--bg);
     color: var(--ink);
@@ -55,9 +56,9 @@ body {
     margin: 0 auto;
     padding: 1.05rem var(--shell-pad);
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2.25rem;
 }
 .brand {
     font-family: var(--font-mono);
@@ -140,6 +141,14 @@ body {
     font-weight: 400;
 }
 .rail-label + .rail-label { margin-top: 1.6rem; }
+.rail-label-link { margin-top: 1.4rem; }
+.rail-label-link + .rail-label-link { margin-top: 0.5rem; }
+.rail-label-link a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 150ms ease;
+}
+.rail-label-link a:hover { color: var(--ink); }
 .rail-text {
     font-size: 0.85rem;
     color: var(--ink-3);
@@ -225,15 +234,8 @@ body {
 .intro-points li {
     font-size: 0.95rem;
     color: var(--ink-2);
-    padding: 0.1rem 0 0.1rem 1.1rem;
-    position: relative;
-    line-height: 1.7;
-}
-.intro-points li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--ink-4);
+    padding: 0.18rem 0;
+    line-height: 1.8;
 }
 
 /* ───── Chapter/section row pattern (used by homepage cards, project navs) ── */
@@ -255,12 +257,13 @@ body {
     color: inherit;
     align-items: baseline;
     transition: padding 200ms ease;
+    scroll-margin-top: 5rem;
 }
 .section-card:hover { padding-left: 0.6rem; }
 .section-card-title {
-    font-family: var(--font-mono);
-    font-size: 1rem;
-    font-weight: 600;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 500;
     color: var(--ink);
     margin: 0 0 0.35rem;
     letter-spacing: 0.005em;
@@ -301,12 +304,12 @@ body {
 
 /* ───── Panel pattern (Updates, Inbox, etc.) ──────────────── */
 
-.panel { margin-bottom: 2.5rem; }
+.panel { margin-bottom: 2.5rem; scroll-margin-top: 5rem; }
 .panel-head {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
     color: var(--ink);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.005em;
     margin: 0 0 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--rule);
@@ -355,16 +358,10 @@ body {
     margin: 0;
     font-size: 0.92rem;
     color: var(--ink-2);
-    line-height: 1.7;
-}
-.timeline-lines p:first-child {
-    color: var(--ink);
-    font-weight: 500;
+    line-height: 1.85;
 }
 .timeline-lines p + p {
-    margin-top: 0.1rem;
-    font-size: 0.84rem;
-    color: var(--ink-3);
+    margin-top: 0.15rem;
 }
 .updates-more {
     margin-top: 0.6rem;
@@ -563,6 +560,25 @@ body {
     transition: padding 200ms ease;
 }
 .frame-card:hover { padding-left: 0.6rem; }
+.frame-card-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    background: var(--rule-2);
+}
+.frame-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(0.15);
+    transition: filter 250ms ease, transform 400ms ease;
+}
+.frame-card:hover .frame-card-image img {
+    filter: grayscale(0);
+    transform: scale(1.02);
+}
 .frame-card-head {
     display: flex;
     justify-content: space-between;
@@ -570,13 +586,6 @@ body {
     gap: 0.85rem;
     margin-bottom: 0.6rem;
     flex-wrap: wrap;
-}
-.frame-card-ref {
-    font-family: var(--font-mono);
-    font-size: 0.78rem;
-    color: var(--ink-3);
-    letter-spacing: 0.04em;
-    font-weight: 600;
 }
 .frame-card-arrow {
     font-family: var(--font-mono);
@@ -600,9 +609,9 @@ body {
     letter-spacing: 0.04em;
 }
 .frame-card-title {
-    font-family: var(--font-mono);
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 500;
     color: var(--ink);
     margin: 0 0 0.4rem;
     letter-spacing: 0.005em;

@@ -85,6 +85,10 @@ function appendList(parent, items, { ordered = false, className = 'space-y-2 tex
   return list;
 }
 
+function sectionAnchorId(title) {
+  return `card-${String(title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'item'}`;
+}
+
 function renderHomeRail(home) {
   const railRoot = document.getElementById('home-rail');
   if (!railRoot) return;
@@ -94,17 +98,16 @@ function renderHomeRail(home) {
   railRoot.appendChild(createElement('p', 'rail-label', menuLabel));
   const menu = createElement('nav', 'rail-nav');
   for (const item of home.sections || []) {
-    const a = createElement('a', '', `— ${item.title}`);
-    a.href = item.href;
+    const a = createElement('a', '', item.title);
+    a.href = `#${sectionAnchorId(item.title)}`;
     menu.appendChild(a);
   }
   railRoot.appendChild(menu);
 
   const extras = home.rail?.extra_links || [];
   for (const link of extras) {
-    railRoot.appendChild(createElement('p', 'rail-label', link.label));
-    const wrap = createElement('nav', 'rail-nav');
-    const a = createElement('a', '', `— ${isEnglishLang() ? 'jump' : '跳转'}`);
+    const wrap = createElement('p', 'rail-label rail-label-link');
+    const a = createElement('a', '', link.label);
     a.href = link.href;
     wrap.appendChild(a);
     railRoot.appendChild(wrap);
@@ -137,6 +140,7 @@ function renderHome(home, updates) {
   for (const item of home.sections || []) {
     const anchor = createElement('a', 'section-card');
     anchor.href = item.href;
+    anchor.id = sectionAnchorId(item.title);
     anchor.appendChild(createElement('div', 'section-card-title', item.title));
     anchor.appendChild(createElement('p', 'section-card-desc', item.description));
     const footer = createElement('div', 'section-card-footer');
@@ -343,8 +347,17 @@ function renderSolutions(data) {
     const anchor = createElement('a', 'frame-card');
     anchor.href = card.href;
 
+    if (card.image) {
+      const imageWrap = createElement('div', 'frame-card-image');
+      const img = document.createElement('img');
+      img.src = card.image;
+      img.alt = card.image_alt || card.title || '';
+      img.loading = 'lazy';
+      imageWrap.appendChild(img);
+      anchor.appendChild(imageWrap);
+    }
+
     const head = createElement('div', 'frame-card-head');
-    head.appendChild(createElement('span', 'frame-card-ref', card.ref || ''));
     if (card.tags && card.tags.length) {
       const tagStrip = createElement('span', 'frame-card-tags');
       for (const t of card.tags) tagStrip.appendChild(createElement('span', 'frame-card-tag', t));
@@ -356,19 +369,33 @@ function renderSolutions(data) {
     anchor.appendChild(createElement('h3', 'frame-card-title', card.title || ''));
     if (card.subtitle) anchor.appendChild(createElement('p', 'frame-card-subtitle', card.subtitle));
     if (card.summary) anchor.appendChild(createElement('p', 'frame-card-summary', card.summary));
-    if (card.moves && card.moves.length) {
-      const ul = createElement('ul', 'frame-card-moves');
-      for (const m of card.moves) ul.appendChild(createElement('li', '', m));
-      anchor.appendChild(ul);
-    }
     if (card.date) anchor.appendChild(createElement('p', 'frame-card-date', card.date));
 
     return anchor;
   }
 
+  function endDateKey(dateStr) {
+    // Pulls the rightmost YYYY[.MM] in the date string for sorting.
+    // "2023.10 — 进行中" → treat 进行中 as today (priority newest)
+    // "2025.09" → 2025.09
+    const s = String(dateStr || '');
+    if (/进行中|ongoing/i.test(s)) return '9999.12';
+    const matches = s.match(/(\d{4})[.\-/](\d{1,2})/g) || [];
+    if (matches.length) {
+      const last = matches[matches.length - 1].replace(/[\-/]/, '.');
+      const [y, m] = last.split('.');
+      return `${y.padStart(4, '0')}.${(m || '01').padStart(2, '0')}`;
+    }
+    const yearOnly = s.match(/\d{4}/);
+    return yearOnly ? `${yearOnly[0]}.01` : '0000.00';
+  }
+
   function applyFilter() {
     cards.innerHTML = '';
-    const list = (data.cards || []).filter((c) => activeFilter === allLabel || (c.tags || []).includes(activeFilter));
+    const list = (data.cards || [])
+      .filter((c) => activeFilter === allLabel || (c.tags || []).includes(activeFilter))
+      .slice()
+      .sort((a, b) => endDateKey(b.date).localeCompare(endDateKey(a.date)));
     if (!list.length) {
       cards.appendChild(createElement('p', 'frame-empty', isEnglishLang() ? 'No items match this filter.' : '这个分类下还没有内容。'));
       return;

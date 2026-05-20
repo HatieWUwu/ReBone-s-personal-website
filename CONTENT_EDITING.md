@@ -2,7 +2,23 @@
 
 这个站点所有"文字内容"都在 `content/zh/` 里。**直接改 JSON / HTML 文件、commit，GitHub Pages 会自动重新发布**——你不需要碰 HTML / CSS / JS。
 
-最简单的修改方式：去 GitHub 网页打开下面的文件 → 点右上角铅笔图标 → 改 → "Commit changes" 到 `main` 分支。一两分钟后 https://rebone0522.com 自动刷新。
+## 一键直达编辑界面（最快路径）
+
+把下面的链接收藏到浏览器书签里，点一下就能直接进 GitHub 网页编辑器。每次改完 → 滚到页面最下方 → "Commit changes" → 选 `main` 分支 → 几十秒后网站刷新。
+
+| 想改什么 | 直达链接 |
+|---|---|
+| 首页文案 / 提问箱措辞 / 卡片更新日期 | [home.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/home.json) |
+| 更新日志（每次新事件加一条） | [updates.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/updates.json) |
+| Solutions 项目列表 / 标签 | [solutions.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/solutions.json) |
+| 失能老人约束手套项目正文 | [solutions_restraint.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/solutions_restraint.json) |
+| ElectroMap 项目正文 | [solutions_electromap.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/solutions_electromap.json) |
+| README 页 | [readme.article.html](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/readme.article.html) |
+| 公开信箱归档（贴 Q&A） | [inbox.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/inbox.json) |
+| Reflections 思考日志 | [reflections.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/reflections.json) |
+| Expressions 入口 | [expressions.json](https://github.com/ReBone0522/ReBone-s-personal-website/edit/main/content/zh/expressions.json) |
+
+> 想要更"所见即所得"的可视化编辑器（不写任何 JSON、点一下加一段就行）？告诉我，可以给你接 Decap CMS——但需要额外一次设置。当下用上面这种网页直接改 JSON 的方式已经能覆盖 95% 的日常调整。
 
 ---
 
