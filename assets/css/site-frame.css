@@ -878,17 +878,15 @@ body {
     height: auto;
     display: block;
 }
+/* Neutral gray Venn — overlap deepens via multiply blend on white bg. */
 .venn-circles circle {
+    fill: rgba(26, 26, 26, 0.13);
     mix-blend-mode: multiply;
-    transition: opacity 200ms ease;
 }
-.venn-fill-me     { fill: rgba(232, 158, 110, 0.62); }   /* 我  · warm sand */
-.venn-fill-human  { fill: rgba(120, 174, 214, 0.58); }   /* 人类 · cool blue */
-.venn-fill-animal { fill: rgba(146, 200, 148, 0.60); }   /* 动物 · soft green */
 .venn-strokes circle {
     fill: none;
-    stroke: rgba(26, 26, 26, 0.35);
-    stroke-width: 1.1;
+    stroke: rgba(26, 26, 26, 0.32);
+    stroke-width: 1;
 }
 .venn-label {
     font-family: var(--font-serif);
@@ -896,6 +894,7 @@ body {
     font-weight: 500;
     fill: var(--ink);
     pointer-events: none;
+    transition: font-weight 120ms ease, fill 120ms ease;
 }
 .venn-intersection {
     font-family: var(--font-mono);
@@ -903,40 +902,93 @@ body {
     fill: var(--ink);
     letter-spacing: 0.02em;
     pointer-events: none;
+    transition: font-weight 120ms ease, fill 120ms ease;
 }
 .venn-center { font-weight: 600; font-size: 12px; }
 
-/* Hover / active glow — slightly emphasizes the clicked region */
-.venn-svg:hover .venn-circles circle { opacity: 0.92; }
-.venn-svg[data-active="me"] .venn-fill-me,
-.venn-svg[data-active="human"] .venn-fill-human,
-.venn-svg[data-active="animal"] .venn-fill-animal { opacity: 1; }
+/* Hover feedback: the label of the region under the cursor goes bold,
+   everything else fades slightly. Click feedback uses data-active. */
+.venn-svg[data-hover] .venn-label,
+.venn-svg[data-hover] .venn-intersection { fill: var(--ink-3); }
+.venn-svg[data-hover=""] .venn-label,
+.venn-svg[data-hover=""] .venn-intersection { fill: var(--ink); }
+.venn-svg[data-hover="me"]          [data-region="me"],
+.venn-svg[data-hover="human"]       [data-region="human"],
+.venn-svg[data-hover="animal"]      [data-region="animal"],
+.venn-svg[data-hover="social"]      [data-region="social"],
+.venn-svg[data-hover="care"]        [data-region="care"],
+.venn-svg[data-hover="reciprocity"] [data-region="reciprocity"],
+.venn-svg[data-hover="life"]        [data-region="life"] {
+    fill: var(--ink);
+    font-weight: 700;
+}
+.venn-svg[data-active="me"]          [data-region="me"],
+.venn-svg[data-active="human"]       [data-region="human"],
+.venn-svg[data-active="animal"]      [data-region="animal"],
+.venn-svg[data-active="social"]      [data-region="social"],
+.venn-svg[data-active="care"]        [data-region="care"],
+.venn-svg[data-active="reciprocity"] [data-region="reciprocity"],
+.venn-svg[data-active="life"]        [data-region="life"] {
+    font-weight: 700;
+}
 
-.reflections-venn-legend {
-    margin: 1rem 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 1.4rem;
-    flex-wrap: wrap;
+.reflections-venn-pointer {
     font-family: var(--font-mono);
-    font-size: 0.74rem;
+    font-size: 0.72rem;
+    color: var(--ink);
+    letter-spacing: 0.04em;
+    margin-left: 0.4rem;
+}
+
+/* Two-card hub at the top of Reflections */
+.reflections-hub {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin: 0 0 2.5rem;
+}
+.reflections-hub-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-top: 1px solid var(--rule);
+    padding: 1.4rem 0 1.4rem;
+    transition: padding 200ms ease;
+}
+.reflections-hub-card:hover { padding-left: 0.6rem; }
+.reflections-hub-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     color: var(--ink-3);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.12em;
+    margin: 0 0 0.5rem;
 }
-.venn-legend-item {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+.reflections-hub-title {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.005em;
 }
-.venn-legend-item .dot {
+.reflections-hub-arrow {
+    color: var(--ink-3);
+    transition: color 150ms ease, transform 150ms ease;
     display: inline-block;
-    width: 0.8rem;
-    height: 0.8rem;
-    border-radius: 999px;
+    margin-left: 0.25rem;
 }
-.dot-me     { background: rgba(232, 158, 110, 0.7); }
-.dot-human  { background: rgba(120, 174, 214, 0.7); }
-.dot-animal { background: rgba(146, 200, 148, 0.7); }
+.reflections-hub-card:hover .reflections-hub-arrow {
+    color: var(--ink);
+    transform: translateX(3px);
+}
+.reflections-hub-desc {
+    font-size: 0.92rem;
+    color: var(--ink-2);
+    line-height: 1.75;
+    margin: 0;
+}
+@media (max-width: 768px) {
+    .reflections-hub { grid-template-columns: 1fr; gap: 0; }
+}
 
 .reflections-row-empty {
     font-size: 0.9rem;
@@ -1606,6 +1658,21 @@ body {
     border-radius: 2px;
 }
 .article-main strong { color: var(--ink); font-weight: 600; }
+.article-main .article-lede {
+    font-size: 1.05rem;
+    color: var(--ink);
+    line-height: 1.85;
+    margin: 0 0 2rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--rule);
+}
+.article-main em { font-style: italic; color: var(--ink-2); }
+.article-main a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+.article-main a:hover { color: var(--ink-2); }
 
 /* ───── Footer ────────────────────────────────────────────── */
 
