@@ -230,6 +230,152 @@ function renderSolutions(data) {
   }
 }
 
+function renderProjectBlock(parent, block) {
+  if (!block || typeof block !== 'object') return;
+  const type = block.type;
+
+  if (type === 'paragraph') {
+    parent.appendChild(createElement('p', '', block.text || ''));
+    return;
+  }
+  if (type === 'paragraphs') {
+    for (const text of block.items || []) parent.appendChild(createElement('p', '', text));
+    return;
+  }
+  if (type === 'quote') {
+    const bq = createElement('blockquote', '', block.text || '');
+    if (block.cite) {
+      const cite = createElement('footer', 'block-cite', `— ${block.cite}`);
+      bq.appendChild(cite);
+    }
+    parent.appendChild(bq);
+    return;
+  }
+  if (type === 'subheading') {
+    parent.appendChild(createElement('h3', '', block.text || ''));
+    return;
+  }
+  if (type === 'list') {
+    const list = createElement(block.ordered ? 'ol' : 'ul', 'block-list');
+    for (const item of block.items || []) {
+      if (typeof item === 'string') {
+        list.appendChild(createElement('li', '', item));
+      } else if (item && typeof item === 'object') {
+        const li = document.createElement('li');
+        if (item.label) {
+          const strong = createElement('strong', '', item.label);
+          li.appendChild(strong);
+          if (item.text) li.appendChild(document.createTextNode(`：${item.text}`));
+        } else if (item.text) {
+          li.textContent = item.text;
+        }
+        list.appendChild(li);
+      }
+    }
+    parent.appendChild(list);
+    return;
+  }
+  if (type === 'meta') {
+    const dl = createElement('dl', 'meta-list');
+    for (const item of block.items || []) {
+      const row = createElement('div', 'meta-row');
+      row.appendChild(createElement('dt', '', item.label || ''));
+      row.appendChild(createElement('dd', '', item.value || ''));
+      dl.appendChild(row);
+    }
+    parent.appendChild(dl);
+    return;
+  }
+  if (type === 'image') {
+    const figure = document.createElement('figure');
+    const img = document.createElement('img');
+    img.src = block.src;
+    img.alt = block.alt || '';
+    img.loading = 'lazy';
+    figure.appendChild(img);
+    if (block.caption) figure.appendChild(createElement('figcaption', '', block.caption));
+    parent.appendChild(figure);
+    return;
+  }
+  if (type === 'image-placeholder') {
+    const figure = createElement('figure', 'image-placeholder');
+    figure.appendChild(createElement('span', 'image-placeholder-label', block.label || '【图】'));
+    if (block.caption) figure.appendChild(createElement('figcaption', '', block.caption));
+    parent.appendChild(figure);
+    return;
+  }
+  if (type === 'two-col') {
+    const grid = createElement('div', 'block-two-col');
+    for (const col of block.columns || []) {
+      const colEl = createElement('div', 'block-two-col-cell');
+      if (col.title) colEl.appendChild(createElement('h4', '', col.title));
+      if (col.text) colEl.appendChild(createElement('p', '', col.text));
+      if (Array.isArray(col.items)) {
+        const ul = createElement('ul', 'block-list');
+        for (const item of col.items) ul.appendChild(createElement('li', '', item));
+        colEl.appendChild(ul);
+      }
+      grid.appendChild(colEl);
+    }
+    parent.appendChild(grid);
+    return;
+  }
+  if (type === 'callout') {
+    const box = createElement('aside', 'block-callout');
+    if (block.title) box.appendChild(createElement('h4', '', block.title));
+    if (block.text) box.appendChild(createElement('p', '', block.text));
+    if (Array.isArray(block.items)) {
+      const ul = createElement('ul', 'block-list');
+      for (const item of block.items) ul.appendChild(createElement('li', '', item));
+      box.appendChild(ul);
+    }
+    if (block.link) {
+      const a = createElement('a', 'block-callout-link', block.link.label || block.link.href);
+      a.href = block.link.href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      box.appendChild(a);
+    }
+    parent.appendChild(box);
+    return;
+  }
+  if (type === 'details') {
+    const det = document.createElement('details');
+    if (block.open) det.open = true;
+    const sum = createElement('summary', '', block.summary || '');
+    det.appendChild(sum);
+    const body = createElement('div', 'details-body');
+    for (const child of block.blocks || []) renderProjectBlock(body, child);
+    det.appendChild(body);
+    parent.appendChild(det);
+    return;
+  }
+  if (type === 'link-list') {
+    const ul = createElement('ul', 'block-list block-links');
+    for (const item of block.items || []) {
+      const li = document.createElement('li');
+      const a = createElement('a', '', item.label || item.href);
+      a.href = item.href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      li.appendChild(a);
+      if (item.note) li.appendChild(document.createTextNode(`　${item.note}`));
+      ul.appendChild(li);
+    }
+    parent.appendChild(ul);
+    return;
+  }
+}
+
+function renderProjectBlocks(sectionEl, section) {
+  if (section.eyebrow) sectionEl.appendChild(createElement('p', 'section-eyebrow', section.eyebrow));
+  if (section.title) sectionEl.appendChild(createElement('h2', '', section.title));
+  if (section.lede) sectionEl.appendChild(createElement('p', 'section-lede', section.lede));
+  for (const block of section.blocks || []) {
+    renderProjectBlock(sectionEl, block);
+  }
+}
+
 function renderRestraint(data) {
   const titleEls = document.querySelectorAll('[data-restraint-title]');
   const eyebrow = document.getElementById('restraint-eyebrow');
@@ -255,8 +401,17 @@ function renderRestraint(data) {
 
   content.innerHTML = '';
   for (const section of data.sections || []) {
-    const sectionEl = createElement('section', 'content-section mb-12 space-y-6');
+    const sectionEl = createElement('section', 'content-section project-section');
     sectionEl.id = section.id;
+
+    if (Array.isArray(section.blocks) && !section.layout) {
+      renderProjectBlocks(sectionEl, section);
+      content.appendChild(sectionEl);
+      continue;
+    }
+
+    // Backward-compatible boxed layouts below.
+    sectionEl.classList.add('mb-12', 'space-y-6');
 
     if (section.layout === 'overview') {
       const card = createElement('div', 'bg-white border border-gray-200 rounded-2xl p-8 shadow-sm');
