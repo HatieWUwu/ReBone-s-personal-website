@@ -19,10 +19,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/tailwind.css?v=20260424e" />
-    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260522g" />
-    <script src="assets/js/i18n.js?v=20260522g" defer></script>
-    <script src="assets/js/site-content.js?v=20260522g" defer></script>
+    <link rel="stylesheet" href="assets/tailwind.css?v=20260522h" />
+    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260522h" />
+    <script src="assets/js/i18n.js?v=20260522h" defer></script>
+    <script src="assets/js/site-content.js?v=20260522h" defer></script>
 </head>
 <body>
     <nav class="banner">
@@ -37,7 +37,7 @@
         </div>
     </nav>
 
-    <main class="shell">
+    <main id="readme-page-root" class="shell">
         <aside class="rail">
             <p class="rail-label">Document</p>
             <p class="rail-marker"><strong>README.md</strong></p>
@@ -48,14 +48,110 @@
             <p class="rail-label">Status</p>
             <p class="rail-marker">draft · iterating</p>
 
+            <p class="rail-label">切层</p>
+            <nav class="rail-nav" id="readme-rail-layers">
+                <a href="#layer-skin" data-layer-link="skin" class="active">外皮 · 公开</a>
+                <a href="#layer-flesh" data-layer-link="flesh">果肉 · 整理中</a>
+                <a href="#layer-core" data-layer-link="core">果核 · 封存</a>
+            </nav>
         </aside>
 
         <div class="shell-gutter" aria-hidden="true"></div>
 
         <div class="main">
-            <article id="readme-article" class="article-main">
-                <p class="rail-marker">README 正文加载中...</p>
-            </article>
+            <section class="page-hero">
+                <p class="page-eyebrow">— readme.md</p>
+                <h1 class="page-heading">README.md</h1>
+                <p class="page-subhead">和我相处的一份使用说明。这份文档分了三层——苹果的横切面会告诉你每一层在哪。</p>
+            </section>
+
+            <section class="apple-section">
+                <p class="apple-hint" id="apple-hint">点击苹果的不同切层，下面会显示对应的内容</p>
+                <div class="apple-stage">
+                    <svg class="apple-svg" id="apple-svg" viewBox="0 0 260 300" role="img" aria-label="apple cross-section">
+                        <!-- Leaf -->
+                        <path class="apple-leaf" d="M 145 32 Q 175 18 188 38 Q 168 50 145 42 Z"/>
+                        <!-- Stem -->
+                        <path class="apple-stem" d="M 130 50 Q 138 30 152 28" stroke-linecap="round"/>
+
+                        <!-- Layer 1: skin (outer) -->
+                        <path class="apple-layer apple-skin" data-layer="skin" d="
+                            M 130 55
+                            C 108 55 102 70 108 84
+                            C 75 78 45 100 45 158
+                            C 45 228 95 268 130 268
+                            C 165 268 215 228 215 158
+                            C 215 100 185 78 152 84
+                            C 158 70 152 55 130 55 Z
+                        "/>
+
+                        <!-- Layer 2: flesh (middle) -->
+                        <path class="apple-layer apple-flesh" data-layer="flesh" d="
+                            M 130 80
+                            C 115 80 110 90 114 100
+                            C 88 95 65 115 65 158
+                            C 65 215 100 245 130 245
+                            C 160 245 195 215 195 158
+                            C 195 115 172 95 146 100
+                            C 150 90 145 80 130 80 Z
+                        "/>
+
+                        <!-- Layer 3: core — 5-pointed star (apple seed chamber) -->
+                        <g class="apple-layer apple-core" data-layer="core">
+                            <polygon points="130,115 138,148 172,148 144,168 154,202 130,182 106,202 116,168 88,148 122,148"/>
+                            <!-- 5 seeds at star inner points -->
+                            <circle class="apple-seed" cx="130" cy="142" r="3"/>
+                            <circle class="apple-seed" cx="155" cy="160" r="3"/>
+                            <circle class="apple-seed" cx="145" cy="186" r="3"/>
+                            <circle class="apple-seed" cx="115" cy="186" r="3"/>
+                            <circle class="apple-seed" cx="105" cy="160" r="3"/>
+                        </g>
+
+                        <!-- Hover-region overlay (catches clicks per layer) -->
+                        <text class="apple-label apple-label-skin" x="232" y="100" text-anchor="start">外皮</text>
+                        <text class="apple-label apple-label-flesh" x="232" y="160" text-anchor="start">果肉</text>
+                        <text class="apple-label apple-label-core" x="232" y="220" text-anchor="start">果核</text>
+                    </svg>
+                </div>
+            </section>
+
+            <section id="layer-skin" class="readme-layer" data-layer="skin">
+                <p class="readme-layer-eyebrow">外皮 · 给所有人看的部分</p>
+                <article id="readme-article" class="article-main">
+                    <p class="rail-marker">README 正文加载中……</p>
+                </article>
+            </section>
+
+            <section id="layer-flesh" class="readme-layer" data-layer="flesh" hidden>
+                <p class="readme-layer-eyebrow">果肉 · 整理中</p>
+                <div class="article-main">
+                    <p>这一层我还在搬运：</p>
+                    <ul>
+                        <li>喜欢的歌（含八音盒清单）</li>
+                        <li>收藏的物件</li>
+                        <li>梦境的记录</li>
+                    </ul>
+                    <p>这些不属于"封存"，只是还没成形。等我整理出来会从这里看见。</p>
+                </div>
+            </section>
+
+            <section id="layer-core" class="readme-layer" data-layer="core" hidden>
+                <p class="readme-layer-eyebrow">果核 · 封存</p>
+                <div class="article-main">
+                    <p>这一层是默认不公开的内容——一些私人经历、不适宜公开但可能给特定生命启发的东西。</p>
+                    <p>它不在网站源码里，也不会被搜索到。如果你的处境真的需要，或我们之间已经有信任，请在下面说说你的情况。我看到之后，会私下回到你。</p>
+                    <form id="apple-request-form" class="apple-request">
+                        <label class="apple-request-label" for="apple-request-text">你的情况 / 想说的</label>
+                        <textarea id="apple-request-text" class="apple-request-input" rows="6" placeholder="不用很长，关键的几句就好。"></textarea>
+                        <label class="apple-request-label" for="apple-request-contact">回信渠道（邮箱 / 微信 / 任何）</label>
+                        <input id="apple-request-contact" class="apple-request-contact" type="text" placeholder="不写我没办法回到你" />
+                        <div class="apple-request-actions">
+                            <button id="apple-request-submit" type="button" class="letterbox-button">申请阅读</button>
+                            <span id="apple-request-status" class="letterbox-status"></span>
+                        </div>
+                    </form>
+                </div>
+            </section>
         </div>
     </main>
 
