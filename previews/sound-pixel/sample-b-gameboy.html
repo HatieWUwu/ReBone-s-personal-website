@@ -28,6 +28,9 @@
         }
         .ctrl:hover { background: var(--g0); color: var(--g3); }
         .ctrl.primary { background: var(--g1); color: var(--g3); width: 44px; }
+        .speed { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.8rem; font-size: 9px; color: var(--g1); }
+        .speed input[type="range"] { accent-color: var(--g1); flex: 1; height: 8px; }
+        .speed-out { color: var(--g0); min-width: 3.4em; text-align: right; }
         .tracks { background: var(--g4); border: 2px solid var(--g0); padding: 1rem; }
         .track { display: flex; justify-content: space-between; align-items: baseline; padding: 0.55rem 0; font-size: 10px; border-bottom: 1px dashed var(--g1); }
         .track:last-child { border-bottom: 0; }
@@ -53,11 +56,15 @@
                 <div class="progress"></div>
                 <div class="meta"><span>00:53</span><span>02:14</span></div>
                 <div class="ctrls">
-                    <button class="ctrl">⏮</button>
                     <button class="ctrl primary">▶</button>
                     <button class="ctrl">⏭</button>
                     <button class="ctrl">♥</button>
                 </div>
+                <label class="speed">
+                    <span>SPEED</span>
+                    <input type="range" min="50" max="200" value="100" />
+                    <span class="speed-out">1.00×</span>
+                </label>
             </div>
 
             <div class="tracks">
@@ -69,7 +76,12 @@
                 <div class="track"><span><span class="track-num">05</span>Saria's Theme</span><span class="track-len">1:38</span></div>
             </div>
         </section>
-        <footer class="marquee">PRESS A TO PLAY · PRESS B TO ORDER A NEW REEL · ♥ BY REBONE</footer>
+        <footer class="marquee">PRESS A TO PLAY · PRESS B TO ♥ WISH A SONG · MADE BY REBONE</footer>
     </main>
+    <script>
+        const s = document.querySelector('.speed input');
+        const o = document.querySelector('.speed-out');
+        s && s.addEventListener('input', () => { o.textContent = (s.value/100).toFixed(2) + '×'; });
+    </script>
 </body>
 </html>

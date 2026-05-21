@@ -131,7 +131,14 @@ function renderHome(home, updates) {
   introLabel.textContent = home.intro_label || '';
   introPoints.innerHTML = '';
   for (const point of home.intro_points || []) {
-    introPoints.appendChild(createElement('li', '', point));
+    if (!point || !String(point).trim()) {
+      // Render empty entries as a visible vertical breath rather than collapsing
+      // them into nothing — lets the JSON author use "" to create paragraph
+      // breaks within the intro.
+      introPoints.appendChild(createElement('li', 'intro-points-spacer'));
+    } else {
+      introPoints.appendChild(createElement('li', '', point));
+    }
   }
 
   const suffix = home.last_updated_suffix || (isEnglishLang() ? 'updated' : '更新');
@@ -1547,31 +1554,7 @@ async function initReadme() {
       console.error(error);
     }
   }
-  initAppleLayers();
   initAppleRequest();
-}
-
-function initAppleLayers() {
-  const svg = document.getElementById('apple-svg');
-  if (!svg) return;
-  const layers = document.querySelectorAll('.readme-layer');
-  const railLinks = document.querySelectorAll('[data-layer-link]');
-  function show(name) {
-    svg.dataset.active = name;
-    layers.forEach((el) => { el.hidden = el.dataset.layer !== name; });
-    railLinks.forEach((a) => a.classList.toggle('active', a.dataset.layerLink === name));
-    const target = document.getElementById(`layer-${name}`);
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  svg.querySelectorAll('[data-layer]').forEach((el) => {
-    el.addEventListener('click', () => show(el.dataset.layer));
-  });
-  railLinks.forEach((a) => a.addEventListener('click', (e) => {
-    e.preventDefault();
-    show(a.dataset.layerLink);
-  }));
-  // Default: skin
-  svg.dataset.active = 'skin';
 }
 
 function initAppleRequest() {
