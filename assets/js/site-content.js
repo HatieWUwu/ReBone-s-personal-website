@@ -197,8 +197,13 @@ function renderHome(home, updates) {
   renderHomeInbox(home);
 
   credits.innerHTML = '';
-  for (const line of home.credits || []) {
-    credits.appendChild(createElement('p', '', line));
+  const creditLines = home.credits || [];
+  if (creditLines.length) {
+    credits.className = 'home-credits';
+    creditLines.forEach((line, i) => {
+      const el = createElement(i === 0 ? 'h3' : 'p', i === 0 ? 'home-credits-title' : 'home-credits-line', line);
+      credits.appendChild(el);
+    });
   }
 }
 
@@ -914,50 +919,50 @@ function renderExpressions(data) {
     intro.appendChild(createElement('p', '', paragraph));
   }
 
-  // Rail nav: list of category anchors
   if (railNav) {
     railNav.innerHTML = '';
     for (const item of data.categories || []) {
-      const a = createElement('a', '', `— ${item.title}`);
-      a.href = `#cat-${item.id}`;
+      const a = createElement('a', '', item.title || '');
+      a.href = item.href || `#cat-${item.id}`;
       railNav.appendChild(a);
     }
   }
 
-  // Cards inline (no preview pane); each card shows full info
+  // Six-frames style cards (same as Solutions)
+  categories.className = 'frame-grid';
   categories.innerHTML = '';
   for (const item of data.categories || []) {
-    const card = createElement('a', 'archive-card');
-    card.href = item.href;
-    card.id = `cat-${item.id}`;
-    card.dataset.section = item.id;
+    const card = createElement('a', 'frame-card');
+    card.href = item.href || '#';
 
-    const body = createElement('div', 'archive-card-body');
-    if (item.eyebrow) body.appendChild(createElement('p', 'archive-card-eyebrow', item.eyebrow));
-    const head = createElement('div', 'archive-card-head');
-    head.appendChild(createElement('h3', 'archive-card-title', item.title || ''));
-    body.appendChild(head);
-    if (item.card_description) body.appendChild(createElement('p', 'archive-card-summary', item.card_description));
-
-    if (item.items && item.items.length) {
-      const ul = createElement('ul', 'archive-card-items');
-      for (const entry of item.items) {
-        ul.appendChild(createElement('li', '', entry));
-      }
-      body.appendChild(ul);
+    if (item.image) {
+      const imageWrap = createElement('div', 'frame-card-image');
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.image_alt || item.title || '';
+      img.loading = 'lazy';
+      imageWrap.appendChild(img);
+      card.appendChild(imageWrap);
     }
 
+    const head = createElement('div', 'frame-card-head');
     if (item.tags && item.tags.length) {
-      const tags = createElement('div', 'archive-card-tags');
-      for (const tag of item.tags) {
-        tags.appendChild(createElement('span', 'archive-card-tag', tag));
-      }
-      body.appendChild(tags);
+      const tagStrip = createElement('span', 'frame-card-tags');
+      for (const t of item.tags) tagStrip.appendChild(createElement('span', 'frame-card-tag', t));
+      head.appendChild(tagStrip);
     }
+    head.appendChild(createElement('span', 'frame-card-arrow', '→'));
+    card.appendChild(head);
 
-    body.appendChild(createElement('span', 'archive-card-cta', `${data.preview_link_label || '进入这个分类'} ↗`));
+    card.appendChild(createElement('h3', 'frame-card-title', item.title || ''));
+    if (item.subtitle || item.eyebrow) {
+      card.appendChild(createElement('p', 'frame-card-subtitle', item.subtitle || item.eyebrow));
+    }
+    if (item.card_description || item.summary) {
+      card.appendChild(createElement('p', 'frame-card-summary', item.card_description || item.summary));
+    }
+    if (item.date) card.appendChild(createElement('p', 'frame-card-date', item.date));
 
-    card.appendChild(body);
     categories.appendChild(card);
   }
 }

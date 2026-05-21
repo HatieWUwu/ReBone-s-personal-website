@@ -20,12 +20,13 @@
     --rail-width:   15rem;  /* ~ a quarter of the canvas */
     --gutter-gap:   2.25rem;
 
-    /* Body / long-form text: proportional. English uses Georgia / Iowan
-       (warm readable serif), Chinese falls through to Noto Serif SC.
-       Mono is reserved for tiny labels / dates / code so the body stays
-       comfortable to read. */
+    /* One family across the whole site, by request. English glyphs come
+       from Iowan / Georgia; Chinese falls through to Noto Serif SC.
+       Mono points to the same stack so previously-mono labels also
+       become serif — we'll lean on size + letter-spacing + uppercase
+       for tiny-label hierarchy instead of a second font family. */
     --font-serif:  'Iowan Old Style', Georgia, Cambria, 'Times New Roman', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
-    --font-mono:   ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    --font-mono:   'Iowan Old Style', Georgia, Cambria, 'Times New Roman', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
 }
 
 * { box-sizing: border-box; }
@@ -1662,57 +1663,53 @@ body {
     height: auto;
     display: block;
 }
-.apple-leaf {
-    fill: var(--ink-2);
-    opacity: 0.55;
-    pointer-events: none;
-}
-.apple-stem {
-    stroke: var(--ink-2);
-    stroke-width: 3;
-    fill: none;
-    pointer-events: none;
-}
-.apple-layer {
-    cursor: pointer;
-    transition: opacity 200ms ease, fill 200ms ease;
-}
+/* Sketch / fossil-plate aesthetic: thin etched strokes, no heavy fills */
+.apple-layer { cursor: pointer; transition: stroke 180ms ease, opacity 180ms ease; }
 .apple-skin {
-    fill: rgba(26, 26, 26, 0.10);
+    fill: none;
     stroke: var(--ink-2);
     stroke-width: 1.1;
+}
+.apple-skin-inner {
+    fill: none;
+    stroke: var(--ink-3);
+    stroke-width: 0.6;
+    pointer-events: none;
 }
 .apple-flesh {
-    fill: rgba(26, 26, 26, 0.08);
+    fill: none;
     stroke: var(--ink-3);
-    stroke-width: 1;
+    stroke-width: 0.9;
 }
 .apple-core polygon {
-    fill: rgba(26, 26, 26, 0.45);
-    stroke: var(--ink);
-    stroke-width: 1.1;
+    fill: none;
+    stroke: var(--ink-2);
+    stroke-width: 1;
     stroke-linejoin: round;
 }
 .apple-core .apple-seed {
-    fill: var(--bg);
-    stroke: none;
-}
-.apple-svg:hover .apple-skin { fill: rgba(26, 26, 26, 0.14); }
-.apple-svg:hover .apple-flesh { fill: rgba(26, 26, 26, 0.12); }
-.apple-svg[data-active="skin"] .apple-skin {
-    fill: rgba(26, 26, 26, 0.20);
+    fill: var(--ink-2);
     stroke: var(--ink);
+    stroke-width: 0.5;
+    opacity: 0.85;
 }
-.apple-svg[data-active="flesh"] .apple-flesh {
-    fill: rgba(26, 26, 26, 0.18);
-    stroke: var(--ink);
+.apple-ticks line {
+    stroke: var(--ink-3);
+    stroke-width: 0.7;
 }
-.apple-svg[data-active="core"] .apple-core polygon {
-    fill: rgba(26, 26, 26, 0.65);
+.apple-leader line {
+    stroke: var(--ink-3);
+    stroke-width: 0.5;
 }
+.apple-svg:hover .apple-skin  { stroke: var(--ink); }
+.apple-svg:hover .apple-flesh { stroke: var(--ink-2); }
+.apple-svg:hover .apple-core polygon { stroke: var(--ink); }
+.apple-svg[data-active="skin"]  .apple-skin   { stroke: var(--ink); stroke-width: 1.6; }
+.apple-svg[data-active="flesh"] .apple-flesh  { stroke: var(--ink); stroke-width: 1.4; }
+.apple-svg[data-active="core"]  .apple-core polygon { stroke: var(--ink); stroke-width: 1.5; }
 .apple-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
+    font-family: var(--font-serif);
+    font-size: 12px;
     fill: var(--ink-3);
     letter-spacing: 0.04em;
     pointer-events: none;
@@ -1858,6 +1855,28 @@ body {
     text-underline-offset: 4px;
 }
 .article-main a:hover { color: var(--ink-2); }
+
+/* ───── Home credits ──────────────────────────────────────── */
+
+.home-credits {
+    margin: 3rem 0 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--rule-2);
+}
+.home-credits-title {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 0 0 0.7rem;
+}
+.home-credits-line {
+    margin: 0 0 0.3rem;
+    font-size: 0.84rem;
+    color: var(--ink-3);
+    line-height: 1.75;
+}
 
 /* ───── Footer ────────────────────────────────────────────── */
 

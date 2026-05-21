@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>F · Synthwave · Sound Pixel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-deep:#0a0420; --bg-up:#250d4a; --neon-pink:#ff2bd6; --neon-cyan:#19f5ff; --neon-purple:#b66bff; --grid:#3a1a78; --text:#f3e0ff; --dim:#9a7ed1; }
+        * { box-sizing: border-box; image-rendering: pixelated; }
+        body {
+            margin: 0; min-height: 100vh; color: var(--text); font-family: 'VT323', monospace; font-size: 18px;
+            background: linear-gradient(180deg, var(--bg-deep) 0%, var(--bg-up) 60%, #4a1577 100%);
+            overflow-x: hidden;
+        }
+        /* Horizon grid */
+        body::before {
+            content: ''; position: fixed; bottom: 0; left: 0; right: 0; height: 38vh;
+            background:
+                linear-gradient(to top, var(--bg-deep) 0%, transparent 70%),
+                repeating-linear-gradient(90deg, transparent 0 49px, var(--grid) 49px 50px),
+                repeating-linear-gradient(0deg, transparent 0 49px, var(--grid) 49px 50px);
+            transform: perspective(400px) rotateX(60deg); transform-origin: bottom;
+            pointer-events: none; opacity: 0.6;
+        }
+        /* Star dots */
+        body::after {
+            content: ''; position: fixed; inset: 0; pointer-events: none; opacity: 0.7;
+            background-image:
+                radial-gradient(1px 1px at 12% 18%, var(--text), transparent 60%),
+                radial-gradient(1px 1px at 35% 8%, var(--neon-cyan), transparent 60%),
+                radial-gradient(1px 1px at 70% 22%, var(--text), transparent 60%),
+                radial-gradient(2px 2px at 88% 12%, var(--neon-pink), transparent 60%),
+                radial-gradient(1px 1px at 20% 30%, var(--text), transparent 60%),
+                radial-gradient(1px 1px at 56% 14%, var(--neon-cyan), transparent 60%);
+        }
+        .wrap { position: relative; max-width: 50rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; z-index: 1; }
+        .topbar { display: flex; justify-content: space-between; padding-bottom: 0.5rem; border-bottom: 1px solid var(--neon-purple); font-size: 16px; margin-bottom: 1.2rem; }
+        .topbar a { color: var(--neon-cyan); text-decoration: none; }
+        h1 {
+            font-family: 'Press Start 2P', monospace; font-size: 28px;
+            color: var(--neon-pink); margin: 0.5rem 0 0.4rem; letter-spacing: 0.04em;
+            text-shadow: 2px 2px 0 var(--neon-purple), 4px 4px 0 var(--neon-cyan);
+        }
+        .sub { color: var(--dim); margin: 0 0 1.6rem; font-size: 16px; }
+
+        .player {
+            background: rgba(36, 13, 74, 0.85);
+            border: 2px solid var(--neon-pink);
+            box-shadow: 0 0 24px rgba(255,43,214,0.35), inset 0 0 0 1px var(--neon-cyan);
+            padding: 1.2rem 1.4rem; margin-bottom: 1.4rem;
+        }
+        .now-label { color: var(--neon-cyan); font-size: 14px; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 0.3rem; }
+        .now-title { color: var(--text); font-size: 22px; margin: 0 0 0.8rem; text-shadow: 0 0 8px rgba(255,43,214,0.4); }
+        .bar { height: 10px; background: rgba(0,0,0,0.4); border: 1px solid var(--neon-cyan); position: relative; }
+        .bar::after { content: ''; position: absolute; inset: 0 60% 0 0; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink)); box-shadow: 0 0 8px var(--neon-pink); }
+        .meta { display: flex; justify-content: space-between; font-size: 15px; color: var(--dim); margin-top: 0.4rem; }
+        .ctrls { display: flex; gap: 0.6rem; margin-top: 0.9rem; }
+        .btn {
+            font-family: 'Press Start 2P', monospace; font-size: 12px;
+            background: transparent; color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan); padding: 0.55rem 0.9rem; cursor: pointer; letter-spacing: 0.04em;
+            transition: all 200ms ease;
+        }
+        .btn:hover { background: var(--neon-cyan); color: var(--bg-deep); box-shadow: 0 0 16px var(--neon-cyan); }
+        .btn.pink { color: var(--neon-pink); border-color: var(--neon-pink); }
+        .btn.pink:hover { background: var(--neon-pink); color: var(--bg-deep); box-shadow: 0 0 16px var(--neon-pink); }
+
+        .tracks {
+            background: rgba(10, 4, 32, 0.7); border: 1px solid var(--neon-cyan);
+            padding: 1.1rem 1.4rem;
+        }
+        .tracks h2 { font-family: 'Press Start 2P', monospace; font-size: 12px; color: var(--neon-purple); letter-spacing: 0.1em; margin: 0 0 0.6rem; }
+        .row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.5rem 0; font-size: 17px; border-bottom: 1px solid rgba(154,126,209,0.3); }
+        .row:last-child { border-bottom: 0; }
+        .row .num { color: var(--neon-cyan); margin-right: 0.8rem; }
+        .row .name { color: var(--text); }
+        .row .len { color: var(--dim); font-size: 15px; }
+        .row:hover { background: rgba(255,43,214,0.1); }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <header class="topbar">
+            <a href="index.html">← samples</a>
+            <span style="color:var(--neon-pink);">F · SYNTHWAVE</span>
+        </header>
+
+        <h1>SOUND</h1>
+        <p class="sub">// music box · originals · audio sketches</p>
+
+        <section class="player">
+            <p class="now-label">▼ now playing</p>
+            <p class="now-title">千与千寻 · あの夏へ</p>
+            <div class="bar"></div>
+            <p class="meta"><span>00:53</span><span>02:14 · music box</span></p>
+            <div class="ctrls">
+                <button class="btn">◁◁</button>
+                <button class="btn pink">▶ PLAY</button>
+                <button class="btn">▷▷</button>
+                <button class="btn pink">♥</button>
+            </div>
+        </section>
+
+        <section class="tracks">
+            <h2>※ TRACKLIST</h2>
+            <div class="row"><span><span class="num">01</span>千与千寻</span><span class="len">2:14</span></div>
+            <div class="row"><span><span class="num">02</span>天空之城</span><span class="len">2:55</span></div>
+            <div class="row"><span><span class="num">03</span>城南旧事</span><span class="len">2:08</span></div>
+            <div class="row"><span><span class="num">04</span>Remember Me</span><span class="len">1:50</span></div>
+            <div class="row"><span><span class="num">05</span>Saria's Theme</span><span class="len">1:38</span></div>
+        </section>
+    </main>
+</body>
+</html>

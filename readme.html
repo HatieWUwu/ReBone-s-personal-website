@@ -19,10 +19,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/tailwind.css?v=20260522h" />
-    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260522h" />
-    <script src="assets/js/i18n.js?v=20260522h" defer></script>
-    <script src="assets/js/site-content.js?v=20260522h" defer></script>
+    <link rel="stylesheet" href="assets/tailwind.css?v=20260522i" />
+    <link rel="stylesheet" href="assets/css/site-frame.css?v=20260522i" />
+    <script src="assets/js/i18n.js?v=20260522i" defer></script>
+    <script src="assets/js/site-content.js?v=20260522i" defer></script>
 </head>
 <body>
     <nav class="banner">
@@ -68,49 +68,53 @@
             <section class="apple-section">
                 <p class="apple-hint" id="apple-hint">点击苹果的不同切层，下面会显示对应的内容</p>
                 <div class="apple-stage">
-                    <svg class="apple-svg" id="apple-svg" viewBox="0 0 260 300" role="img" aria-label="apple cross-section">
-                        <!-- Leaf -->
-                        <path class="apple-leaf" d="M 145 32 Q 175 18 188 38 Q 168 50 145 42 Z"/>
-                        <!-- Stem -->
-                        <path class="apple-stem" d="M 130 50 Q 138 30 152 28" stroke-linecap="round"/>
+                    <svg class="apple-svg" id="apple-svg" viewBox="0 0 320 320" role="img" aria-label="apple cross-section · horizontal cut">
+                        <!-- Horizontal cross-section: a round slice. Three concentric layers
+                             drawn as thin etched lines, fossil / botanical-plate feel. -->
 
-                        <!-- Layer 1: skin (outer) -->
-                        <path class="apple-layer apple-skin" data-layer="skin" d="
-                            M 130 55
-                            C 108 55 102 70 108 84
-                            C 75 78 45 100 45 158
-                            C 45 228 95 268 130 268
-                            C 165 268 215 228 215 158
-                            C 215 100 185 78 152 84
-                            C 158 70 152 55 130 55 Z
-                        "/>
+                        <!-- Layer 1: skin (outermost ring, clickable) -->
+                        <circle class="apple-layer apple-skin" data-layer="skin"
+                                cx="160" cy="160" r="130" />
+                        <!-- A second hair-thin line just inside the skin, etching feel -->
+                        <circle class="apple-skin-inner" cx="160" cy="160" r="124" />
 
-                        <!-- Layer 2: flesh (middle) -->
-                        <path class="apple-layer apple-flesh" data-layer="flesh" d="
-                            M 130 80
-                            C 115 80 110 90 114 100
-                            C 88 95 65 115 65 158
-                            C 65 215 100 245 130 245
-                            C 160 245 195 215 195 158
-                            C 195 115 172 95 146 100
-                            C 150 90 145 80 130 80 Z
-                        "/>
+                        <!-- Layer 2: flesh (middle ring, clickable) -->
+                        <circle class="apple-layer apple-flesh" data-layer="flesh"
+                                cx="160" cy="160" r="100" />
 
-                        <!-- Layer 3: core — 5-pointed star (apple seed chamber) -->
+                        <!-- Layer 3: core — 5-pointed star, the seed chamber view -->
                         <g class="apple-layer apple-core" data-layer="core">
-                            <polygon points="130,115 138,148 172,148 144,168 154,202 130,182 106,202 116,168 88,148 122,148"/>
-                            <!-- 5 seeds at star inner points -->
-                            <circle class="apple-seed" cx="130" cy="142" r="3"/>
-                            <circle class="apple-seed" cx="155" cy="160" r="3"/>
-                            <circle class="apple-seed" cx="145" cy="186" r="3"/>
-                            <circle class="apple-seed" cx="115" cy="186" r="3"/>
-                            <circle class="apple-seed" cx="105" cy="160" r="3"/>
+                            <!-- The star path (thin etched outline, no heavy fill) -->
+                            <polygon points="160,90 175,140 228,140 185,170 200,222 160,192 120,222 135,170 92,140 145,140"/>
+                            <!-- Five seeds, drawn as tiny almond shapes at star vertices -->
+                            <ellipse class="apple-seed" cx="160"  cy="105" rx="4.5" ry="7" transform="rotate(0 160 105)"/>
+                            <ellipse class="apple-seed" cx="212" cy="143" rx="4.5" ry="7" transform="rotate(72 212 143)"/>
+                            <ellipse class="apple-seed" cx="193" cy="206" rx="4.5" ry="7" transform="rotate(144 193 206)"/>
+                            <ellipse class="apple-seed" cx="127" cy="206" rx="4.5" ry="7" transform="rotate(-144 127 206)"/>
+                            <ellipse class="apple-seed" cx="108" cy="143" rx="4.5" ry="7" transform="rotate(-72 108 143)"/>
                         </g>
 
-                        <!-- Hover-region overlay (catches clicks per layer) -->
-                        <text class="apple-label apple-label-skin" x="232" y="100" text-anchor="start">外皮</text>
-                        <text class="apple-label apple-label-flesh" x="232" y="160" text-anchor="start">果肉</text>
-                        <text class="apple-label apple-label-core" x="232" y="220" text-anchor="start">果核</text>
+                        <!-- Small radial tick marks like a botanical plate -->
+                        <g class="apple-ticks" aria-hidden="true">
+                            <line x1="160" y1="14" x2="160" y2="26"/>
+                            <line x1="160" y1="294" x2="160" y2="306"/>
+                            <line x1="14" y1="160" x2="26" y2="160"/>
+                            <line x1="294" y1="160" x2="306" y2="160"/>
+                        </g>
+
+                        <!-- Layer labels with leader lines -->
+                        <g class="apple-leader">
+                            <line x1="282" y1="92" x2="304" y2="62"/>
+                            <text class="apple-label apple-label-skin" x="304" y="56" text-anchor="end">外皮</text>
+                        </g>
+                        <g class="apple-leader">
+                            <line x1="252" y1="118" x2="298" y2="118"/>
+                            <text class="apple-label apple-label-flesh" x="316" y="122" text-anchor="end">果肉</text>
+                        </g>
+                        <g class="apple-leader">
+                            <line x1="200" y1="160" x2="298" y2="180"/>
+                            <text class="apple-label apple-label-core" x="316" y="184" text-anchor="end">果核</text>
+                        </g>
                     </svg>
                 </div>
             </section>

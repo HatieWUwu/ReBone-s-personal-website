@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>B · Game Boy · Sound Pixel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --g0:#0f380f; --g1:#306230; --g2:#8bac0f; --g3:#9bbc0f; --g4:#cadc9f; }
+        * { box-sizing: border-box; image-rendering: pixelated; -webkit-font-smoothing: none; }
+        body { margin: 0; background: var(--g4); color: var(--g0); font-family: 'Press Start 2P', monospace; min-height: 100vh; font-size: 11px; line-height: 1.8; }
+        .frame { max-width: 40rem; margin: 0 auto; padding: 0; border: 8px solid var(--g0); background: var(--g3); min-height: 100vh; }
+        .topbar { background: var(--g0); color: var(--g3); padding: 0.6rem 1rem; display: flex; justify-content: space-between; font-size: 10px; }
+        .topbar a { color: var(--g3); text-decoration: none; }
+        .screen { padding: 1.5rem; background: var(--g3); }
+        h1 { font-size: 16px; margin: 0 0 0.5rem; color: var(--g0); }
+        .sub { font-size: 9px; color: var(--g1); margin: 0 0 1.5rem; }
+        .panel { background: var(--g4); border: 2px solid var(--g0); padding: 1rem; margin-bottom: 1rem; }
+        .panel-head { font-size: 9px; color: var(--g1); margin: 0 0 0.6rem; text-transform: uppercase; }
+        .now { font-size: 12px; color: var(--g0); margin: 0 0 0.6rem; }
+        .progress { height: 8px; border: 2px solid var(--g0); background: var(--g4); position: relative; }
+        .progress::after { content: ''; position: absolute; inset: 0 60% 0 0; background: var(--g1); }
+        .meta { display: flex; justify-content: space-between; font-size: 9px; color: var(--g1); margin-top: 0.4rem; }
+        .ctrls { display: flex; gap: 0.6rem; margin-top: 0.8rem; }
+        .ctrl {
+            width: 32px; height: 32px; border: 2px solid var(--g0); background: var(--g3);
+            color: var(--g0); font-size: 12px; cursor: pointer; padding: 0;
+            display: flex; align-items: center; justify-content: center; font-family: inherit;
+        }
+        .ctrl:hover { background: var(--g0); color: var(--g3); }
+        .ctrl.primary { background: var(--g1); color: var(--g3); width: 44px; }
+        .tracks { background: var(--g4); border: 2px solid var(--g0); padding: 1rem; }
+        .track { display: flex; justify-content: space-between; align-items: baseline; padding: 0.55rem 0; font-size: 10px; border-bottom: 1px dashed var(--g1); }
+        .track:last-child { border-bottom: 0; }
+        .track-num { color: var(--g1); margin-right: 0.6rem; }
+        .track-name { color: var(--g0); flex: 1; }
+        .track-len { color: var(--g1); font-size: 9px; }
+        .marquee { font-size: 8px; color: var(--g1); padding: 0.4rem 1rem; border-top: 2px solid var(--g0); background: var(--g4); }
+    </style>
+</head>
+<body>
+    <main class="frame">
+        <header class="topbar">
+            <a href="index.html">&lt; BACK</a>
+            <span>B · GB SOUND</span>
+        </header>
+        <section class="screen">
+            <h1>SOUND</h1>
+            <p class="sub">music box · originals</p>
+
+            <div class="panel">
+                <p class="panel-head">► NOW</p>
+                <p class="now">千与千寻 - あの夏へ</p>
+                <div class="progress"></div>
+                <div class="meta"><span>00:53</span><span>02:14</span></div>
+                <div class="ctrls">
+                    <button class="ctrl">⏮</button>
+                    <button class="ctrl primary">▶</button>
+                    <button class="ctrl">⏭</button>
+                    <button class="ctrl">♥</button>
+                </div>
+            </div>
+
+            <div class="tracks">
+                <p class="panel-head">▼ TRACKLIST</p>
+                <div class="track"><span><span class="track-num">01</span>千与千寻</span><span class="track-len">2:14</span></div>
+                <div class="track"><span><span class="track-num">02</span>天空之城</span><span class="track-len">2:55</span></div>
+                <div class="track"><span><span class="track-num">03</span>城南旧事</span><span class="track-len">2:08</span></div>
+                <div class="track"><span><span class="track-num">04</span>Remember Me</span><span class="track-len">1:50</span></div>
+                <div class="track"><span><span class="track-num">05</span>Saria's Theme</span><span class="track-len">1:38</span></div>
+            </div>
+        </section>
+        <footer class="marquee">PRESS A TO PLAY · PRESS B TO ORDER A NEW REEL · ♥ BY REBONE</footer>
+    </main>
+</body>
+</html>

@@ -11,7 +11,7 @@
     "",
     "我祝福一切生命，在这世界上自洽，这意味着：有一个待得舒服的地方，有可以推进的理想，并且养得活自己。",
     "如果我做了什么对你的生命有所帮助，那是我最大、最纯粹的快乐。",
-    "欢迎你，无论你是谁。",
+    "欢迎你，无论你是谁。"
   ],
   "rail": {
     "menu_label": "内容",
@@ -48,7 +48,12 @@
       "last_updated": "2026-05-22"
     }
   ],
-  "credits": [],
+  "credits": [
+    "致谢",
+    "文字 · 我",
+    "网站制作 · ChatGPT · DeepSeek · Claude Code",
+    "OpenClaw · Little Blue Man — Claude 4.5 Opus · ChatGPT 5.4 · Hermes Agent"
+  ],
   "inbox_title": "匿名留言箱",
   "inbox_intro": "你可以匿名谈论任何事。选择「公开」，留言会立刻进入 ↗ 公开留言箱；如有回复需要，我的回复也会公开在那里。选择「不公开」请留下一个能联系到你的渠道。",
   "inbox_placeholder": "自由写点什么：",

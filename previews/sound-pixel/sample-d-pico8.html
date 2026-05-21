@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>D · PICO-8 · Sound Pixel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    <style>
+        /* PICO-8 16 color palette */
+        :root {
+            --p0:#000000; --p1:#1d2b53; --p2:#7e2553; --p3:#008751;
+            --p4:#ab5236; --p5:#5f574f; --p6:#c2c3c7; --p7:#fff1e8;
+            --p8:#ff004d; --p9:#ffa300; --pA:#ffec27; --pB:#00e436;
+            --pC:#29adff; --pD:#83769c; --pE:#ff77a8; --pF:#ffccaa;
+        }
+        * { box-sizing: border-box; image-rendering: pixelated; -webkit-font-smoothing: none; }
+        body { margin: 0; background: var(--p1); color: var(--p7); font-family: 'Silkscreen', monospace; min-height: 100vh; padding: 2rem 1rem; }
+        .console {
+            max-width: 40rem; margin: 0 auto; background: var(--p0);
+            border: 4px solid var(--p5); padding: 0;
+            box-shadow: 0 0 0 4px var(--p5), 8px 8px 0 var(--p0);
+        }
+        .titlebar { background: var(--p5); color: var(--p7); padding: 0.5rem 1rem; font-size: 11px; display: flex; justify-content: space-between; letter-spacing: 0.04em; }
+        .titlebar a { color: var(--p7); text-decoration: none; }
+        .screen { padding: 1.5rem; }
+        h1 { font-family: 'Press Start 2P', monospace; font-size: 18px; margin: 0 0 0.4rem; color: var(--pA); letter-spacing: 0.02em; }
+        .sub { font-size: 11px; color: var(--p6); margin: 0 0 1.6rem; }
+
+        .player { background: var(--p1); border: 3px solid var(--pC); padding: 1rem; margin-bottom: 1rem; }
+        .now { color: var(--pA); font-size: 14px; margin: 0 0 0.4rem; }
+        .progress { height: 12px; background: var(--p0); border: 2px solid var(--p7); position: relative; }
+        .progress::after { content: ''; position: absolute; inset: 0 60% 0 0; background: var(--pE); }
+        .meta { font-size: 10px; color: var(--p6); margin-top: 0.4rem; display: flex; justify-content: space-between; }
+        .ctrls { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
+        .btn {
+            font-family: 'Press Start 2P', monospace; font-size: 11px;
+            background: var(--p7); color: var(--p1); border: 0;
+            padding: 0.55rem 0.9rem; cursor: pointer;
+            box-shadow: 3px 3px 0 var(--p0);
+        }
+        .btn:hover { background: var(--pA); }
+        .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--p0); }
+        .btn.heart { background: var(--p8); color: var(--p7); }
+
+        .tracks { background: var(--p0); border: 3px solid var(--pB); padding: 1rem; }
+        .tracks h2 { font-family: 'Press Start 2P', monospace; font-size: 12px; color: var(--pB); margin: 0 0 0.6rem; }
+        .row { display: flex; justify-content: space-between; align-items: baseline; padding: 0.45rem 0; font-size: 11px; }
+        .row + .row { border-top: 1px dashed var(--p5); }
+        .row .name { color: var(--p7); }
+        .row .num { color: var(--p9); margin-right: 0.5rem; }
+        .row .len { color: var(--p6); font-size: 10px; }
+        .row:hover { color: var(--pA); background: var(--p1); }
+    </style>
+</head>
+<body>
+    <main class="console">
+        <header class="titlebar"><a href="index.html">[ &lt; ] BACK</a><span>D · PICO-SOUND v0.1</span></header>
+        <section class="screen">
+            <h1>SOUND.P8</h1>
+            <p class="sub">// music box covers · originals</p>
+
+            <section class="player">
+                <p class="now">♪ 千与千寻 · あの夏へ</p>
+                <div class="progress"></div>
+                <p class="meta"><span>00:53</span><span>02:14</span></p>
+                <div class="ctrls">
+                    <button class="btn">◁◁</button>
+                    <button class="btn">▶</button>
+                    <button class="btn">▷▷</button>
+                    <button class="btn heart">♥</button>
+                </div>
+            </section>
+
+            <section class="tracks">
+                <h2>♫ TRACKLIST</h2>
+                <div class="row"><span><span class="num">01</span>千与千寻</span><span class="len">2:14</span></div>
+                <div class="row"><span><span class="num">02</span>天空之城</span><span class="len">2:55</span></div>
+                <div class="row"><span><span class="num">03</span>城南旧事</span><span class="len">2:08</span></div>
+                <div class="row"><span><span class="num">04</span>Remember Me</span><span class="len">1:50</span></div>
+                <div class="row"><span><span class="num">05</span>Saria's Theme</span><span class="len">1:38</span></div>
+            </section>
+        </section>
+    </main>
+</body>
+</html>
