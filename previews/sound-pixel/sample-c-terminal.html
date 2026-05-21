@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>C · Amber Terminal · Sound Pixel</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg:#0a0700; --amber:#ffb000; --amber-dim:#a07000; --amber-deep:#5a3e00; }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: var(--amber); font-family: 'VT323', monospace; min-height: 100vh; font-size: 18px; line-height: 1.5; }
+        /* CRT scanlines */
+        body::before {
+            content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 10;
+            background: repeating-linear-gradient(0deg, rgba(0,0,0,0.18) 0px, rgba(0,0,0,0.18) 1px, transparent 1px, transparent 3px);
+        }
+        body::after {
+            content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 11;
+            background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.55) 100%);
+        }
+        .wrap { max-width: 52rem; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+        .topbar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.5rem; border-bottom: 1px solid var(--amber-deep); margin-bottom: 1.2rem; font-size: 16px; }
+        .topbar a { color: var(--amber); text-decoration: none; }
+        .prompt::before { content: '$ '; color: var(--amber-dim); }
+        h1 { font-size: 28px; margin: 0.5rem 0 0.3rem; letter-spacing: 0.02em; text-shadow: 0 0 8px rgba(255,176,0,0.45); }
+        .sub { color: var(--amber-dim); margin: 0 0 1.4rem; }
+        .blink { animation: blink 1s steps(2, start) infinite; }
+        @keyframes blink { to { opacity: 0; } }
+        .panel { border: 1px solid var(--amber-deep); padding: 0.9rem 1.2rem; margin-bottom: 1rem; box-shadow: 0 0 12px rgba(255,176,0,0.15) inset; }
+        .panel-title { color: var(--amber-dim); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 0.6rem; }
+        .now { font-size: 22px; margin: 0 0 0.4rem; text-shadow: 0 0 6px rgba(255,176,0,0.3); }
+        .bar { font-family: 'VT323', monospace; letter-spacing: -1px; color: var(--amber); white-space: pre; font-size: 18px; }
+        .bar .past { color: var(--amber); }
+        .bar .left { color: var(--amber-deep); }
+        .meta { color: var(--amber-dim); font-size: 15px; margin-top: 0.2rem; }
+        .ctrl-row { margin-top: 0.6rem; color: var(--amber-dim); font-size: 15px; }
+        .tracks { border: 1px solid var(--amber-deep); padding: 0.9rem 1.2rem; }
+        .tracks-title { color: var(--amber-dim); font-size: 14px; letter-spacing: 0.1em; text-transform: uppercase; margin: 0 0 0.6rem; }
+        .track-line { padding: 0.18rem 0; color: var(--amber); }
+        .track-num { color: var(--amber-deep); }
+        .track-len { color: var(--amber-dim); float: right; }
+        .footer { color: var(--amber-dim); font-size: 13px; margin-top: 1.5rem; }
+    </style>
+</head>
+<body>
+    <main class="wrap">
+        <header class="topbar">
+            <span class="prompt"><a href="index.html">cd ..</a></span>
+            <span>[ C · TERMINAL ]</span>
+        </header>
+
+        <p class="prompt">cat sound.md</p>
+        <h1>SOUND<span class="blink">_</span></h1>
+        <p class="sub">// music box covers · originals · audio sketches</p>
+
+        <section class="panel">
+            <p class="panel-title">▶ now playing</p>
+            <p class="now">千与千寻 · あの夏へ</p>
+            <p class="bar"><span class="past">█████████████░░░░░░░░░░░░░░░░</span></p>
+            <p class="meta">00:53 / 02:14 · music box · 30 holes</p>
+            <p class="ctrl-row">[space] play/pause  [←/→] seek  [m] mute  [l] loop</p>
+        </section>
+
+        <section class="tracks">
+            <p class="tracks-title">$ ls tracks/</p>
+            <div class="track-line"><span class="track-num">01</span> 千与千寻.mp3<span class="track-len">2:14</span></div>
+            <div class="track-line"><span class="track-num">02</span> 天空之城.mp3<span class="track-len">2:55</span></div>
+            <div class="track-line"><span class="track-num">03</span> 城南旧事.mp3<span class="track-len">2:08</span></div>
+            <div class="track-line"><span class="track-num">04</span> remember_me.mp3<span class="track-len">1:50</span></div>
+            <div class="track-line"><span class="track-num">05</span> sarias_theme.mp3<span class="track-len">1:38</span></div>
+            <div class="track-line"><span class="track-num">06</span> nuanyi.m4a<span class="track-len">0:42</span></div>
+        </section>
+
+        <p class="footer">rebone@sound:~ <span class="blink">▌</span></p>
+    </main>
+</body>
+</html>

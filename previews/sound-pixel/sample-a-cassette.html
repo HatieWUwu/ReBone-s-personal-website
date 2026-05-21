@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>A · Cassette · Sound Pixel</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Pixelify+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #f1e4c5; --paper: #f7eed5; --ink: #2a1d10; --ink-2: #4a3a23; --rust: #8b4a1f; --rust-2: #c47b3e; }
+        * { box-sizing: border-box; image-rendering: pixelated; }
+        body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Pixelify Sans', monospace; min-height: 100vh; }
+        body::before {
+            content: ''; position: fixed; inset: 0; pointer-events: none;
+            background-image: radial-gradient(rgba(70,40,15,0.04) 1px, transparent 1px);
+            background-size: 3px 3px; mix-blend-mode: multiply;
+        }
+        .topbar { padding: 1rem 1.5rem; border-bottom: 4px double var(--ink); display: flex; justify-content: space-between; align-items: center; background: var(--paper); }
+        .topbar a { color: var(--ink); text-decoration: none; font-family: 'VT323', monospace; font-size: 1.4rem; letter-spacing: 0.04em; }
+        .pill { font-family: 'VT323', monospace; color: var(--rust); font-size: 1.1rem; }
+        .wrap { max-width: 56rem; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+        h1 { font-family: 'Pixelify Sans', monospace; font-weight: 700; font-size: 2.2rem; letter-spacing: 0.02em; margin: 0 0 0.4rem; color: var(--ink); }
+        .sub { font-family: 'VT323', monospace; font-size: 1.3rem; color: var(--ink-2); margin: 0 0 2rem; }
+        .tape {
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            box-shadow: 6px 6px 0 var(--rust);
+            padding: 1.6rem 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        .reels { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+        .reel {
+            width: 60px; height: 60px; border-radius: 50%;
+            border: 3px solid var(--ink); background:
+                radial-gradient(circle at center, var(--paper) 16%, var(--rust-2) 17%, var(--rust-2) 42%, var(--ink) 43%, var(--ink) 47%, var(--rust-2) 48%);
+            position: relative;
+        }
+        .reel::after {
+            content: '✶'; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; color: var(--ink); font-size: 1.2rem;
+        }
+        .tape-label {
+            background: var(--paper); border: 2px solid var(--ink); padding: 0.5rem 1rem; flex: 1;
+            font-family: 'VT323', monospace; font-size: 1.2rem; text-align: center; color: var(--ink);
+        }
+        .controls { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        .btn {
+            font-family: 'VT323', monospace; font-size: 1.2rem;
+            background: var(--ink); color: var(--paper);
+            border: 0; padding: 0.45rem 1rem; cursor: pointer;
+            letter-spacing: 0.06em;
+        }
+        .btn:hover { background: var(--rust); }
+        .tracklist { background: var(--paper); border: 3px solid var(--ink); padding: 1.4rem 1.6rem; }
+        .tracklist h2 { font-family: 'Pixelify Sans', monospace; font-size: 1.2rem; margin: 0 0 0.8rem; padding-bottom: 0.5rem; border-bottom: 2px dashed var(--ink); }
+        .track { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.45rem 0; font-family: 'VT323', monospace; font-size: 1.2rem; border-bottom: 1px dotted var(--ink-2); }
+        .track:last-child { border-bottom: 0; }
+        .track-name { color: var(--ink); }
+        .track-meta { color: var(--rust); font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <a href="index.html">← Sound Pixel · 6 samples</a>
+        <span class="pill">[ A · CASSETTE ]</span>
+    </header>
+    <main class="wrap">
+        <h1>音乐 / SOUND</h1>
+        <p class="sub">八音盒 cover · 自创曲目 · 声音实验</p>
+
+        <section class="tape">
+            <div class="reels">
+                <div class="reel"></div>
+                <div class="tape-label">NOW PLAYING · 千与千寻 · 八音盒版</div>
+                <div class="reel"></div>
+            </div>
+            <div class="controls">
+                <button class="btn">◁◁ REW</button>
+                <button class="btn">▶ PLAY</button>
+                <button class="btn">▷▷ FWD</button>
+                <button class="btn">■ STOP</button>
+            </div>
+        </section>
+
+        <section class="tracklist">
+            <h2>SIDE A · 八音盒 cover</h2>
+            <div class="track"><span class="track-name">千与千寻 · あの夏へ</span><span class="track-meta">02:14 · 30 孔</span></div>
+            <div class="track"><span class="track-name">天空之城</span><span class="track-meta">02:55 · 30 孔</span></div>
+            <div class="track"><span class="track-name">城南旧事</span><span class="track-meta">02:08 · 30 孔</span></div>
+            <div class="track"><span class="track-name">Remember Me（Coco）</span><span class="track-meta">01:50 · 30 孔</span></div>
+        </section>
+    </main>
+</body>
+</html>

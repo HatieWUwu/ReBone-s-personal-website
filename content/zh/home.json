@@ -48,7 +48,12 @@
       "last_updated": "2026-05-22"
     }
   ],
-  "credits": [],
+  "credits": [
+    "致谢",
+    "文字 · 我",
+    "网站制作 · ChatGPT · DeepSeek · Claude Code",
+    "OpenClaw · Little Blue Man — Claude 4.5 Opus · ChatGPT 5.4 · Hermes Agent"
+  ],
   "inbox_title": "匿名留言箱",
   "inbox_intro": "你可以匿名谈论任何事。选择「公开」，留言会立刻进入 ↗ 公开留言箱；如有回复需要，我的回复也会公开在那里。选择「不公开」请留下一个能联系到你的渠道。",
   "inbox_placeholder": "自由写点什么：",

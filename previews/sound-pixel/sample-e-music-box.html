@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <title>E · Music Box Paper · Sound Pixel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+    <style>
+        :root { --paper:#f3ead2; --paper-2:#ebe0c2; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8678; --hole:#1a1a1a; --warm:#a06a3a; }
+        * { box-sizing: border-box; image-rendering: pixelated; }
+        body { margin: 0; background: var(--paper-2); color: var(--ink); font-family: 'Pixelify Sans', monospace; min-height: 100vh; padding: 1.5rem 1rem; }
+        .stage { max-width: 50rem; margin: 0 auto; }
+        .topbar { display: flex; justify-content: space-between; padding-bottom: 0.6rem; border-bottom: 2px solid var(--ink); font-family: 'VT323', monospace; font-size: 1.2rem; margin-bottom: 1.2rem; }
+        .topbar a { color: var(--ink); text-decoration: none; }
+        h1 { font-size: 2rem; margin: 0 0 0.4rem; font-weight: 700; letter-spacing: 0.04em; }
+        .sub { font-family: 'VT323', monospace; font-size: 1.2rem; color: var(--ink-3); margin: 0 0 1.5rem; }
+
+        /* The paper roll itself — beige strip with punched holes */
+        .roll {
+            background: var(--paper);
+            border: 2px solid var(--ink);
+            padding: 1.2rem 1rem 0.8rem;
+            margin-bottom: 1.3rem;
+            position: relative;
+            box-shadow: 4px 4px 0 var(--warm);
+        }
+        .roll-top, .roll-bottom {
+            display: flex; justify-content: space-around; align-items: center;
+            padding: 0.2rem 0;
+        }
+        .roll-top { border-bottom: 1px dashed var(--ink-3); margin-bottom: 0.6rem; }
+        .roll-bottom { border-top: 1px dashed var(--ink-3); margin-top: 0.6rem; }
+        .feed-hole { width: 8px; height: 8px; background: var(--hole); border-radius: 50%; }
+        .roll-staff {
+            display: grid; grid-template-columns: repeat(24, 1fr); gap: 4px;
+            padding: 0.4rem 0; min-height: 80px;
+        }
+        .roll-staff .col {
+            display: flex; flex-direction: column; gap: 3px; align-items: center;
+        }
+        .roll-staff .dot { width: 7px; height: 7px; background: var(--hole); border-radius: 50%; }
+        .roll-staff .empty { width: 7px; height: 7px; background: transparent; border: 1px dotted var(--ink-3); border-radius: 50%; }
+
+        .now-label { font-family: 'VT323', monospace; font-size: 1.1rem; color: var(--warm); text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 0.4rem; }
+        .now-title { font-size: 1.4rem; font-weight: 700; margin: 0 0 0.6rem; }
+        .now-meta { display: flex; justify-content: space-between; font-family: 'VT323', monospace; font-size: 1.1rem; color: var(--ink-3); }
+
+        .ctrls { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
+        .btn {
+            font-family: 'VT323', monospace; font-size: 1.3rem;
+            background: var(--paper); color: var(--ink);
+            border: 2px solid var(--ink); padding: 0.3rem 0.9rem; cursor: pointer;
+            letter-spacing: 0.06em;
+        }
+        .btn:hover { background: var(--ink); color: var(--paper); }
+
+        .list { background: var(--paper); border: 2px solid var(--ink); padding: 1rem 1.2rem; box-shadow: 4px 4px 0 var(--ink-3); }
+        .list h2 { font-size: 1.1rem; margin: 0 0 0.6rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--ink-3); letter-spacing: 0.04em; }
+        .row { display: grid; grid-template-columns: 2rem 1fr auto auto; gap: 0.8rem; align-items: baseline; padding: 0.5rem 0; font-family: 'VT323', monospace; font-size: 1.2rem; border-bottom: 1px dotted var(--ink-3); }
+        .row:last-child { border-bottom: 0; }
+        .row .n { color: var(--warm); }
+        .row .name { color: var(--ink); }
+        .row .holes { color: var(--ink-3); font-size: 1rem; }
+        .row .len { color: var(--ink-3); font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <header class="topbar">
+            <a href="index.html">← samples</a>
+            <span>E · MUSIC BOX PAPER</span>
+        </header>
+
+        <h1>音乐</h1>
+        <p class="sub">music box paper · holes that sing</p>
+
+        <section class="roll">
+            <p class="now-label">▼ now playing</p>
+            <p class="now-title">千与千寻 · あの夏へ</p>
+            <div class="roll-top">
+                <span class="feed-hole"></span><span class="feed-hole"></span><span class="feed-hole"></span>
+                <span class="feed-hole"></span><span class="feed-hole"></span><span class="feed-hole"></span>
+                <span class="feed-hole"></span><span class="feed-hole"></span><span class="feed-hole"></span>
+            </div>
+            <div class="roll-staff" id="roll-staff"></div>
+            <div class="roll-bottom">
+                <span class="feed-hole"></span><span class="feed-hole"></span><span class="feed-hole"></span>
+                <span class="feed-hole"></span><span class="feed-hole"></span><span class="feed-hole"></span>
+                <span class="feed-hole"></span><span class="feed-hole"></span><span class="feed-hole"></span>
+            </div>
+            <p class="now-meta"><span>00:53 / 02:14</span><span>30 孔纸带</span></p>
+            <div class="ctrls">
+                <button class="btn">◁ 倒带</button>
+                <button class="btn">▶ 摇</button>
+                <button class="btn">▷ 快进</button>
+                <button class="btn">订购纸带</button>
+            </div>
+        </section>
+
+        <section class="list">
+            <h2>曲目册</h2>
+            <div class="row"><span class="n">01</span><span class="name">千与千寻 · あの夏へ</span><span class="holes">30 孔</span><span class="len">2:14</span></div>
+            <div class="row"><span class="n">02</span><span class="name">天空之城</span><span class="holes">30 孔</span><span class="len">2:55</span></div>
+            <div class="row"><span class="n">03</span><span class="name">城南旧事</span><span class="holes">30 孔</span><span class="len">2:08</span></div>
+            <div class="row"><span class="n">04</span><span class="name">Remember Me（Coco）</span><span class="holes">30 孔</span><span class="len">1:50</span></div>
+            <div class="row"><span class="n">05</span><span class="name">Saria's Theme</span><span class="holes">15 孔</span><span class="len">1:38</span></div>
+        </section>
+    </div>
+    <script>
+        // procedurally render 24 columns of "music box paper" punched holes
+        const staff = document.getElementById('roll-staff');
+        const ROWS = 6;
+        const COLS = 24;
+        const pattern = [3,5,1,4,2,5,6,4,2,3,5,1,3,4,6,2,5,3,1,4,5,2,6,3];
+        for (let c = 0; c < COLS; c++) {
+            const col = document.createElement('div');
+            col.className = 'col';
+            for (let r = 0; r < ROWS; r++) {
+                const dot = document.createElement('span');
+                dot.className = (r === ROWS - pattern[c]) ? 'dot' : 'empty';
+                col.appendChild(dot);
+            }
+            staff.appendChild(col);
+        }
+    </script>
+</body>
+</html>
