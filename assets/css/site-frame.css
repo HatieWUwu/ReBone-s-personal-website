@@ -243,6 +243,11 @@ body {
     padding: 0.18rem 0;
     line-height: 1.8;
 }
+.intro-points li.intro-points-spacer {
+    height: 1rem;
+    padding: 0;
+    list-style: none;
+}
 
 /* ───── Chapter/section row pattern (used by homepage cards, project navs) ── */
 /* renderHome() emits .section-card / .section-card-title / .section-card-desc /
@@ -1718,17 +1723,22 @@ body {
 .apple-svg[data-active="flesh"] .apple-label-flesh,
 .apple-svg[data-active="core"]  .apple-label-core { fill: var(--ink); font-weight: 600; }
 
-.readme-layer {
-    margin: 1rem 0 0;
+.readme-sealed {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
 }
-.readme-layer-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.74rem;
-    color: var(--ink-3);
-    letter-spacing: 0.08em;
-    margin: 0 0 1rem;
-    padding-bottom: 0.4rem;
-    border-bottom: 1px solid var(--rule-2);
+.readme-sealed h2 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 0 0 0.8rem;
+    letter-spacing: 0.005em;
+}
+.readme-sealed p {
+    color: var(--ink-2);
+    line-height: 1.85;
+    margin: 0 0 1.2rem;
 }
 
 .apple-request {
