@@ -1,0 +1,42 @@
+{
+  "eyebrow": "Visual",
+  "title": "视觉艺术",
+  "description": "实体作品、图像、材料实验与视觉叙事。",
+  "breadcrumb": {
+    "parent": "Expressions",
+    "current": "视觉艺术"
+  },
+  "intro": [
+    "这里保留原来那种作品展示的方向，但从单页站位稿改成更适合长期扩展的 archive 结构。素材现在可以慢慢替换，页面先把骨架搭住。"
+  ],
+  "works": [
+    {
+      "title": "破碎与重构",
+      "date": "2024.04",
+      "summary": "探索创伤后的自我重建过程，陶瓷与金属的对话。",
+      "quote": "真正的坚韧不是不被击碎，而是有勇气将碎片重新拼合成新的形态。",
+      "image": {
+        "mode": "placeholder",
+        "label": "IMAGE PLACEHOLDER",
+        "theme": "dark"
+      }
+    },
+    {
+      "title": "异步对话",
+      "date": "2024.02",
+      "summary": "通过算法生成的声音景观，模拟非实时沟通的美学。",
+      "quote": "延迟回复不是情感的衰减，而是思想的沉淀。",
+      "image": {
+        "mode": "placeholder",
+        "label": "IMAGE PLACEHOLDER",
+        "theme": "light"
+      }
+    }
+  ],
+  "reserved": {
+    "eyebrow": "Reserved",
+    "title": "预留给新的视觉作品",
+    "text": "这里以后可以继续加实体作品、摄影、影像静帧、材料实验，或更完整的项目说明。",
+    "tag": "Material pending"
+  }
+}

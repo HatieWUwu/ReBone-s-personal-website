@@ -1060,7 +1060,10 @@ function renderReflections(data) {
     panelKeywords.textContent = (region.keywords || []).map((k) => `· ${k}`).join(' ');
     panelContent.innerHTML = '';
 
-    const items = (region.items || []).slice().sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)));
+    const items = (region.items || [])
+      .filter((it) => !it.hidden)
+      .slice()
+      .sort((a, b) => dateKey(b.date).localeCompare(dateKey(a.date)));
     if (!items.length) {
       panelContent.appendChild(createElement('p', 'reflections-row-empty', '这一块还在持续记录中。'));
     }
