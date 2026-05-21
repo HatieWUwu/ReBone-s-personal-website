@@ -20,7 +20,10 @@
     --rail-width:   15rem;  /* ~ a quarter of the canvas */
     --gutter-gap:   2.25rem;
 
-    --font-serif:  'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+    /* English glyphs come from the monospace family first; Chinese has no
+       glyph there and falls through to Noto Serif SC. So Latin text gets
+       the "programming" mono look, while Chinese stays serif. */
+    --font-serif:  ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
     --font-mono:   ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
@@ -888,30 +891,24 @@ body {
     stroke: rgba(26, 26, 26, 0.32);
     stroke-width: 1;
 }
-.venn-label {
-    font-family: var(--font-serif);
-    font-size: 14px;
-    font-weight: 500;
-    fill: var(--ink);
-    pointer-events: none;
-    transition: font-weight 120ms ease, fill 120ms ease;
-}
+.venn-label,
 .venn-intersection {
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 12px;
+    font-weight: 500;
     fill: var(--ink);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.04em;
     pointer-events: none;
     transition: font-weight 120ms ease, fill 120ms ease;
 }
-.venn-center { font-weight: 600; font-size: 12px; }
+.venn-center { /* same as siblings — no special bold */ }
 
 /* Hover feedback: the label of the region under the cursor goes bold,
-   everything else fades slightly. Click feedback uses data-active. */
+   everything else fades slightly. */
 .venn-svg[data-hover] .venn-label,
-.venn-svg[data-hover] .venn-intersection { fill: var(--ink-3); }
+.venn-svg[data-hover] .venn-intersection { fill: var(--ink-3); font-weight: 500; }
 .venn-svg[data-hover=""] .venn-label,
-.venn-svg[data-hover=""] .venn-intersection { fill: var(--ink); }
+.venn-svg[data-hover=""] .venn-intersection { fill: var(--ink); font-weight: 500; }
 .venn-svg[data-hover="me"]          [data-region="me"],
 .venn-svg[data-hover="human"]       [data-region="human"],
 .venn-svg[data-hover="animal"]      [data-region="animal"],

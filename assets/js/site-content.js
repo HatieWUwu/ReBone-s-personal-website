@@ -1098,8 +1098,8 @@ function renderReflections(data) {
     });
   }
 
-  // Open 我 by default — it's the user's own anchor.
-  if (data.regions.me) showRegion('me');
+  // Don't auto-open any region — let the user choose.
+  // (Previously we auto-opened 我, which made its label always appear bold.)
 
   applyEnglishReadingMode(panelContent);
 
