@@ -20,10 +20,11 @@
     --rail-width:   15rem;  /* ~ a quarter of the canvas */
     --gutter-gap:   2.25rem;
 
-    /* English glyphs come from the monospace family first; Chinese has no
-       glyph there and falls through to Noto Serif SC. So Latin text gets
-       the "programming" mono look, while Chinese stays serif. */
-    --font-serif:  ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
+    /* Body / long-form text: proportional. English uses Georgia / Iowan
+       (warm readable serif), Chinese falls through to Noto Serif SC.
+       Mono is reserved for tiny labels / dates / code so the body stays
+       comfortable to read. */
+    --font-serif:  'Iowan Old Style', Georgia, Cambria, 'Times New Roman', 'Noto Serif SC', 'Source Han Serif SC', 'Songti SC', serif;
     --font-mono:   ui-monospace, 'SFMono-Regular', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 }
 
@@ -1636,6 +1637,149 @@ body {
 }
 .project-breadcrumb a:hover { color: var(--ink); }
 .project-breadcrumb span { color: var(--ink-2); }
+
+/* ───── Apple cross-section (README) ─────────────────────── */
+
+.apple-section {
+    margin: 0.5rem 0 2.5rem;
+    text-align: center;
+    scroll-margin-top: 5rem;
+}
+.apple-hint {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem;
+}
+.apple-stage {
+    display: flex;
+    justify-content: center;
+}
+.apple-svg {
+    width: 18rem;
+    max-width: 90%;
+    height: auto;
+    display: block;
+}
+.apple-leaf {
+    fill: var(--ink-2);
+    opacity: 0.55;
+    pointer-events: none;
+}
+.apple-stem {
+    stroke: var(--ink-2);
+    stroke-width: 3;
+    fill: none;
+    pointer-events: none;
+}
+.apple-layer {
+    cursor: pointer;
+    transition: opacity 200ms ease, fill 200ms ease;
+}
+.apple-skin {
+    fill: rgba(26, 26, 26, 0.10);
+    stroke: var(--ink-2);
+    stroke-width: 1.1;
+}
+.apple-flesh {
+    fill: rgba(26, 26, 26, 0.08);
+    stroke: var(--ink-3);
+    stroke-width: 1;
+}
+.apple-core polygon {
+    fill: rgba(26, 26, 26, 0.45);
+    stroke: var(--ink);
+    stroke-width: 1.1;
+    stroke-linejoin: round;
+}
+.apple-core .apple-seed {
+    fill: var(--bg);
+    stroke: none;
+}
+.apple-svg:hover .apple-skin { fill: rgba(26, 26, 26, 0.14); }
+.apple-svg:hover .apple-flesh { fill: rgba(26, 26, 26, 0.12); }
+.apple-svg[data-active="skin"] .apple-skin {
+    fill: rgba(26, 26, 26, 0.20);
+    stroke: var(--ink);
+}
+.apple-svg[data-active="flesh"] .apple-flesh {
+    fill: rgba(26, 26, 26, 0.18);
+    stroke: var(--ink);
+}
+.apple-svg[data-active="core"] .apple-core polygon {
+    fill: rgba(26, 26, 26, 0.65);
+}
+.apple-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    fill: var(--ink-3);
+    letter-spacing: 0.04em;
+    pointer-events: none;
+}
+.apple-svg[data-active="skin"]  .apple-label-skin,
+.apple-svg[data-active="flesh"] .apple-label-flesh,
+.apple-svg[data-active="core"]  .apple-label-core { fill: var(--ink); font-weight: 600; }
+
+.readme-layer {
+    margin: 1rem 0 0;
+}
+.readme-layer-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    margin: 0 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--rule-2);
+}
+
+.apple-request {
+    margin-top: 1rem;
+}
+.apple-request-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    margin: 1rem 0 0.35rem;
+    text-transform: uppercase;
+}
+.apple-request-input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 0.5rem 0;
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    outline: none;
+    resize: vertical;
+    min-height: 5rem;
+}
+.apple-request-input:focus { border-bottom-color: var(--ink-2); }
+.apple-request-contact {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    padding: 0.4rem 0;
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 0.92rem;
+    outline: none;
+}
+.apple-request-contact:focus { border-bottom-color: var(--ink-2); }
+.apple-request-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
 
 /* ───── Article (readme) ──────────────────────────────────── */
 

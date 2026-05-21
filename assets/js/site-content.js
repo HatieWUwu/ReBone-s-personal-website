@@ -1534,13 +1534,82 @@ async function initHome() {
 
 async function initReadme() {
   const article = document.getElementById('readme-article');
-  if (!article) return;
-  try {
-    article.innerHTML = await loadLocalizedText('readme.article.html');
-    applyEnglishReadingMode(article, { article: true });
-  } catch (error) {
-    console.error(error);
+  if (article) {
+    try {
+      article.innerHTML = await loadLocalizedText('readme.article.html');
+      applyEnglishReadingMode(article, { article: true });
+    } catch (error) {
+      console.error(error);
+    }
   }
+  initAppleLayers();
+  initAppleRequest();
+}
+
+function initAppleLayers() {
+  const svg = document.getElementById('apple-svg');
+  if (!svg) return;
+  const layers = document.querySelectorAll('.readme-layer');
+  const railLinks = document.querySelectorAll('[data-layer-link]');
+  function show(name) {
+    svg.dataset.active = name;
+    layers.forEach((el) => { el.hidden = el.dataset.layer !== name; });
+    railLinks.forEach((a) => a.classList.toggle('active', a.dataset.layerLink === name));
+    const target = document.getElementById(`layer-${name}`);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  svg.querySelectorAll('[data-layer]').forEach((el) => {
+    el.addEventListener('click', () => show(el.dataset.layer));
+  });
+  railLinks.forEach((a) => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    show(a.dataset.layerLink);
+  }));
+  // Default: skin
+  svg.dataset.active = 'skin';
+}
+
+function initAppleRequest() {
+  const button = document.getElementById('apple-request-submit');
+  const text = document.getElementById('apple-request-text');
+  const contact = document.getElementById('apple-request-contact');
+  const status = document.getElementById('apple-request-status');
+  if (!button || !text || !contact) return;
+  button.addEventListener('click', async () => {
+    const body = text.value.trim();
+    const ch = contact.value.trim();
+    if (!body) { status.textContent = '先写点你的情况再申请。'; return; }
+    if (!ch)   { status.textContent = '请留一个回信渠道，不然我没办法回到你。'; return; }
+    status.textContent = '正在投递……';
+    try {
+      const home = await loadLocalizedJson('home.json');
+      const endpoint = home.inbox_endpoint || '';
+      const payload = {
+        kind: 'apple-core-request',
+        rationale: body,
+        contact: ch,
+        submittedAt: new Date().toISOString(),
+        sourceUrl: window.location.href,
+      };
+      if (endpoint) {
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      } else {
+        const subject = encodeURIComponent('[申请阅读] 果核 · 封存');
+        const lines = [`回信渠道：${ch}`, '', body];
+        window.location.href = `mailto:wuruohan0522@gmail.com?subject=${subject}&body=${encodeURIComponent(lines.join('\n'))}`;
+      }
+      text.value = ''; contact.value = '';
+      status.textContent = '已记下，谢谢你写给我。我看完之后会从你留下的渠道回到你。';
+    } catch (err) {
+      console.error(err);
+      status.textContent = '投递失败了，稍后再试。';
+    }
+  });
 }
 
 async function initSolutions() {
