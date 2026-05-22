@@ -1,87 +1,141 @@
 {
   "title": "Reflections",
-  "subtitle": "Thoughts formed between input and output.",
+  "subtitle": "Things that iterate between input and output.",
   "intro": [
-    "These represent only my personal attempts at organizing thought. Whether you agree or not, you are welcome to read them in a spirit of looking for inspiration and discussion.",
-    "They will keep iterating as I continue to exist."
+    "These are just my own notes. Whether or not your own thinking lines up, you're welcome to read them as a way of looking for sparks or starting a conversation.",
+    "They keep evolving as I do."
   ],
-  "footnote": "* About the categories: ‘human’ and ‘animal’ are separated here for structural clarity, not because I see humans as above other animals.",
-  "hint": "Click anywhere to view the content",
+  "footnote": "* About the categories: «Me / Humans / Animals» is for clarity, not a claim that humans are above other animals. Where the circles overlap is where the relationships happen — Social / Care / Reciprocity; the very center, where all three meet, is Life itself.",
+  "statements": [
+    {
+      "label": "On how much I read",
+      "text": "My weakness is that I don't really read books, and I don't really learn things systematically — or more accurately, it's not that I don't want to; I just have too many things to do, so all my skills and thinking are picked up on the way to using them. On top of that, some of my thinking will naturally lack the perspective that wider reading gives, because I've read so little. I'll patiently bring more systematic reading and learning back over time. But at this stage I have this weakness — I want to say so up front."
+    },
+    {
+      "label": "On similarity to others",
+      "text": "Anything with a reference or a source — I cite it. I have no desire to dress someone else's thinking up as my own. A few situations can happen: (1) I subconsciously read someone's work without realising it, and it became part of how I think; (2) I remembered the source once and lost it later; (3) I really did think it through on my own, and it just happens to be close to someone else's thought. If someone points me to relevant work and I do remember it being formative, I'll add the reference. If it really is my own thread, I'll bring the other person's thinking in as a conversation, as something that nudged me. Absolute truth is what I care about most. Saying nothing isn't the same as lying."
+    }
+  ],
   "regions": {
-    "human": {
-      "title": "Humans",
-      "keywords": ["Instinct", "Adaptability", "Desire", "Distortion"],
+    "me": {
+      "title": "Me",
+      "keywords": ["choice", "feeling & reason", "self-coherence", "constructive thinking"],
       "items": [
         {
-          "subtitle": "Instinct",
-          "text": "Human nature is not survival, but the avoidance of pain.\n\nThe reason people survive is only that the problems brought by not surviving are painful. People struggle to stay alive in order not to suffer—from hunger, illness, extreme weather, injury.\n\nThis also explains why people commit suicide. If human instinct were survival, then no matter what, people would not do it. It is precisely because the pain of living can exceed the pain brought by death that a person chooses death in order to stop bearing that pain.",
-          "date": ""
+          "date": "2025",
+          "subtitle": "Reason and desire",
+          "text": "I have, in the name of reason, betrayed reason — when reason becomes the tool that serves desire, rather than the self-legislator, that subtle «internalised heteronomy» is exactly what moral autonomy warns against. The difference: «reason serving something» is instrumental reason; «reason answering to reason itself» is moral reason. The latter isn't opposed to the former; it's its higher-order correction, the thing that lets reason survive long-term inside a community."
         },
         {
-          "subtitle": "Adaptability",
-          "text": "Human instinct is to seek benefit and avoid harm. At the same time, people are adaptive. Desire is never fully satisfied, and pain can distort one’s nature.",
-          "date": "2023"
+          "date": "2024.10.27",
+          "subtitle": "Care",
+          "text": "When you're caring for someone, the core is: don't be presumptuous, don't be too soft-hearted, and don't be inexplicably hard. Understand what the life in front of you actually needs, then act on that. That, in itself, is a kind of rationality and objectivity."
         },
         {
-          "subtitle": "",
-          "text": "Desire is often not satisfied simply by being fulfilled. Many times it is like the yam porridge in Rashomon: the obsession lies in desire itself.\n\nAfter realizing this, one should stop remaining loyal to desire. Sometimes desire leads toward destruction—toward trampling oneself, and trampling others.",
-          "date": "2025.11.3"
+          "date": "2024.7.24",
+          "subtitle": "Self-coherence",
+          "text": "Not arrogant. Not avoidant. Not trampling on others, not trampling on yourself.\n\nThe core is to be self-coherent in this world — to have a place where you feel at ease, an ideal you can keep pursuing, and the means to keep yourself alive."
         },
         {
-          "subtitle": "",
-          "text": "The meaning of life lies in the process; the result is only one form that the process takes.\n\nTo overfocus on result-points and pin ‘happiness’ on them is hopeless. To hold the wrong expectation that results will bring happiness is like dangling an apple directly in front of a donkey.",
-          "date": "2023"
+          "date": "2024.7.19",
+          "subtitle": "A crack",
+          "text": "Find a crack, and do a small thing. — Yixi"
         },
         {
-          "subtitle": "",
-          "text": "After the Wenchuan earthquake, people rescued from underground had to have their eyes covered immediately, because their eyes were no longer adapted to sunlight.\n\nAnd if a person has grown up in a distorted environment, that set of defense mechanisms no longer fits in a healthy one. That is the kind of person who seems out of place, who strikes others as strange.",
-          "date": "2023"
+          "date": "2024.7.14",
+          "subtitle": "Constructive thinking",
+          "text": "If I see what looks like a circle and it turns out to be lumpy and rough, I'd be disappointed. But I know there is no real circle in this world — only irregular, rough shapes. And what I can do in a shape like that is plenty: I can hammer at it, tuck a chair into a corner, leave a skateboard by the slope. As long as a real person can use it, I'm happy and satisfied."
+        },
+        {
+          "date": "2024",
+          "subtitle": "If, suddenly",
+          "text": "If I die unexpectedly one day, I hope what I leave behind — the thinking and the things I made — can be meaningful to some other life."
+        },
+        {
+          "date": "2023",
+          "subtitle": "Feelings and reason",
+          "text": "Feelings are the fuel; reason decides where the fuel flows. Calling reason cold is wrong; calling feeling foolish is another kind of intellectual arrogance.\n\nIf you have no feelings or desires and only logic, the whole structure ends up suspended in mid-air — many people end up feeling empty. But if you only have feelings without building a frame of reason, the feelings spill everywhere. The two have to feed each other."
+        },
+        {
+          "date": "2022",
+          "subtitle": "Living for myself",
+          "text": "It's only when you're living for yourself that you really have the courage to be disliked. Living for others' expectations leaves you forever inside anxiety and inadequacy. For me, living for myself meant finding something that mattered, to me. I don't know if I've found it — but I do know what I have to do.\n\nFrom today, my meaning sits in today and tomorrow and the future — in who I want to become, in what I want to do. When obstacles come up I solve them, patiently, bit by bit. Yesterday and before don't get to decide what kind of person I am. From today, my life has a meaning that goes far beyond feelings. I won't choose self-destruction because of pain."
         }
       ]
     },
-    "me": {
-      "title": "Me",
-      "keywords": ["Choice", "Feeling and Reason", "Self-Consistency", "Constructive Thinking"],
+    "human": {
+      "title": "Humans",
+      "keywords": ["nature", "adaptation", "desire", "distortion"],
       "items": [
         {
-          "subtitle": "My Choice",
-          "text": "Four years ago, I was still full of hatred toward rapists and so many people in society who made me feel suffocated just by looking at them. I thought that, if I was going to kill myself, I would build a group that pretended to lure in adults seeking to rape minors, and then xx everyone who showed up.\n\nBut as I kept planning it, I felt deeply dissatisfied. It seemed like that would only destroy one group of people. So I began to think about whether I could build a meaning greater than this pain.\n\nAs I thought, I realized two things: first, only by staying alive can something continue without end. Second, many lives in pain still have not chosen to give up, and yet remain helpless.\n\nSo I stopped living for myself and began living for life. The original intention of that meaning was to make other lives happier, but it gradually became a kind of inner drive that belonged to me and pulled me out of my own dead end.",
-          "date": ""
+          "date": "2025.11.9",
+          "subtitle": "Will vs Ability",
+          "text": "Will and ability have to be looked at separately. You can understand a person's will — but you can't equate that with their ability. The clearest example is people who abuse their partners — they may, after each incident, slap themselves and swear it'll never happen again. Some of them really mean it. But will and ability are two different things. No matter how badly someone wants to be a certain kind of person, the part others have to take seriously is their ability. Strong will isn't proof of capacity."
         },
         {
-          "subtitle": "",
-          "text": "From today on, my meaning lies in today, tomorrow, and the future—in what kind of person I want to become, and what kind of things I want to do. I will no longer keep thinking about yesterday and the past; they cannot define what kind of person I am.",
-          "date": "2022"
+          "date": "2025.11.3",
+          "subtitle": "Desire itself",
+          "text": "Desire often isn't satisfied by getting what it asked for — like the yam porridge in Rashomon, the obsession is the desire itself. Once you see that, you shouldn't keep being loyal to desire. Because desire sometimes leads to ruin — to trampling yourself, to trampling others."
         },
         {
-          "subtitle": "",
-          "text": "One day, I forgave myself.\nI once took revenge on someone, but I did not feel happy either.",
-          "date": "2023"
+          "date": "2025.4.29",
+          "subtitle": "The one who reached for the stars",
+          "text": "There was a person\nvery happy with their hands — nimble, capable, able to do a lot.\nBut the person wanted to touch a star in the sky.\n\nSo they studied, and built longer arms.\nWork didn't let up; things slowly moved forward.\n\nUntil one day, with a single «clang»,\nthe person's arm really did touch a star.\n\nThe person wanted to swing the arm in joy —\nbut the arm was too heavy to move.\nThe whole body had stiffened, too.\n\nThe star inched, just a little, in the sky;\nthe arm followed, just a little.\nFrom the star's view, the smallest move,\nand the person —\nhad already been pressed into a flat circle of blood."
         },
         {
-          "subtitle": "Feeling and Reason",
-          "text": "Feeling is the fuel of a person; reason determines where that fuel flows. It is not right to accuse reason of being cold, and the intellectual arrogance that sees emotion as stupid is another form of prejudice.",
-          "date": "2023"
+          "date": "2025",
+          "subtitle": "Chemical reaction",
+          "text": "I'm starting to understand the «not-black-and-white» part of human relationships. So often it isn't a simple a-causes-b chain — it's a chemical reaction, multiple ingredients producing a result together. If a hurt b, maybe a was already volatile, would have lit up against c, d, e or f. Or maybe what catalysed it was a-and-b together. None of that is «who's how guilty», and none of it is an excuse for the person who hurt someone. But it helps a lot — for understanding yourself, for recognising the chemistry that could turn bad, for defending against it.\n\nIt just means I try to understand causes. It doesn't erase the lines I need to draw, and it doesn't ignore decisive factors. People also have potentials of their own; ignoring those and only looking at environment misses the point of «chemistry» entirely."
         },
         {
-          "subtitle": "Self-Consistency",
-          "text": "At the core is being able to live coherently in this world. That means having a place in the world where one can stay at ease, ideals one can keep advancing, and the ability to support oneself.\n\nNot arrogant, not avoidant, not trampling others, and not trampling oneself.",
-          "date": "2024.7.24"
+          "date": "2024.10",
+          "subtitle": "Group cohesion",
+          "text": "There are so many team-bonding activities. If someone doesn't participate they get accused of being «detached, disobedient» — but the activity was never designed with people like that in mind. It's not that one activity has to fit every person (it can't), but the designers have to at least be aware of the different kinds of people who might show up, instead of imagining an ideal model. And they have to hear what's actually said, instead of assuming. Introverts, for instance, may not have the «being-with-the-crowd» need others assume they do."
         },
         {
-          "subtitle": "Constructive Thinking",
-          "text": "If I see a circle that is actually full of bumps and dents, I will feel disappointed. But I know there is no truly perfect circle in this world, only irregular, rough shapes.\n\nThen there is so much I can do: place a chair at a corner, put a skateboard beside a slope.\n\nAs long as a real person can use it, I feel very happy and fulfilled.",
-          "date": "2024.7.14"
+          "date": "2024.10.21",
+          "subtitle": "Carrying the problem",
+          "text": "If you're brave enough, keep carrying the problem forward — until the cause and effect ripen and the problem falls away on its own. The way people solve problems isn't trying to find an answer. It's carrying the thing until the day you can solve it."
         },
         {
-          "subtitle": "",
-          "text": "Find a crack, and do one small thing. — Yixi",
-          "date": "2024.7.19"
+          "date": "2023",
+          "subtitle": "A distorted environment",
+          "text": "When people were pulled from underground after the Wenchuan earthquake, they had to cover their eyes first. Their eyes had stopped adapting to sunlight.\n\nIf a person grew up in a distorted environment, the defences that grew there don't fit a healthy environment any more. That's the person who looks «out of step», the one who looks strange."
         },
         {
-          "subtitle": "",
-          "text": "If one day I die unexpectedly, I hope the thoughts and things I leave behind will give meaning to other lives.",
-          "date": "2024"
+          "date": "2023",
+          "subtitle": "Adaptation",
+          "text": "Human instinct is to seek pleasure and avoid pain. And humans are also adaptive. Desire never gets full, and pain bends the heart."
+        },
+        {
+          "date": "2023",
+          "subtitle": "Process",
+          "text": "The meaning of living is the process; the result is just one of the shapes the process can take. Pinning «happiness» or «being happier» onto result-milestones is hopeless — that kind of happiness gets quickly absorbed by our adaptability. I once paid off years of loans; I thought I'd feel happy and lighter for a long time, but it was a brief spell, then it became normal. Hanging the wrong kind of expectation on a result is like dangling an apple in front of a donkey — you chase the apple, get lost inside it, because the apple was never the answer."
+        },
+        {
+          "date": "2022",
+          "subtitle": "Instinct",
+          "text": "Human nature isn't survival. It's avoidance of pain. The reason we choose to survive is because dying-of-causes is painful. We struggle to live to avoid the suffering of hunger, sickness, extreme weather, injury.\n\nThis is also why people take their own lives. If instinct were pure survival, no one would. People choose death only when the pain of being alive exceeds the pain of dying — they choose it to stop bearing the larger pain.\n\nBaseline good-and-bad is physical and psychological feeling. Constructed good-and-bad is meaning that we find. When the meaning grows large enough, a person stops being a creature that only chases desire."
+        },
+        {
+          "date": "2021.11.30",
+          "subtitle": "Truth",
+          "text": "Truth doesn't matter to most people. People prefer to believe what they want to believe — they prefer their desires get the relief of «being officially recognised as fact». A sudden disappointment or anger, most of the time, is because the events didn't match what they expected.\n\nLearn to let go of trying to control or expect facts the way desire wants them."
+        },
+        {
+          "date": "2021",
+          "subtitle": "Not interchangeable",
+          "text": "Human grief and human joy don't translate between people. A person's pain, without any cosmetic on it, might be ugly — real and ugly. Please understand: that's what real is."
+        },
+        {
+          "date": "2020.7.17",
+          "subtitle": "Respect",
+          "text": "Drinkers don't get why tea-drinkers find joy in tea; tea-drinkers don't get why drinkers use alcohol to dissolve their worries. Tea and alcohol are not noble or low. You don't have to understand each other — but please respect."
+        },
+        {
+          "date": "2019.12.5",
+          "subtitle": "Fairness and ease",
+          "text": "«The principle of 'fairness' people derive from selfishness» — Soseki, I Am a Cat\nSo-called fairness is often just: I don't want to have less than someone else. If I don't have it, you shouldn't either. The day someone really has more than others, who's still chasing «fairness»?\n\n«All worldly ease must be earned through hardship» — Soseki, I Am a Cat\nTrue. Sugar tastes sweet only because you've drunk plain water. If you only ever drank sugar water, could you still taste the sweetness? Without a little bitterness in life — how would you taste anything good?"
         }
       ]
     },
@@ -90,83 +144,113 @@
       "keywords": ["Five Freedoms"],
       "items": [
         {
+          "date": "",
           "subtitle": "Five Freedoms",
-          "text": "The most basic principle of modern animal welfare: animals under human care should have—\n\n• freedom from hunger and thirst\n• freedom of comfort\n• freedom from pain, injury, and disease\n• freedom from fear and distress\n• freedom to express natural behavior",
-          "date": ""
+          "text": "The fundamental principle of modern animal welfare — animals in human care should have:\n\n· freedom from hunger and thirst\n· freedom to live comfortably\n· freedom from pain and injury\n· freedom from fear and distress\n· freedom to express their natural behaviour"
         }
       ]
     },
     "social": {
       "title": "Social (Me × Humans)",
-      "keywords": ["How I See Others", "Don’t Presume"],
+      "keywords": ["seeing others", "not presuming", "company", "conversation"],
       "items": [
         {
-          "subtitle": "How I See Other People",
-          "text": "I do not despise or look down on anyone. I think everyone is simply walking a different road.",
-          "date": "2025.4.29"
+          "date": "2025.6",
+          "subtitle": "Racheli",
+          "text": "Racheli says — looking at people, always so interesting. Seeing this many people, imagining all the stories behind them."
         },
         {
-          "subtitle": "",
-          "text": "If a person loves me, or if a person hates me, both are forms of desire. Whether love comes from understanding or desire, and whether hatred is partial or complete, depends on character.\n\nA love grounded in understanding, or a complete hatred, I will both respect and appreciate; a love grounded in desire, or a partial hatred, I will filter out.",
-          "date": "2025.6"
+          "date": "2025.6",
+          "subtitle": "Love and hate",
+          "text": "Whether someone loves me or hates me — both are desire. Whether the love is understanding or possession, whether the hate is partial or whole-cloth — that comes down to character. An understanding love or a whole-cloth hate, I respect and thank. A possessive love or a partial hate, I filter."
         },
         {
-          "subtitle": "",
-          "text": "I no longer hate anyone. I may approve or disapprove of actions, but I will not elevate that approval or disapproval to the level of an entire person.",
-          "date": "2024"
+          "date": "2025.6",
+          "subtitle": "War",
+          "text": "War between countries has no good-or-evil any more — only positions. Sorrowful collective positions, where people have no choice and individuals suffer. Meaningless, but pushed forward anyway.\n\nI won't ever go numb — many things need to be remembered. I might not say more on this here, because right now what I have is pure worry and a powerless blessing. I'll keep thinking, until there's something I can really do."
         },
         {
-          "subtitle": "Don’t Presume",
-          "text": "A classmate was bitten by mosquitoes. I felt worried when I saw it and kept helping to drive them away. They refused twice and explained that it actually did not itch, but even after being refused I kept shooing the mosquitoes away for a while.\n\nI think I should learn to understand other people’s refusals, instead of only doing what looks kind from my side without hearing what they are saying. I should not presume.",
-          "date": "2024.10"
+          "date": "2025.4.29",
+          "subtitle": "Seeing the other",
+          "text": "I won't look down on anyone. We're just walking different paths."
         },
         {
-          "subtitle": "",
-          "text": "When caring for someone, you cannot presume. You cannot be overly soft-hearted, and you cannot be inexplicably forceful. You have to really understand the needs of a life first, and then do what corresponds to them.",
-          "date": "2024.10.27"
+          "date": "2025",
+          "subtitle": "Passion is a gift",
+          "text": "Talking with J, a coworker decades older. He says to the IT person — he isn't good at talking, doesn't sleep well, and «I don't have that strong love-for-something the way other people do». I said: «I think that's a kind of gift.»\n\nSometimes people see being quiet as a flaw, being meticulous as a virtue. But behind those — «flaw», «virtue» — there might really be the same thing: that the person loves to think. Which makes them less practised at expressing complicated content, and also makes them meticulous. The same trait makes it hard to keep a pure, hot passion going, makes it hard to fall asleep because the head won't stop. But this trait is also what gives them what they're good at, what other people don't have.\n\nSo flaw or virtue, it doesn't matter that much. What matters is knowing what your underlying trait is — how to take care of it, how to nurture it, and in that, work to become the person you want to be."
+        },
+        {
+          "date": "2025",
+          "subtitle": "«Home»",
+          "text": "I said: «home» isn't a room — it's the whole environment of your childhood. Because I loved horror stories as a kid, reading a horror story now, when I'm scared or unsettled, calms me. So horror stories are also a kind of home to me. J says — he smells a certain crop being burned and his childhood floods back, so when he sees someone burning that crop he opens the car window to let the smell in."
+        },
+        {
+          "date": "2025",
+          "subtitle": "Maintenance",
+          "text": "The demo models in the CAD Room — I used to have no concept of maintaining them. I'd make them, leave them on the table, fix them when I noticed something was off. Later I realised: even the smallest models, with time, naturally bend and stick — even under normal use.\n\nJ says: small structures are like that; large machinery is like that too. And I thought — machines are like that, people are like that. Your own life is like that, the care of relationships is like that. If you don't actively maintain, they'll slowly turn — like fruit past its date."
+        },
+        {
+          "date": "2024.10",
+          "subtitle": "Don't presume",
+          "text": "A classmate got bit by a mosquito; I felt worried and kept swatting it away. They refused twice and explained that it actually wouldn't itch. But for a while after the refusal I still kept swatting. I need to learn to read people's «no» — not to do something that looks helpful while ignoring the voice that's right there. Don't presume."
+        },
+        {
+          "date": "2024",
+          "subtitle": "No more hate",
+          "text": "I don't hate anyone any more. I might endorse or not endorse a behaviour — but I won't let that escalate into a judgment on the whole person."
         }
       ]
     },
-    "interact": {
-      "title": "Interaction (Me × Animals)",
-      "keywords": ["To Be Added"],
+    "care": {
+      "title": "Care (Me × Animals)",
+      "keywords": ["companionship", "trust"],
       "items": [
         {
-          "subtitle": "To Be Added",
-          "text": "• Methods of eating that minimize suffering\n• Rescue methods\n• What I have learned from keeping snakes",
-          "date": ""
+          "date": "2025",
+          "subtitle": "Snake · shedding",
+          "text": "Leaving for five days, worried about the little snake that's mid-shed and fragile. On the phone with my grandma — she said: life is very strong. Simple people, with simple sentences and a pure persistence, pass on a strength I don't have."
+        },
+        {
+          "date": "",
+          "subtitle": "Still gathering",
+          "text": "Minimising pain when eating, ways to help, what I've learned keeping a snake — I'm still gathering these. More will land here in time."
         }
       ]
     },
-    "human-animal": {
-      "title": "Humans × Animals",
-      "keywords": ["To Be Added"],
+    "reciprocity": {
+      "title": "Reciprocity (Humans × Animals)",
+      "keywords": ["relation", "stance"],
       "items": [
         {
-          "subtitle": "To Be Added",
-          "text": "The relationship between humans and animals...",
-          "date": ""
+          "date": "",
+          "subtitle": "Still gathering",
+          "text": "The relationship between humans and other animals — still blank for now, until I've gathered the scattered observations into something coherent."
         }
       ]
     },
     "life": {
       "title": "Life",
-      "keywords": ["Definition", "Meaning"],
+      "keywords": ["definition", "meaning", "shared destiny"],
       "items": [
         {
-          "subtitle": "",
-          "text": "Life: the product of consciousness and subjective agency. I will take responsibility for any life I can see.",
-          "date": ""
+          "date": "2025.6",
+          "subtitle": "An autistic boy · trust",
+          "text": "I volunteered for a Diversability Week activity with kids. Brought a bag of pipe-cleaners and a little bird ocarina.\n\nI was with one boy. He held a few red crayons and let them fall, then picked them up again. «Ding», «ding» — was he liking the feel of the crayons dropping, or the small bright sound of them landing? Other kids drew houses from their phones; people were praising them — «amazing!» I praised the boy too — «what a sound» — though I didn't say it out loud. Maybe it leaked out through my eyes, my cheeks, my fingers.\n\nLater his mum joined another activity and I had the boy on my own. I folded pipe-cleaners into circles, flowers, fish, butterflies, and he held them with the crayons and let them fall together — the red crayons dyeing the coloured pipe-cleaners on their way down. He wasn't required to do «what the workshop expected», wasn't required to draw, wasn't required by me to play with the pipe-cleaners. He did what he wanted to do.\n\nWhen we said goodbye he reached out and took my hand. That was when I noticed how trust gets built between people, and how precious that trust is. I believe understanding and company can be conveyed even without a shared language."
         },
         {
-          "subtitle": "",
-          "text": "The meaning of life does not need to be grand. The moment life has subjective agency, it already has meaning. I love all life.",
-          "date": "2024.10"
+          "date": "2025.6",
+          "subtitle": "We are not normal, just different",
+          "text": "His mum said — she feels people abroad accept autistic kids more easily, and in China people still mostly see it as a deficit. She said: the kids are just not like us, but they're really smart. I listened carefully, and chewed on the phrase in my head again — «We are not normal, just different»."
         },
         {
-          "subtitle": "",
-          "text": "A community with a shared future for humankind—yes, this concept matters a lot to me. The optimal game-theoretic solution is idealistic, but that does not stop me from contributing to it.",
-          "date": "2024.10"
+          "date": "2024.10",
+          "subtitle": "A shared destiny",
+          "text": "The community of human destiny — yes, that idea matters to me. The optimal-game-theoretic solution is ideal; that doesn't stop me adding bricks to it. The meaning of a life doesn't need to be grand — a life has meaning the moment it has subjective agency. I love every life."
+        },
+        {
+          "date": "",
+          "subtitle": "Definition",
+          "text": "Life: anything with consciousness and subjective agency. I take responsibility for any life I can see."
         }
       ]
     }

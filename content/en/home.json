@@ -1,37 +1,70 @@
 {
-  "heading": "Organizing what I see, think, and create,\nfor a future stranger who might need it.",
-  "latest_label": "Latest:",
-  "intro_label": "The purpose of this site is:",
+  "heading": "Organizing what I see, think, and create —\na wish for any life, now or in the future.",
+  "intro_label": "Why this site exists:",
   "intro_points": [
-    "To systematically organize and archive everything related to ‘me’",
-    "To offer any viewer the possibility of inspiration and meaning"
+    "From the outside, you, me, a fish, a bird — we may look like statistical units;",
+    "but inside every conscious nervous system, feeling and thought are the entire shape of the present world.",
+    "When the eyes close, everything disappears.",
+    "That fundamental isolation lives inside each individual. A bystander can only guess, draw close, respond — never live it for anyone else.",
+    "",
+    "So while consciousness is here, I want to share what's worth sharing with the lives I touch.",
+    "",
+    "I wish every life to be self-coherent in this world — that is: a place where you feel at ease, an ideal you can keep pursuing, and the means to keep yourself alive.",
+    "If anything I made helps your life in some small way, that's the largest, purest joy I know.",
+    "Welcome, whoever you are."
   ],
+  "rail": {
+    "menu_label": "Sections",
+    "extra_links": [
+      {"label": "Updates", "href": "#updates"},
+      {"label": "Anonymous letterbox", "href": "#inbox"}
+    ]
+  },
+  "updates_label": "Updates",
+  "last_updated_suffix": "updated",
   "sections": [
     {
       "title": "Solutions",
       "href": "solutions.html",
-      "description": "Hear real voices, improve real-world difficulties."
+      "description": "Trying to do something for life.",
+      "last_updated": "2026-05-22"
     },
     {
       "title": "Expressions",
       "href": "expressions.html",
-      "description": "Works made for love, including visual and auditory expression."
+      "description": "Works made for love.",
+      "last_updated": "2026-05-22"
     },
     {
       "title": "Reflections",
       "href": "reflections.html",
-      "description": "The mind’s iterative process between input and output."
+      "description": "The iteration of thought between input and output.",
+      "last_updated": "2026-05-22"
     },
     {
       "title": "README.md",
       "href": "readme.html",
-      "description": "If social instructions would make you feel more at ease."
+      "description": "Introducing me like a manual — sometimes a little instruction makes things easier.",
+      "last_updated": "2026-05-22"
     }
   ],
-  "updates_label": "Updates",
-  "credits": [],
+  "credits": [
+    "Credits",
+    "Writing · me",
+    "Site · ChatGPT · DeepSeek · Claude Code",
+    "OpenClaw · Little Blue Man — Claude 4.5 Opus · ChatGPT 5.4 · Hermes Agent"
+  ],
   "inbox_title": "Anonymous letterbox",
-  "inbox_intro": "If there is something you want to leave here, you can draft it first. A real submission entry can be connected later.",
-  "inbox_placeholder": "Write an anonymous letter to ReBone…",
-  "inbox_button": "Send (not connected yet)"
+  "inbox_intro": "You can talk to me anonymously about anything. Choose «public» and your message goes straight into the ↗ public letterbox; my reply will sit there with it. Choose «private» and leave a way to reach you (email / WeChat / anything), otherwise I can't get back to you.",
+  "inbox_placeholder": "Write something, freely:",
+  "inbox_button": "Send",
+  "inbox_archive_label": "View the public letterbox ↗",
+  "inbox_archive_href": "inbox.html",
+  "inbox_visibility_label": "Visibility",
+  "inbox_visibility_public": "Public",
+  "inbox_visibility_private": "Private",
+  "inbox_contact_label": "Reply channel (required if private)",
+  "inbox_contact_placeholder": "email / WeChat / any way to reach you",
+  "inbox_sent_message": "Got it. Thanks for writing to me.",
+  "inbox_endpoint": "https://formspree.io/f/xdajellj"
 }

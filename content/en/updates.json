@@ -1,13 +1,13 @@
 {
-  "more_label": "View all",
-  "more_href": "#",
+  "more_label": "View all updates ↗",
+  "more_href": "updates.html",
   "items": [
     {
       "date": "2026.05.22",
       "datetime": "2026-05-22",
       "lines": [
-        "My birthday!",
-        "The site is officially open"
+        "Site is officially open :3",
+        "I turned 19."
       ]
     }
   ]

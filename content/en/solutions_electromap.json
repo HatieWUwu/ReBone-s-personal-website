@@ -1,234 +1,128 @@
 {
   "meta": {
     "title": "ElectroMap: Stories of the World",
-    "description": "An interactive map created for the UWC Day workshop “Share Peace Story,” inviting people to begin with curiosity toward faraway places and their stories.",
-    "eyebrow": "Solutions / Workshop",
+    "description": "An interactive map installation for UWC Day's «Share Peace Story» workshop — practising active curiosity toward places far from us, starting from the stories that come from there.",
+    "eyebrow": "Solutions / Event",
     "date": "2025.09",
-    "summary": "An interactive map created for the UWC Day workshop “Share Peace Story.”",
+    "summary": "It was UWC Day, theme «Share Peace Story». Jun and I made this together.",
     "breadcrumb": "ElectroMap: Stories of the World"
   },
   "nav": [
-    {
-      "id": "overview",
-      "label": "Project Overview"
-    },
-    {
-      "id": "origin",
-      "label": "What Prompted It"
-    },
-    {
-      "id": "system-detail",
-      "label": "System Details"
-    },
-    {
-      "id": "method",
-      "label": "Story Sources and Method"
-    },
-    {
-      "id": "archive",
-      "label": "Story Archive"
-    },
-    {
-      "id": "feedback",
-      "label": "Audience Feedback"
-    },
-    {
-      "id": "lessons",
-      "label": "What I Learned"
-    },
-    {
-      "id": "thanks",
-      "label": "Acknowledgments"
-    }
+    {"id": "overview", "label": "Overview"},
+    {"id": "origin", "label": "Inspiration"},
+    {"id": "system-detail", "label": "How the installation works"},
+    {"id": "method", "label": "Where the entries came from"},
+    {"id": "archive", "label": "All entries"},
+    {"id": "feedback", "label": "On-site feedback"},
+    {"id": "lessons", "label": "Side notes · what I learned"},
+    {"id": "thanks", "label": "Acknowledgments"}
   ],
   "sections": [
     {
       "id": "overview",
-      "title": "Project Overview",
-      "layout": "overview",
-      "eyebrow": "Project Overview",
-      "headline": "ElectroMap: Stories of the World",
-      "paragraphs": [
-        "This was an interactive map installation that Jun and I created for the UWC Day workshop “Share Peace Story.” It was not meant to explain the world for people, but to let a small, active curiosity begin toward places far away from them.",
-        "Each region on the map was paired with a button. When someone pressed one, a story entry from that region appeared on the screen to the right, a new red point was added to the map, and the LED color gradually became warmer. Attention stopped being an abstract attitude and became a visible trace left on the object itself."
-      ],
-      "quote": "“Every story happening in the world has something to do with you and me.” — Liangzi",
-      "image": {
-        "src": "assets/images/solutions/electromap-overview.png",
-        "alt": "Full view of the ElectroMap interactive installation"
-      },
-      "stats": [
-        {
-          "title": "Event Context",
-          "items": [
-            "2025.09",
-            "UWC Day: Share Peace Story workshop"
-          ]
-        },
-        {
-          "title": "Collaboration",
-          "items": [
-            "Jun: box structure and map design",
-            "Me: Micro:bit programming and assembly"
-          ]
-        },
-        {
-          "title": "Keywords",
-          "items": [
-            "interactive map",
-            "world stories",
-            "active curiosity",
-            "peace theme"
-          ]
-        }
+      "title": "Overview",
+      "eyebrow": "OVERVIEW",
+      "lede": "Everything happening in this world has to do with you and me.",
+      "blocks": [
+        {"type": "quote", "text": "«Everything happening in this world has to do with you and me.»", "cite": "Liang Zi"},
+        {"type": "meta", "items": [
+          {"label": "Date", "value": "2025.09"},
+          {"label": "Context", "value": "UWC Day · «Share Peace Story» themed workshop"},
+          {"label": "Form", "value": "Workshop + interactive installation (product? workshop? I'm honestly not sure what to file it under — it's its own thing)"},
+          {"label": "Collaboration", "value": "Jun built the casing and the map; I did the Micro:bit programming and assembly."}
+        ]}
       ]
     },
     {
       "id": "origin",
-      "title": "What Prompted It",
-      "layout": "two-column-note",
-      "paragraphs": [
-        "The project was sparked by a YiXi talk recommended to me by my friend Liang Yue. In it, artist Liangzi mentioned the publication COLORS: A Magazine About the Rest of the World, and said that every story happening in the world has something to do with all of us.",
-        "UWC Day that year was themed “Share Peace Story.” So Jun and I turned that thought into a map that could be triggered, viewed, and participated in."
-      ],
-      "note_image": {
-        "src": "assets/images/solutions/electromap-inspiration.jpg",
-        "alt": "Liangzi mentioning COLORS magazine in a YiXi talk",
-        "caption": "The initial spark came from Liangzi’s talk and COLORS: A Magazine About the Rest of the World."
-      }
+      "title": "Inspiration",
+      "eyebrow": "ORIGIN",
+      "blocks": [
+        {"type": "paragraph", "text": "The starting point was a Yixi talk recommended by my friend Liang Yue, in which the artist Liang Zi referenced «COLORS: A Magazine About the Rest of the World». Liang Zi said: every story happening in the world has to do with you and me."},
+        {"type": "paragraph", "text": "It was UWC Day; the theme was «Share Peace Story». So Jun and I made this."},
+        {"type": "meta", "items": [
+          {"label": "Yixi talk", "value": "«Find a Crack, Do a Small Thing» — Liang Zi (link to be added)"},
+          {"label": "Magazine", "value": "COLORS: A Magazine About the Rest of the World (link to be added)"}
+        ]}
+      ]
     },
     {
       "id": "system-detail",
-      "title": "System Details",
-      "layout": "two-column-note",
-      "paragraphs": [
-        "I wanted the map to act as a carrier that could make people curious about places far from their own lives. Each time someone pressed a regional button, one more red point appeared on the map and the LED color for that area became warmer.",
-        "The screen to the right then showed a short story entry from that region. Rather than passively absorbing mediated narratives, people could start from curiosity, stop for a moment, and search further on their own to learn about real people and real stories."
-      ],
-      "note_image": {
-        "src": "assets/images/solutions/electromap-detail.jpg",
-        "alt": "Close-up of ElectroMap buttons, LED display, and LCD module",
-        "caption": "A close-up of the buttons, dot-matrix display, and LCD module."
-      }
+      "title": "How the installation works",
+      "eyebrow": "SYSTEM",
+      "blocks": [
+        {"type": "paragraph", "text": "I thought — a map can be a vehicle for that too. To draw people from everywhere into curiosity about places far from them."},
+        {"type": "list", "items": [
+          "Press the button beside a region you're curious about — a red dot is added, and the LED for that region on the map warms in colour.",
+          "On the right, a screen pops up a small story-card entry for that region; you can search the rest online.",
+          "Different from how media renders the world with intent — this is an active curiosity, a search for more real people and stories.",
+          "The warmer/cooler colour of each region's light reflects how many people are paying attention there. A small invitation to look at places that get overlooked."
+        ]},
+        {"type": "image-placeholder", "label": "[image]"}
+      ]
     },
     {
       "id": "method",
-      "title": "Story Sources and Method",
-      "layout": "notes",
-      "paragraphs": [
-        "I originally expected people from different home regions to share their own stories, but in practice not many came in. So beyond the stories I already knew and the small number of entries suggested by participants, I also used ChatGPT to help gather stories that fit the theme.",
-        "For me, this was not about completeness. It was about making sure more overlooked places could at least be seen once. If someone paused because of a single entry and searched a little further, it was already doing something."
-      ],
-      "quote": "Instead of media framing the world with a particular agenda, this invited a more active form of curiosity and exploration."
+      "title": "Where the entries came from",
+      "eyebrow": "METHOD",
+      "blocks": [
+        {"type": "paragraph", "text": "I'd hoped people from different hometowns would share their own stories. The actual response wasn't large. So besides what I knew and the few entries people sent in, ChatGPT was used to find stories from around the world that fit the theme."}
+      ]
     },
     {
       "id": "archive",
-      "title": "Story Archive",
-      "layout": "production",
+      "title": "All entries",
+      "eyebrow": "ARCHIVE",
+      "lede": "All 44 entries:",
       "blocks": [
-        {
-          "title": "Story Sources",
-          "items": [
-            "Stories I already knew and wanted to place on the map",
-            "Entries that a small number of participants wanted to share",
-            "Additional stories gathered with ChatGPT that fit the theme"
-          ]
-        },
-        {
-          "title": "Full List of Entries",
-          "items": [
-            "Leisure World Seal Beach",
-            "Standing Rock Protest",
-            "Reggae Girlz Jamaica",
-            "Hurricane Maria Puerto Rico",
-            "Mothers of Ayotzinapa",
-            "Garifuna Language Revival",
-            "Tejo Sport Colombia",
-            "Casa do Albergado Brazil",
-            "Ghanaian Coffin Design",
-            "Kente Cloth Traditions",
-            "Rumble in the Jungle",
-            "Congo River Taxi Boats",
-            "Lesedi Cultural Village",
-            "Cape Town Water Crisis",
-            "Dadaab Refugee Camp",
-            "Kenya Tech Hubs",
-            "Algerian Independence Toys",
-            "Tunisian Jasmine Revolution",
-            "Eagle Hunters of Mongolia",
-            "Kyrgyz Yurt Revival",
-            "Dead Sea Swim Club",
-            "Persian Carpet Making",
-            "Mumbai Dabbawala System",
-            "Diwali Light Festival",
-            "Balut Egg Philippines",
-            "Angkor Wat Sunrise",
-            "Blind Artist Rieko Arai",
-            "Yellow School Boats",
-            "Polish Milk Bars",
-            "Roma Brass Bands",
-            "Finnish School Breaks",
-            "Elf Believers",
-            "One Euro Houses",
-            "Barbados Welcome Stamp",
-            "Yellow Vest Protests",
-            "Dutch Bike Cities",
-            "Birdsong Alarm New Zealand",
-            "Uluru Sacred Rock",
-            "Solomon Islands Shell Money",
-            "PNG Highlands Sing-Sing",
-            "Yap Stone Currency",
-            "Micronesian Navigators",
-            "Samoan Tatto Traditions",
-            "Haka Dance"
-          ]
-        }
+        {"type": "two-col", "columns": [
+          {"title": "Americas · North / Central / Caribbean", "items": ["Leisure World Seal Beach", "Standing Rock Protest", "Reggae Girlz Jamaica", "Hurricane Maria Puerto Rico", "Mothers of Ayotzinapa", "Garifuna Language Revival", "Barbados Welcome Stamp"]},
+          {"title": "Americas · South", "items": ["Tejo Sport Colombia", "Casa do Albergado Brazil"]}
+        ]},
+        {"type": "two-col", "columns": [
+          {"title": "Africa", "items": ["Ghanaian Coffin Design", "Kente Cloth Traditions", "Rumble in the Jungle", "Congo River Taxi Boats", "Lesedi Cultural Village", "Cape Town Water Crisis", "Dadaab Refugee Camp", "Kenya Tech Hubs", "Algerian Independence Toys", "Tunisian Jasmine Revolution"]},
+          {"title": "Central / West / South Asia", "items": ["Eagle Hunters of Mongolia", "Kyrgyz Yurt Revival", "Dead Sea Swim Club", "Persian Carpet Making", "Mumbai Dabbawala System", "Diwali Light Festival"]}
+        ]},
+        {"type": "two-col", "columns": [
+          {"title": "Southeast / East Asia", "items": ["Balut Egg Philippines", "Angkor Wat Sunrise", "Blind Artist Rieko Arai"]},
+          {"title": "Europe", "items": ["Yellow School Boats", "Polish Milk Bars", "Roma Brass Bands", "Finnish School Breaks", "Elf Believers", "One Euro Houses", "Yellow Vest Protests", "Dutch Bike Cities"]}
+        ]},
+        {"type": "two-col", "columns": [
+          {"title": "Oceania", "items": ["Birdsong Alarm New Zealand", "Uluru Sacred Rock", "Haka Dance"]},
+          {"title": "Pacific Islands", "items": ["Solomon Islands Shell Money", "PNG Highlands Sing-Sing", "Yap Stone Currency", "Micronesian Navigators", "Samoan Tatto Traditions"]}
+        ]}
       ]
     },
     {
       "id": "feedback",
-      "title": "Audience Feedback",
-      "layout": "two-column-note",
-      "paragraphs": [
-        "The level of engagement during the display period ended up being higher than I expected. Some people stayed to press the buttons one by one; others suddenly found a very concrete connection to the map through an entry they personally recognized.",
-        "One comment especially stayed with me: Magdalena saw “Polish milk bars” appear under Eastern Europe and said it made her very happy, because she used to go to one often while growing up. At that point, the project already felt worthwhile to me."
-      ],
-      "note_image": {
-        "src": "assets/images/solutions/electromap-feedback.png",
-        "alt": "Screenshot of a message from Magdalena",
-        "caption": "A message from Magdalena."
-      }
+      "title": "On-site feedback",
+      "eyebrow": "FEEDBACK",
+      "blocks": [
+        {"type": "paragraph", "text": "Engagement during the display was higher than I expected. Sharing one note we received —"},
+        {"type": "quote", "text": "At this point, this activity was already enough for me :3", "cite": "from Magdalena"}
+      ]
     },
     {
       "id": "lessons",
-      "title": "What I Learned",
-      "layout": "care-log",
-      "intro_paragraphs": [
-        "A side note: this project also made one thing much clearer to me—workshop experience itself needs to be designed with care."
-      ],
-      "cards": [
-        {
-          "title": "During the Workshop",
-          "paragraphs": [
-            "I gave participants too much to do. In the end, what remained was mostly the experience of programming the Micro:bit, while we never really got to assemble everything together onto the map. Next time, I want to keep the real-world execution simpler so people can genuinely enjoy the making process itself."
-          ]
-        },
-        {
-          "title": "About Participation",
-          "paragraphs": [
-            "Some members participated less. At the time I assumed some might simply have wanted to relax, so I did not intervene. In the future I want to distinguish more clearly between people choosing not to join in and people wanting to join but not being able to keep up. If it is the latter, I do not want to overlook it. I want to design the activity more carefully so that people with different temperaments and rhythms can all find one comfortable place inside it."
-          ]
-        }
+      "title": "Side notes · what I learned",
+      "eyebrow": "LESSONS",
+      "blocks": [
+        {"type": "subheading", "text": "During the workshop"},
+        {"type": "paragraph", "text": "I gave the participants too much to do — they only got the Micro:bit programming part and didn't get to assemble onto the map together. Next workshop, I have to weigh real take-home complexity carefully, and let people enjoy the making."},
+        {"type": "subheading", "text": "On participation"},
+        {"type": "paragraph", "text": "Some members didn't engage much; I didn't push, since some might just want to relax. Next time I want to be more aware of these members — to tell whether they're choosing not to join or wanting to but unable to follow. If it's the latter, I won't ignore it — I'll design more carefully so that people of different temperaments and minds each have a comfortable place. Of course I know it can't be perfect; what matters is that I care and think about it seriously, never ignore it."}
       ]
     },
     {
       "id": "thanks",
       "title": "Acknowledgments",
-      "layout": "thanks",
-      "items": [
-        "Thank you to Jun for building this with me. He realized the box and map design, while I handled the Micro:bit programming and assembly.",
-        "Thank you to Jun, Pranjal, and Shruti for their help during the workshop, and to every participant.",
-        "Thank you to everyone who interacted with the finished map during its display period."
+      "eyebrow": "THANKS",
+      "blocks": [
+        {"type": "list", "items": [
+          "Thank you Jun for making this with me — he built the casing and map; I did the Micro:bit programming and assembly.",
+          "Thank you Jun, Pranjal, Shruti for helping during the workshop, and every participant.",
+          "Thank you to everyone who interacted with the finished map during the display."
+        ]}
       ]
     }
   ]

@@ -1,41 +1,40 @@
 {
   "title": "Expressions",
   "intro": [
-    "This is not a single-medium portfolio page, but an entry point into the works. Visual pieces, sound, recordings of creations made for love, and cross-medium expressions that I do not want to classify separately for now all begin here.",
-    "Hover to preview a category first, then click to enter its page."
+    "Not a single-medium portfolio — an entry hall. Visual, sound, fan works, and the cross-overs I'm not ready to file under any one label, all live here.",
+    "Hover for a preview; click to enter."
   ],
-  "preview_label": "Preview",
   "preview_link_label": "Enter this category",
   "categories": [
     {
       "id": "visual",
       "eyebrow": "Visual",
       "title": "Visual Art",
-      "card_description": "Physical works, images, material experiments, visual narratives.",
-      "preview_text": "Physical works, images, material experiments, visual narratives. For now, it keeps the original placeholder draft and turns it into a formal category page.",
-      "tags": ["Physical Work", "Image", "Material", "Visual Narrative"],
-      "items": ["Fragmentation and Reconstruction", "Asynchronous Dialogue", "Reserved: new visual work"],
+      "subtitle": "Physical works, images, material experiments, visual narration",
+      "card_description": "Physical works, images, material experiments, visual narration.",
+      "tags": ["Physical works", "Image", "Material", "Visual narrative"],
+      "items": ["Broken & Rebuilt", "Asynchronous Dialogue", "Reserved: new visual work"],
       "href": "expressions_visual.html",
       "active": true
     },
     {
       "id": "sound",
       "eyebrow": "Sound",
-      "title": "Music",
-      "card_description": "Music box covers and original pieces. Commissions are open.",
-      "preview_text": "Music box covers and original pieces. Commissions are open.",
+      "title": "Sound",
+      "subtitle": "Music box covers, originals — open for orders",
+      "card_description": "Music box covers and original tracks. Order-friendly.",
       "tags": ["Music Box Cover", "Original", "Audio Sketch"],
-      "items": ["Reserved: music box cover tracks", "Reserved: original compositions", "Reserved: sound experiments"],
+      "items": ["Reserved: music box covers", "Reserved: originals", "Reserved: sound experiments"],
       "href": "expressions_sound.html"
     },
     {
       "id": "fandom",
       "eyebrow": "For Love",
-      "title": "Made for Love",
-      "card_description": "Gameplay videos, dance covers, fan videos. Not commercial work, but responses left behind after certain works lit something up in me.",
-      "preview_text": "Gameplay videos, dance covers, fan videos. Broader than ‘anime fandom,’ and better able than ‘fanwork’ to hold what I want to place here right now.",
+      "title": "For Love",
+      "subtitle": "Gameplay, dance, fan videos — not commissions, just responses to things that lit me up",
+      "card_description": "Gameplay, dance, and fan videos. Not commissioned — left here because some piece of work lit me up and I responded.",
       "tags": ["Gameplay", "Dance", "Fan Video"],
-      "items": ["Human Construction Site (11 episodes)", "Dance cover videos", "Reserved: more fan videos"],
+      "items": ["Human Construction Site (11 ep)", "Dance covers", "Reserved: more fan footage"],
       "href": "expressions_fandom.html"
     }
   ]

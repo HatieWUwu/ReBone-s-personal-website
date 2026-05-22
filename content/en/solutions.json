@@ -3,35 +3,38 @@
   "intro": "A log of hearing real voices, iterating ideas, and solving problems.",
   "filters": [
     "All",
-    "Product",
-    "Workshop",
+    "Physical product",
+    "Event",
     "Volunteer",
-    "Daily Life"
+    "Caring for life",
+    "Healthy living"
   ],
   "cards": [
     {
       "title": "Restraint Glove for Disabled Elderly People",
+      "subtitle": "Inside necessary restraint — return comfort, reassurance, and autonomy",
       "href": "solutions_restraint.html",
       "image": "assets/glove_prototype.png",
       "image_alt": "Restraint glove for disabled elderly people",
       "tags": [
-        "Product"
+        "Physical product",
+        "Caring for life"
       ],
-      "date": "2023.10 - Ongoing",
-      "summary": "Within necessary restraint, provide comfort, reassurance, and autonomy.",
-      "quote": "How much pain must a person seek relief from through another kind of pain?"
+      "date": "2023.10 — ongoing",
+      "summary": "How much pain does a person have to take on, just to escape another kind of pain? A long-running design + on-the-ground project around restraint gloves for disabled elderly people."
     },
     {
       "title": "ElectroMap: Stories of the World",
+      "subtitle": "Everything happening in this world has to do with you and me",
       "href": "solutions_electromap.html",
       "image": "assets/images/solutions/electromap-overview.png",
-      "image_alt": "ElectroMap interactive installation",
+      "image_alt": "ElectroMap interactive map installation",
       "tags": [
-        "Workshop"
+        "Physical product",
+        "Event"
       ],
       "date": "2025.09",
-      "summary": "An interactive map created for the UWC Day workshop “Share Peace Story,” inviting people to begin with curiosity toward faraway places and their stories.",
-      "quote": "“Every story happening in the world has something to do with you and me.” — Liangzi"
+      "summary": "An interactive map installation made for UWC Day's \"Share Peace Story\" workshop — practising active curiosity toward places far from us, starting from the stories that come from there."
     }
   ]
 }

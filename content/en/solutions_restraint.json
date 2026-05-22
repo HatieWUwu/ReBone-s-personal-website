@@ -1,316 +1,264 @@
 {
   "meta": {
     "title": "Restraint Glove for Disabled Elderly People",
-    "description": "Within necessary restraint, provide comfort, reassurance, and autonomy. This is a long-term design and implementation project centered on restraint gloves for disabled elderly people.",
-    "eyebrow": "Solutions / Product",
-    "date": "2023.10 - Ongoing",
-    "summary": "Within necessary restraint, provide comfort, reassurance, and autonomy.",
+    "description": "Inside necessary restraint — return comfort, reassurance, and autonomy. A long-running design + on-the-ground project around restraint gloves for disabled elderly people.",
+    "eyebrow": "Solutions / Physical product · Caring for life",
+    "date": "2023.10 — ongoing",
+    "summary": "Inside necessary restraint — return comfort, reassurance, and autonomy.",
     "breadcrumb": "Restraint Glove for Disabled Elderly People"
   },
   "nav": [
-    {"id": "overview", "label": "Project Overview"},
-    {"id": "origin", "label": "What Prompted This"},
-    {"id": "research", "label": "Background Research"},
-    {"id": "care-log", "label": "Care Log"},
-    {"id": "product-study", "label": "Product Research"},
-    {"id": "prototype", "label": "Prototype Iteration"},
-    {"id": "notes", "label": "Thinking Log"},
-    {"id": "production", "label": "Small-Batch Production"},
+    {"id": "overview", "label": "Overview"},
+    {"id": "origin", "label": "What prompted this"},
+    {"id": "research", "label": "Background research"},
+    {"id": "care-log", "label": "Care log"},
+    {"id": "product-study", "label": "Product research"},
+    {"id": "prototype", "label": "Prototype iteration"},
+    {"id": "notes", "label": "Thinking log"},
+    {"id": "production", "label": "Small-batch production"},
     {"id": "thanks", "label": "Acknowledgments"}
   ],
   "sections": [
     {
       "id": "overview",
-      "title": "Project Overview",
-      "layout": "overview",
-      "eyebrow": "Project Overview",
-      "headline": "Restraint Glove for Disabled Elderly People",
-      "paragraphs": [
-        "This is a design project about end-of-life care. It ran through the final two years of my high-school design coursework, and it was also the main reason I chose to take a gap year after senior year before going to university.",
-        "What I want to make is not just a ‘better-looking restraint tool,’ but this: when restraint is unavoidable, how can comfort, reassurance, and autonomy be returned to the person receiving care?"
-      ],
-      "quote": "How much pain must a person seek relief from through another kind of pain?",
-      "image": {
-        "src": "assets/glove_prototype.png",
-        "alt": "Prototype of the restraint glove for disabled elderly people"
-      },
-      "stats": [
-        {
-          "title": "Key Progress",
-          "items": [
-            "Background research: completed",
-            "Patent strategy: Chinese utility model application in progress",
-            "Product iteration: V3 completed",
-            "Expert consultation: related nursing staff from 2 care facilities; Professors Minki and Rudi at Shanghai NYU",
-            "Pitching and fundraising: completed"
-          ]
-        },
-        {
-          "title": "Current Focus Stage",
-          "text": "Formal small-batch production validation (April–June 2026)."
-        },
-        {
-          "title": "Timeline",
-          "items": [
-            "Small-batch production (non-medical device): in progress (April–June 2026)",
-            "Product launch: July 2026",
-            "Medical filing: depends on market response (2027)",
-            "Product line expansion: depends on market response (2028)"
-          ]
-        }
+      "title": "Overview",
+      "eyebrow": "OVERVIEW",
+      "lede": "Inside necessary restraint — return comfort, reassurance, and autonomy.",
+      "blocks": [
+        {"type": "quote", "text": "How much pain does a person have to take on, just to escape another kind of pain?"},
+        {"type": "subheading", "text": "Key progress"},
+        {"type": "meta", "items": [
+          {"label": "Research", "value": "complete"},
+          {"label": "IP", "value": "China utility-model patent — application in progress"},
+          {"label": "Iteration", "value": "V3 done"},
+          {"label": "Consultants", "value": "Nursing staff at 2 care homes; Profs. Minki & Rudi at Shanghai NYU"},
+          {"label": "Pitch funding", "value": "complete"},
+          {"label": "Small batch", "value": "In progress (Apr–Jun 2026, non-medical-device)"},
+          {"label": "Market launch", "value": "July 2026"},
+          {"label": "Medical filing", "value": "depends on market (2027)"},
+          {"label": "Product line", "value": "depends on market (2028)"}
+        ]},
+        {"type": "subheading", "text": "Current focus"},
+        {"type": "paragraph", "text": "Small-batch production validation (Apr–Jun 2026)."}
       ]
     },
     {
       "id": "origin",
-      "title": "What Prompted This",
-      "layout": "two-column-note",
-      "paragraphs": [
-        "In my second year of high school, the large iron gate of our residential compound injured my grandmother. After joint replacement surgery, she moved into a care home. I went back on weekends to stay with her, and spent one night there. Four beds, four elderly residents, and a caregiver sleeping on a makeshift bed by the door. Why by the door? Because if someone became disoriented and tried to run out in the middle of the night, someone had to notice immediately to prevent them from getting lost or falling.",
-        "That day, my grandmother was in good spirits. During rehabilitation she even walked an extra lap with me. She fell asleep early that night, but I kept waking because I am a light sleeper. In the middle of the night, I heard murmuring and the sound of bed rails being struck. I turned and saw the elderly woman in the next bed rocking back and forth, and the one beyond her swinging her hands against the rails. That was when I noticed their hands were restrained.",
-        "The next day, in daylight, I saw clearly that they were wearing two pairs of blue restraint gloves. The caregiver told me: the woman on the left, Xiaochun, always wanted to go home and kept trying to run out; the woman on the right, Xiaocao, had paralysis in her lower body, recurring old injuries, and great difficulty communicating. The gloves provided buffering, but they did not answer another question: what were they actually enduring at night? Was there another possibility? I decided to begin my investigation there, and that also became the start of the companionship and observation that followed."
-      ],
-      "note_image": {
-        "src": "assets/images/solutions/restraint-origin-note.png",
-        "alt": "Screenshot of notes from the starting point of the project",
-        "caption": "An early project record. It feels more like a starting point: older people are so often forgotten by the world, and human time does not wait for ‘later.’"
-      }
+      "title": "What prompted this",
+      "eyebrow": "ORIGIN",
+      "blocks": [
+        {"type": "paragraph", "text": "This is a design project about end-of-life care. It runs through the last two years of my high-school design coursework, and is also the main reason I took a gap year after senior year before going to university."},
+        {"type": "image-placeholder", "label": "[image]"},
+        {"type": "paragraph", "text": "In my second year of high school, my grandmother was injured by a heavy iron gate at our complex. She had a joint-replacement surgery; my family told me. I went back on the weekend to be with her in the care home — slept on a small board beside her bed. Four beds, four old women in the room, and a caregiver also sleeping on a board, but at the door. Why the door? In case one of them, half-conscious, tries to leave in the middle of the night — so they can be caught in time before they get lost or fall."},
+        {"type": "paragraph", "text": "Grandma was bright the day I came; she even walked an extra round with me during her rehab. She fell asleep early. I sleep light, my mind kept turning, and at some point I heard mumbling and a dull thud-thud on the bed rail. I turned over and saw the woman in the next bed rocking back and forth, sitting up; and the one in the bed beyond hers swinging her hand against the rail. Couldn't sleep? Why couldn't she sleep? I could faintly see her hands were being restricted. In the daylight I saw what it was — two blue, ugly things on their hands, the main pad wide like a ping-pong paddle, the wrist part cinched narrow and tied to the bed rails."},
+        {"type": "paragraph", "text": "The caregiver told me — these are restraint gloves. The woman on the left, called Xiaochun, kept trying to go home at night, running out, so the gloves went on, and they pinned her name onto her clothes. The woman on the right, Xiaocao, has been there the longest — she's paralysed below the waist, and an earlier care home didn't look after her well, so she came in with multiple bedsores; by now she's confused, can't really communicate. They can't sleep, must be some pain in body or mind. Could this all be otherwise? I decided to start there — that's where the research and the time-with-the-residents began."}
+      ]
     },
     {
       "id": "research",
-      "title": "Background Research",
-      "layout": "research",
-      "intro": "Restraint is a tool frequently used in real caregiving. It usually appears in situations involving disability, fluctuating consciousness, or risks such as falls, self-scratching, self-injury, or accidental tube removal. Without restraint, some risks occur; with restraint, new harms can appear as well.",
-      "risk_columns": [
-        {
-          "title": "Without restraint, risks may come from",
-          "items": ["Falls", "Self-scratching and self-injury", "Accidental tube removal", "Other caregiving adverse events"]
-        },
-        {
-          "title": "With restraint, new harms may come from",
-          "items": ["Agitation and psychological distress", "Reduced range of movement", "Poor fit for contracted hands", "Severe adverse events, including finger necrosis and fatal suffocation"]
-        }
-      ],
-      "case_box": {
-        "title": "One case I could not ignore",
-        "text": "In 2022, there was a publicly documented case in China: an elderly person’s hand became stuck and necrotic inside the mesh because of a ‘finger restraint ring,’ and it was not discovered until a week later. Care protocol originally required ‘removing the glove every 2 hours to check the hand,’ but in a high-intensity real care environment, that is not easy to do consistently. Design should not push all key risks onto the user; it should reduce blind spots structurally wherever possible—for example, by making the condition of the hand visible.",
-        "link": {
-          "href": "https://www.sohu.com/a/535809921_121118852",
-          "label": "View public report ↗"
-        }
-      },
-      "subsection": {
-        "title": "The prevalence of restraint and long-term bedridden care",
-        "paragraphs": [
-          "The care home I visited follows a principle of ‘minimal restraint.’ Even so, 39% of the elderly residents there still wore restraint gloves; among those who wore restraint gloves, 92% were also long-term bedridden. In the facility overall, 53% of residents were long-term bedridden, and 68% of that group wore restraint gloves.",
-          "These numbers show that in the actual care-home environment I entered, restraint gloves were not a rare situation but a fairly common care reality. It does not stop existing just because we choose not to look at it."
-        ]
-      }
+      "title": "Background research",
+      "eyebrow": "RESEARCH",
+      "blocks": [
+        {"type": "subheading", "text": "Why restraint, and what it costs"},
+        {"type": "paragraph", "text": "Protective restraint is generally used when a patient can't safely control their own movement — to prevent falls, self-harm, accidental extubation, and other dangerous behaviour. It shows up in the disabled, the cognitively fluctuating, in emergencies and in long-term care."},
+        {"type": "two-col", "columns": [
+          {"title": "Without restraint, accidents still happen", "items": ["falls", "self-harm", "unplanned extubation", "other nursing adverse events"]},
+          {"title": "With restraint, new harm emerges", "items": ["agitation", "psychological distress", "compressed range of motion", "poor fit on contracted hands", "serious adverse events — finger necrosis, fatal asphyxiation"]}
+        ]},
+        {"type": "image-placeholder", "label": "[image]"},
+        {"type": "callout", "title": "Death Due to Physical Restraint", "text": "A 2022 incident in China: an elderly person's hand got trapped by the «finger-separator ring» inside an opaque mesh glove, the fingers necrosed, and it was only discovered a week later. The protocol asks caregivers to «open and check the glove every 2 hours» — but in real workloads that's almost impossible to do consistently. A design can't put the most critical risk back on the user's discipline; it has to reduce blind spots structurally — for example, by making the mesh transparent. And the «finger separator», intended to keep fingers from injuring each other or scratching the face, doesn't actually stop self-harm. What stops self-harm is never tighter restraint.", "link": {"href": "https://www.sohu.com/a/535809921_121118852", "label": "View the public report ↗"}},
+        {"type": "subheading", "text": "Restraint and long-term bed rest"},
+        {"type": "paragraph", "text": "How common is restraint, and how does it sit with long-term bed rest? Both questions matter."},
+        {"type": "subheading", "text": "First-hand observation"},
+        {"type": "paragraph", "text": "The care home I visited practises a «minimum restraint» principle. Even so, 39% of residents wear restraint gloves; of those, 92% are also bedridden long-term. 53% of all residents are bedridden long-term, and 68% of that group wear restraint gloves. In the care environment I observed, restraint gloves aren't a niche tool — they're a common reality of care."}
+      ]
     },
     {
       "id": "care-log",
-      "title": "Care Log",
-      "layout": "care-log",
-      "intro_paragraphs": [
-        "When I returned to the care home that week, my grandmother had already been discharged. The new grandmother in the bed was a hearing-impaired woman with smiling eyes; the ones still under restraint were Xiaochun and Xiaocao. I helped feed Xiaocao liquid food. I was clumsy at it, but I encouraged her bite by bite: ‘Eat a little more, your body will have a bit more strength.’ She nodded hard and replied, ‘Okay, okay, okay.’",
-        "After the meal I wiped her mouth and tried chatting with her. She repeated short words, but she was entirely understandable. I heard her say ‘good, good,’ and I heard her say ‘this hurts, this hurts.’ I pressed gently near her arm and asked whether it hurt there; at almost every spot she said yes. Sometimes she tried to lift her hand to scratch her face, and the edge of the blue glove scraped against her skin. I took a tissue and gently touched her cheek for her. She suddenly said: ‘You’re so kind.’",
-        "In that moment, I thought: she was not confused at all."
-      ],
-      "cards": [
-        {
-          "title": "Xiaocao",
-          "paragraphs": [
-            "The caregiver told me her family had long since moved abroad, and that very few people spent this much time with her. The sentence she said most often was ‘Don’t go.’ As long as I stood by her, her eyes regained some light and the struggling of her hands eased. The moment we left for lunch break or work, she returned to murmuring at the ceiling, groaning, and striking things. The glove could buffer the impact, but it could not buffer what she was truly trying to say, or what she was truly enduring."
-          ],
-          "quote": "How much pain must a person seek relief from through another kind of pain?"
-        },
-        {
-          "title": "Xiaochun",
-          "paragraphs": [
-            "The first time Xiaochun met me, she mistook me for a thief and yelled at me to get out; the second time, she warmly held my hand and introduced the buildings outside the window. Her family came several times a week, bringing her food, helping her wash up, and keeping her company. But in the middle of the night she always wanted to run out. A family can stop it once, twice—but not for a month, or a whole year. Restraint was not the outcome they wanted, but it became a reality they had to accept.",
-            "She was strong during the day: she joined rehabilitation exercises, wrestled with the numbers on the machine, and would suddenly want to move a stool or go to the window to look outside. The sunlight was good, and she still had strength. Precisely because she still had that strength, the possibility of nighttime loss of control, falls, and wandering was all the more real."
-          ]
-        }
+      "title": "Care log",
+      "eyebrow": "CARE LOG",
+      "blocks": [
+        {"type": "paragraph", "text": "When I went back to the care home the next week, my grandma had been discharged. The new woman in the corner bed was a hearing-impaired old lady with soft, curving eyes; Xiaochun and Xiaocao were still in restraints. The caregivers worked efficiently; I helped feed Xiaocao her liquid food. My hands weren't practised, but if I was here as a volunteer, I'd do what I could do. I remembered how adults feed children — bite by bite, with encouragement. «One mouthful and your body gets stronger!» Xiaocao nodded firmly, murmuring «good, good, good». After the meal I dabbed her mouth, and thought, let me try talking to her."},
+        {"type": "paragraph", "text": "«Next year I'll be 18, I can learn to drive» — I mimed it. Xiaocao's eyes went wide; she nodded, murmuring back. The conversation opened. She listened carefully, her hands struggling less. She'd repeat short words, but they could be understood. I heard her say «amazing, amazing», and «hurt, hurt, hurt». I pressed gently around her arm — «is it here?» — «yes, yes, yes». But every spot I pressed she said yes. Sometimes she tried to reach up and scratch her face; the blue glove edges scraped her. I folded a tissue and brushed her cheek with it. This time she said: «you're good, you're good, you're good»."},
+        {"type": "quote", "text": "I thought — she isn't confused at all."},
+        {"type": "paragraph", "text": "The caregiver laughed and said — let her enjoy the company. Then told me: her family went abroad a long time ago, and recently sent her a box of mangoes — imported, apparently. «No one usually spends time with her like this.» I asked the caregiver to teach me how to tie the restraint glove on. «Two fingers' width, loose enough not to choke and tight enough she can't get out — see.» When she took the glove off, there wasn't even a red mark on the wrist; she's good at this. Xiaocao's hands had contracted, the joints behind them layered with old and new bruising from striking the rail. The glove cushions impact — but it can't cushion the obsession driving her to strike and swing her hands."},
+        {"type": "quote", "text": "How much pain does a person have to take on, just to escape another kind of pain?"},
+        {"type": "paragraph", "text": "Xiaocao said «don't go» most often — and her hands started waving. I said I won't, I'm here, and she said «you're good». When their nap time came we had to stop talking. We laid the bed board out with the caregiver and stepped away. She murmured at the ceiling; the words I could pick out blurred into noise and her hand kept tapping. I stepped close and her eyes came alive again. I didn't dare give her my full company — if she got used to it and then called and I wasn't there, maybe forgetting me would be kinder."},
+        {"type": "subheading", "text": "Xiaochun"},
+        {"type": "paragraph", "text": "Xiaochun called me a thief the first time we met and told me to get out. The second time she pulled me close and warmly introduced — in dialect — the building outside the window that delivered her milk. Her family comes by often: a middle-aged couple, three or four times a week, bringing home-cooked food, helping her wash up, sitting with her. Originally they were caring for her at home, but Xiaochun kept trying to leave at night. They could stop her once, twice — not over a week or a month. So she came to the care home. They hate seeing the blue bag on her hand; once they couldn't help loosening it. That night, Xiaochun got loose, got out of bed, and by the time the caregiver noticed there was waste all over the floor. «Hm — we signed the consent saying we'd trust this place. Trust, trust, it's hard.» I don't quite remember if her family said that or the caregiver did."},
+        {"type": "paragraph", "text": "Xiaochun could join the afternoon rehab activity. I went with her and watched her arguing with the numbers on the machine, determined to drag a stool onto the walking treadmill. She was in a wheelchair, then suddenly stood up to grab it; I jumped in to steady her. A while later I quietly moved the stool back down; she saw, frowned, and the stool was back on the treadmill. Sometimes she'd walk to the floor-to-ceiling window, curious, knocking on the glass, looking confused. The sun was good and Xiaochun was strong. Could there be a day when she forgets her legs are weak and just walks?"}
       ]
     },
     {
       "id": "product-study",
-      "title": "Product Research",
-      "layout": "product-study",
-      "intro": "After returning to school, I began systematically studying existing restraint products. The most common ‘blue glove’ can satisfy the most basic restraint function, but from both the elderly user’s perspective and the nurse’s, it is sparse. Another kind of glove tries to include more human-centered care through squeeze components, but it fills the hand space completely, and when paired with rough mesh the experience actually becomes worse. There are also hard-shell products that emphasize 360-degree protection. Their structure is more complete, but the knocking noise and rigid feel make them difficult for many elderly people to accept.",
-      "cards": [
-        {"title": "Basic blue glove", "text": "It satisfies the basic restraint function, but offers little improvement in comfort or user experience."},
-        {"title": "Glove with squeeze components", "text": "It tries to add a soothing function, but can easily take over the hand’s space, and rough materials can cancel out the original good intention."},
-        {"title": "Hard-shell glove", "text": "Protection is more complete, but knocking noise and rigid fit create new discomfort."}
-      ],
-      "closing": "Some of the design details that truly matter are not the sort of functions you notice at first glance, but the places whose value only appears in real use. For example, mesh that is both visible and sturdy enough: it allows caregivers to check the condition of the elderly person’s hand at any time, and it also preserves the person’s basic visual awareness of their own hand, encouraging movement instead of making the hand disappear into an unseen space."
+      "title": "Product research",
+      "eyebrow": "PRODUCT STUDY",
+      "blocks": [
+        {"type": "paragraph", "text": "Back at school I started studying the restraint products already on the market."},
+        {"type": "subheading", "text": "The common «blue glove»"},
+        {"type": "paragraph", "text": "Meets the basic restraint function, but lacks on both user experience and caregiver usability."},
+        {"type": "image-placeholder", "label": "[image]"},
+        {"type": "subheading", "text": "«Humane-design» restraint glove"},
+        {"type": "paragraph", "text": "Introduces tactile-comfort pieces, but in doing so takes over the entire hand space; combined with rough mesh it backfires. Caregiver-side features are better updated, though."},
+        {"type": "image-placeholder", "label": "[image]"},
+        {"type": "subheading", "text": "Spatial / 360° restraint glove"},
+        {"type": "paragraph", "text": "360° protection, but the harder shell produces a knocking sound many elders can't tolerate, and the rigidity doesn't fit hand shape comfortably."},
+        {"type": "image-placeholder", "label": "[image]"},
+        {"type": "subheading", "text": "Non-restraint products"},
+        {"type": "image-placeholder", "label": "[image]"},
+        {"type": "subheading", "text": "Synthesis"},
+        {"type": "image-placeholder", "label": "[image]"},
+        {"type": "paragraph", "text": "Some of these details — the ones you don't notice at first glance, but only see the value of once you've actually used the thing. One example: a transparent and sturdy mesh — both lets the caregiver check the hand at any moment, and lets the elderly person keep visual contact with their own hand, encouraging movement instead of letting it disappear into a black box."}
+      ]
     },
     {
       "id": "prototype",
-      "title": "Prototype Iteration",
-      "layout": "prototype",
-      "versions": [
-        {
-          "title": "V1 (2024 - 2025)",
-          "tag": "Concept Prototype",
-          "intro": "This stage did not yet have practical functionality. The focus was to first build out three directions together: a glove body with soft squeeze structures, an airbag for different relaxed arm positions, and an electronic button for interaction to ease loneliness.",
-          "items": [
-            "When elderly users touched the soft squeeze module, they would naturally rub it without any explanation.",
-            "Some users felt pain where the base plate pressed against the ulnar styloid at the wrist.",
-            "One caregiver suggested: since there is already an airbag, why not develop it further into a massage device?",
-            "Family members recognized the direction of the button feature, but also asked: if an elderly person can operate a button, do they still need restraint?"
-          ]
-        },
-        {
-          "title": "V2 (2025 - 2026)",
-          "tag": "Focused on the minimum viable product",
-          "intro": "This stage began to focus on making the glove body itself viable. The emphasis was moving the product from concept toward production: squeeze blocks of different sizes and materials, detachable wrist-pad cushioning, and structural adjustments closer to real caregiving needs.",
-          "items": [
-            "For severely contracted hands, an ergonomic molded design is less effective than a simple self-adapting foam ball.",
-            "For elderly people who still want to move but have severe contracture, a long narrow rubbing-strip module can be designed.",
-            "The wrist pad is a good design, but not as important as I first imagined.",
-            "An overlong base plate, separate left-right glove shapes, and overly heavy structures all increase production cost and usage burden.",
-            "A clinical access window for the fingers still needs to be added."
-          ]
-        },
-        {
-          "title": "V3 (2026)",
-          "tag": "Continuing toward pitching and implementation",
-          "intro": "V3 continued refining the glove itself, while turning the massage module and button module back into basic functional prototypes: adjusting size, adding finger access windows, unifying the base plate, adding a detachable opening, and testing squeeze balls and rubbing strips of different softness.",
-          "items": [
-            "The glove size still needs fine adjustment: a smaller body, narrower and longer wrist fabric, and a tighter restraint range.",
-            "The fabric needs to be puffier and thicker to provide protection, but it cannot become stiff.",
-            "More detachable functions are not necessarily better; over-fixing can instead restrict squeeze blocks that should remain free to move.",
-            "Squeeze balls and rubbing strips are also useful for elderly people who are not wearing restraint gloves; tactile stimulation can redirect attention and ease discomfort.",
-            "The care facility emphasized that the material must absorb sweat and be easy to clean.",
-            "The button module revealed a real use case: it is useful not only for some restrained elderly people who can still press buttons, but also for elderly people without restraint who cannot manage a phone with fine motor control."
-          ]
-        }
+      "title": "Prototype iteration",
+      "eyebrow": "PROTOTYPE",
+      "blocks": [
+        {"type": "details", "summary": "V1 (2024 – 2025) · concept prototype", "blocks": [
+          {"type": "paragraph", "text": "No working features yet — concept only. Three structures."},
+          {"type": "subheading", "text": "1 · A glove body with soft pinch-pieces and inner space"},
+          {"type": "image-placeholder", "label": "[image]"},
+          {"type": "subheading", "text": "2 · Air bladder for different arm-rest positions"},
+          {"type": "image-placeholder", "label": "[image]"},
+          {"type": "subheading", "text": "3 · Electronic interaction button for loneliness relief"},
+          {"type": "image-placeholder", "label": "[image]"},
+          {"type": "subheading", "text": "Feedback"},
+          {"type": "list", "items": [
+            "Without any explanation, elders naturally start kneading the soft piece when they touch it. Some users find the base plate digs into their ulnar styloid.",
+            "Caregivers suggest: since there's already a bladder, make it a massage device instead — the «different rest positions» part isn't much needed.",
+            "Families like the button direction; they ask, but if a person is lucid enough to use the button, do they still need a restraint glove?"
+          ]}
+        ]},
+        {"type": "details", "summary": "V2 (2025 – 2026) · focus on the minimum-viable product", "blocks": [
+          {"type": "paragraph", "text": "Focus on getting the glove body production-ready. Different sizes / materials of pinch-pieces, removable wrist cushioning, structural adjustments closer to real care needs."},
+          {"type": "list", "items": [
+            "For severely contracted hands, an ergonomic moulded shape is less useful than a simple adaptive foam ball.",
+            "For elders still wanting to move but with severe contracture, design slim adaptive rub-bars to put into the palm.",
+            "Wrist cushion is a nice piece, but not essential.",
+            "Long base plate, left/right hand cosmetic differentiation, and excess weight all add cost and burden.",
+            "Add a clinical-access window over the fingers."
+          ]}
+        ]},
+        {"type": "details", "summary": "V3 (2026) · pitch + on-the-ground push", "open": true, "blocks": [
+          {"type": "paragraph", "text": "Continue refining the glove body. Pitch approaching, so V1's massage and button features get rough basic prototypes."},
+          {"type": "list", "ordered": true, "items": [
+            "New glove built on the feedback — resized, finger-access window, base-plate redesign, plus a new removable-base-plate opening.",
+            "Pinch balls and bars of different softness — foam balls (more sensory feedback, more stress-relief) and softer sponge.",
+            "Massage module — basic prototype, fits hand without air bladders.",
+            "Simple Bluetooth button module integrated with V1's ergonomic pinch block, can remote a computer."
+          ]},
+          {"type": "image-placeholder", "label": "[image]"},
+          {"type": "subheading", "text": "Feedback"},
+          {"type": "list", "ordered": true, "items": [
+            "Glove body still needs micro-tuning: smaller body, narrower-longer wrist fabric. The tightest range still needs to be tighter. Fabric can be fluffier and thicker, cushion + protect, but never hard. Removability may not be that critical — over-fixing can actually pin down what should be free.",
+            "Pinch balls and bars also useful for elders not wearing restraint — one woman wouldn't let go of a pinch piece, so I gave it to her. The care home director stresses: material must be sweat-absorbing and easy to clean. Families say the pinch pieces are practical — when the body's uncomfortable, hands fidget; tactile distraction helps; and the pinch products on the market mostly don't work for contracted hands.",
+            "Massage is anticipated for future development.",
+            "Button is validated as useful: (1) for non-restrained elders who can't operate a phone precisely; (2) for the subset of restrained-but-still-button-capable elders."
+          ]}
+        ]}
       ]
     },
     {
       "id": "notes",
-      "title": "Thinking Log",
-      "layout": "notes",
-      "paragraphs": [
-        "What kind of world do elderly people live in, really? The pain of body and mind today may be the most comfortable moment they will have in the coming year; and when someone who once raised others becomes the disabled person who now needs care, where does the meaning of the time that remains go? Even if design could ease every physical pain, the emptiness and loss within human consciousness cannot be filled by design itself; and among restrained elderly people, too many are still feeling everything with full clarity.",
-        "That is also why I placed a Bluetooth button above all the other design elements: if it can connect to a phone app, TV, projector, or computer, then it is not just a ‘functional accessory.’ It lets a person retain a little autonomy even under restraint—making a call, looking at photos, changing the channel. Even a very small action still means: I can decide some things.",
-        "Human autonomy matters too much, even if it is only a small soft block that can be kneaded. A soft piece stuffed with a foam ball does not need complex design, but what it offers is not a gimmick. It is a choice that has been left in place. I also wondered whether I should first go to university, work for a few years, and then come back to push this forward from a more mature position. But as of today, two elderly people in families willing to buy this design have already passed away. Time never waits, especially once another possibility has already appeared."
-      ],
-      "quote": "I think this is something I can keep doing for many, many years."
+      "title": "Thinking log",
+      "eyebrow": "NOTES",
+      "blocks": [
+        {"type": "paragraph", "text": "What is the world of the elderly like? Today's physical and mental pain may be the most comfortable hour of the next year. The person who once raised others has become the person who needs care. Where does the meaning of the remaining time go? Even if design eases the pain, the emptiness of mind isn't something design can fill. And among the restrained elderly, too many are still clearly feeling everything."},
+        {"type": "paragraph", "text": "So the reason I want to add a Bluetooth button on top of all this design is that — connected to a phone app it could mean:"},
+        {"type": "list", "ordered": true, "items": [
+          "Custom shortcut to call a caregiver or a family member.",
+          "Custom gesture inside an app — e.g. open the photo album, tap to advance to the next photo; or open a favourite TV show and tap to change the channel.",
+          "Cast to whichever device is in the room — a computer, a TV, a projector — no need to buy something new."
+        ]},
+        {"type": "paragraph", "text": "I sometimes think — the «information bubble» the internet gives young people is a kind of addictive ill design. But for an elderly person with empty time and loneliness, it could be a kind of «mental anaesthetic» — and, under restraint, a tiny piece of autonomy."},
+        {"type": "paragraph", "text": "Autonomy matters so much, even just one small pinch piece you can squeeze. A pinch piece stuffed with foam doesn't even need complicated design. I've thought about why no one already makes a design a high-school student could come up with: maybe the need doesn't actually exist? But the families I met, the people around me, the stories of elders close to me — all tell me the need is there."},
+        {"type": "paragraph", "text": "Early March, I met an older sister designing products for marginalised groups, and showed her this project. She kept rolling the sample in her hands, said her grandfather passed a while ago, and wore «the blue gloves» for the last year of his life. He'd loved watching TV. He didn't watch a single show that year. «This is really good, if there was a product like this,» she said, kneading the sample, «a lot of families would have another option.»"},
+        {"type": "paragraph", "text": "I've thought about going to university first, working a few years, coming back to push this as a more experienced designer. But of the families who already want to buy this design, two of the elders have already passed. Time doesn't wait. Especially when another possibility already exists."},
+        {"type": "quote", "text": "I think I can keep doing this for a long, long time."}
+      ]
     },
     {
       "id": "production",
-      "title": "Small-Batch Production",
-      "layout": "production",
+      "title": "Small-batch production",
+      "eyebrow": "PRODUCTION",
       "blocks": [
-        {
-          "title": "I. Core Strategy",
-          "items": [
-            "First take a ‘non-medical’ route to validate the market, using a small batch to test real purchase intent.",
-            "Do not depend on pitching results. Whether or not I receive funding, I will use my own money to start the first production run.",
-            "The goal at this stage is not to make money, but to validate the market while trying not to lose money."
-          ]
-        },
-        {
-          "cards": [
-            {
-              "title": "II. Product Positioning",
-              "items": [
-                "Restraint glove: positioned as a ‘care support product,’ not a medical device.",
-                "Functional descriptions focus on anti-scratching and comfortable care, without claiming medical effects.",
-                "Squeeze modules can be developed as standalone soothing pads, or paired with the glove."
-              ]
-            },
-            {
-              "title": "III. First Production Plan",
-              "items": [
-                "Basic glove: 60 units (30 pairs)",
-                "Squeeze modules: 100 units (50 pairs)",
-                "Reserved gifts / samples: 12 gloves, 18 squeeze pieces",
-                "Interview samples: 6 gloves, 6 squeeze pieces",
-                "Total first-batch investment: up to RMB 10,000, covered by my personal funds"
-              ]
-            }
-          ]
-        },
-        {
-          "title": "IV. Sales and Validation Path",
-          "items": [
-            "Open a Taobao store, set specific prices based on cost, and sell the squeeze module separately if needed.",
-            "Publish interviews and product stories on Xiaohongshu first, to attract users in non-medical scenarios.",
-            "First-batch buyers, sample recipients, and interviewees become ‘permanent VIPs’ and will receive long-term discounts in the future.",
-            "If the first batch sells out, the second batch will use a group-order production model: production starts again only after orders reach a certain number."
-          ]
-        },
-        {
-          "title": "V. Interviews and Feedback",
-          "stages": [
-            {
-              "title": "Stage 1: Before production",
-              "text": "Bring the latest prototype back to the care home where interviews have been ongoing, let elderly residents try it, ask caregivers and family members to comment, and use that feedback to finalize the drawings. One unexpected gain is that a retirement facility in a non-medical setting has already expressed interest in a trial order."
-            },
-            {
-              "title": "Stage 2: After production",
-              "text": "Use sampled products to gather user-experience feedback, continue interviewing caregivers and family members, create publicity materials, and leave the products with participants as thanks."
-            }
-          ],
-          "compare": [
-            {
-              "title": "Elderly residents suitable for interviews",
-              "items": [
-                "Relatively clear consciousness, able to express feelings",
-                "Emotionally more stable after wearing it",
-                "Family members present and willing to talk",
-                "Clear difficulties with existing restraint gloves"
-              ]
-            },
-            {
-              "title": "Elderly residents not suitable for the first round of interviews",
-              "items": [
-                "Severe mania and unable to communicate",
-                "Extremely resistant to any form of restraint",
-                "Family members absent, or emotionally indifferent",
-                "Previously had a very bad experience, and the family’s anger has not yet settled"
-              ]
-            }
-          ]
-        },
-        {
-          "title": "VI. Risk Prevention and Long-Term Direction",
-          "items": [
-            "Use biocompatible fabric and non-toxic filling particles, and retain the relevant testing reports.",
-            "Clearly label it as ‘care support product, not a medical device’ and ‘must be used under supervision.’",
-            "Do not claim medical effects or promise treatment functions.",
-            "Process transactions through the Taobao store and retain sales records and receipts.",
-            "If feedback from family users is good, continue expanding production and developing a line of small caregiving products; if care facilities begin ordering on their own, then consider filing and launching a medical version."
-          ]
-        },
-        {
-          "title": "VII. External Support I Need",
-          "support_cards": [
-            {"title": "Direction and guidance", "text": "Help me make decisions more clearly on top of the judgment I already have."},
-            {"title": "Manufacturer", "text": "A reliable factory that can support long-term collaboration."},
-            {"title": "Medical contacts / resource links", "text": "CROs, medical-device factories, filing consultation channels, care-facility purchasing paths, and industry expert resources."},
-            {"title": "Endorsement", "text": "Stand behind me and help others see that this is a project of real quality."}
-          ],
-          "closing": "But whether or not I receive that support, I will still use my own funds to make the first batch and let the market answer first."
-        }
+        {"type": "subheading", "text": "I. Core strategy"},
+        {"type": "list", "items": [
+          "Take the «non-medical-device» path first to validate real purchase intent — test with about 50 pairs.",
+          "Don't rely on pitch outcomes. Whether or not there's funding, fund the first batch myself.",
+          "Goal isn't profit; it's market validation while not losing money."
+        ]},
+        {"type": "subheading", "text": "II. Positioning"},
+        {"type": "list", "items": [
+          {"label": "Restraint glove", "text": "Positioned as «nursing aid», not medical device. Function is preventing scratching and providing comfort — no medical claims."},
+          {"label": "Pinch / rub module", "text": "Independent soothing pad — non-toxic, kneadable. Not a medical device. Lower barrier; sold solo or as accessory."}
+        ]},
+        {"type": "subheading", "text": "III. First batch plan (~50 pairs + 100 modules)"},
+        {"type": "meta", "items": [
+          {"label": "Glove (basic)", "value": "60 units / 30 pairs — uniform size, small-batch retail validation"},
+          {"label": "Pinch modules", "value": "100 units / 50 pairs — different specs; sellable solo or together"},
+          {"label": "Gifts / samples", "value": "12 gloves / 6 pairs; 18 modules / 9 pairs (Liang Yue, Lin Lan, DT, three nursing homes for trial)"},
+          {"label": "Interview samples", "value": "6 gloves / 3 pairs; 6 modules / 3 pairs (given to interviewees after)"},
+          {"label": "Cost estimate", "value": "At most ¥10 000, covered out of my own pocket."}
+        ]},
+        {"type": "subheading", "text": "IV. Sales & validation path"},
+        {"type": "list", "items": [
+          {"label": "Taobao store", "text": "Price per actual cost; pinch modules sold separately."},
+          {"label": "Xiaohongshu", "text": "Cut interview footage and product stories; reach non-medical-context users first."},
+          {"label": "Early-buyer policy", "text": "First batch + gift recipients + interviewees + acknowledgment list become «permanent VIPs» with future discounts."},
+          {"label": "Pre-order", "text": "If first batch sells out, second is «batch when enough orders are collected» — no discount, just volume."}
+        ]},
+        {"type": "subheading", "text": "V. Interviews & feedback (final validation)"},
+        {"type": "list", "items": [
+          {"label": "Stage 1 · before production", "text": "Take the latest prototype back to the care home; have residents try it; collect notes from caregivers and family. Goal: lock the drawing for production. An unexpected upside — one non-medical-context care home has ordered samples (3 gloves + 6 modules) for trial."},
+          {"label": "Stage 2 · after production", "text": "Use sample units for user feedback; continue interviewing caregivers and families; produce footage; gift the samples to participants as thanks."}
+        ]},
+        {"type": "two-col", "columns": [
+          {"title": "Good interview candidates", "items": ["relatively lucid, can express feelings", "calm-ish when wearing the glove", "family present and open to talking", "some clear current frustration with the glove"]},
+          {"title": "Not the first interview group", "items": ["severe agitation, unable to communicate", "extreme rejection of any restraint", "family absent or indifferent", "bad past experience + family still very angry"]}
+        ]},
+        {"type": "subheading", "text": "VI. Risk management"},
+        {"type": "list", "items": [
+          {"label": "Safety", "text": "Bio-compatible fabric, non-toxic filling, keep testing reports."},
+          {"label": "Labels", "text": "Clearly marked «nursing aid, not medical device», «use under supervision»."},
+          {"label": "Legal line", "text": "No medical claims, no promise to treat."},
+          {"label": "Records", "text": "Sales through Taobao for traceable records."}
+        ]},
+        {"type": "subheading", "text": "VII. Long-term direction"},
+        {"type": "list", "items": [
+          "If the home market responds well, scale up; add materials and shapes for the pinch modules into a «care-piece» line.",
+          "If care homes start buying, consider starting the medical-device filing and a «medical-grade» glove.",
+          "If response is flat, analyse and decide direction."
+        ]},
+        {"type": "subheading", "text": "VIII. Support I'm looking for"},
+        {"type": "meta", "items": [
+          {"label": "Direction", "value": "Help me sharpen judgments I've already partly made."},
+          {"label": "Manufacturer", "value": "Reliable factory, long-term partnership material."},
+          {"label": "Medical network", "value": "CRO, medical-device factories, filing consultants, care-home procurement, industry experts."},
+          {"label": "Endorsement", "value": "Stand with me — let the outside know this is a serious project."}
+        ]},
+        {"type": "paragraph", "text": "But whether the support arrives or not, I'll fund the first 50 pairs myself and let the market answer first."}
       ]
     },
     {
       "id": "thanks",
       "title": "Acknowledgments",
-      "layout": "thanks",
-      "items": [
-        "The elderly people, family members, and caregivers who were willing to listen and give feedback.",
-        "Teachers Pranjal, Shruti, and Jun, who supported, witnessed, and guided this whole project.",
-        "Teacher Jiangjiang, who taught me modeling, concept development, and drawing.",
-        "Teacher Alex, who taught me how to sort out the logic of layout in project presentation.",
-        "Volunteer partner Liang Yue, who listened to me share, recommended things, and supported me.",
-        "Recommended by Liang Yue, Teacher Lin Lan, who taught me about the ‘minimum viable product’ and showed me a direction.",
-        "Professor Rudi, Minki, and his team, who gave me practical professional perspective.",
-        "The people who listened to me talk about the project and shared support, warmth, and their own stories.",
-        "My partner Dongyuan, who from the beginning until now has always listened, discussed, and supported me."
+      "eyebrow": "THANKS",
+      "blocks": [
+        {"type": "paragraph", "text": "In rough chronological order —"},
+        {"type": "list", "items": [
+          "The elders, families, and caregivers who were willing to listen and give feedback.",
+          "Pranjal, Shruti, and Mr. Jun — for supporting, witnessing, and mentoring the whole project.",
+          "Mr. Jiangjiang — for teaching me modeling, ideation, and drawing.",
+          "Mr. Alex — for teaching me how to lay out a project so others can follow it.",
+          "Liang Yue — for listening, recommending, and supporting; volunteer partner.",
+          "Lin Lan — recommended to me by Liang Yue; she taught me the «minimum viable product» way of thinking.",
+          "Profs. Rudi and Minki and his team — for grounded professional perspective.",
+          "Friends who listened, shared their support, warmth, and their own stories.",
+          "From the beginning until now — Dongyuan, my love, who has listened, discussed, and supported me throughout."
+        ]}
       ]
     }
   ]
