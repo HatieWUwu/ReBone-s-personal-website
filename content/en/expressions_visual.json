@@ -1,42 +1,15 @@
 {
-  "eyebrow": "Visual",
+  "breadcrumb": { "parent": "Expressions", "current": "Visual Art" },
+  "eyebrow": "VISUAL · under construction",
   "title": "Visual Art",
-  "description": "Physical works, images, material experiments, and visual narratives.",
-  "breadcrumb": {
-    "parent": "Expressions",
-    "current": "Visual Art"
-  },
   "intro": [
-    "This keeps the original direction of the work display, but shifts it from a single-page placeholder draft into an archive structure better suited for long-term expansion. The materials can be replaced gradually; for now, the page first holds the framework."
+    "Still being put together. Once I've moved the work images, material experiments, and visual narratives in here, I'll open this back up."
   ],
-  "works": [
-    {
-      "title": "Fragmentation and Reconstruction",
-      "date": "2024.04",
-      "summary": "An exploration of self-reconstruction after trauma, a dialogue between ceramic and metal.",
-      "quote": "True resilience is not never being shattered, but having the courage to piece the fragments into a new form.",
-      "image": {
-        "mode": "placeholder",
-        "label": "IMAGE PLACEHOLDER",
-        "theme": "dark"
-      }
-    },
-    {
-      "title": "Asynchronous Dialogue",
-      "date": "2024.02",
-      "summary": "Using algorithmically generated soundscapes to simulate the aesthetics of non-real-time communication.",
-      "quote": "A delayed reply is not the fading of feeling, but the settling of thought.",
-      "image": {
-        "mode": "placeholder",
-        "label": "IMAGE PLACEHOLDER",
-        "theme": "light"
-      }
-    }
-  ],
+  "works": [],
   "reserved": {
-    "eyebrow": "Reserved",
-    "title": "Reserved for new visual works",
-    "text": "Physical works, photography, stills from video, material experiments, or fuller project notes can be added here later.",
-    "tag": "Material pending"
+    "eyebrow": "Under construction",
+    "title": "Under construction",
+    "text": "Nothing to show here yet. See you next time.",
+    "tag": "—"
   }
 }

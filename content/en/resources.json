@@ -1,0 +1,23 @@
+{
+  "intro": "Books, articles, tools, and self-study paths that actually helped me — collected here, to share. Curation is slow work; this section will keep filling.",
+  "groups": [
+    {
+      "title": "Self-study · Programming for non-CS folks",
+      "items": [
+        {"label": "(curating)", "url": "", "note": "I came at code from industrial design — I'll collect what's helpful for «I'm not from CS, but want to read code or make small things» here."}
+      ]
+    },
+    {
+      "title": "Design · entry & ways of thinking",
+      "items": [
+        {"label": "(curating)", "url": "", "note": "The books and teachers from my design coursework that actually changed how I see the world."}
+      ]
+    },
+    {
+      "title": "Mental health · self-help that's usable before crisis",
+      "items": [
+        {"label": "(curating)", "url": "", "note": "Actionable directions to start with yourself — easier first step than «go see a therapist»."}
+      ]
+    }
+  ]
+}
