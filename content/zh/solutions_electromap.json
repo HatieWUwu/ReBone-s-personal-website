@@ -24,6 +24,7 @@
       "eyebrow": "OVERVIEW",
       "lede": "每一个世界正在发生的事情都与你我有关。",
       "blocks": [
+        {"type": "image", "src": "assets/images/solutions/electromap-overview.png", "alt": "ElectroMap 互动地图装置全景", "caption": "ElectroMap 装置全景"},
         {"type": "quote", "text": "「每一个世界正在发生的事情都与你我有关」", "cite": "梁子"},
         {"type": "meta", "items": [
           {"label": "日期", "value": "2025.09"},
@@ -40,6 +41,7 @@
       "blocks": [
         {"type": "paragraph", "text": "启发来源于：友人梁玥推荐的一席演讲中，艺术家梁子提到的报刊《COLORS: A Magazine About the Rest of the World》。梁子说，这个世界发生的每一个故事都与你我有关。"},
         {"type": "paragraph", "text": "正值 UWC Day，主题是「分享和平的声音」。于是，我和 Jun 一起，做了这个。"},
+        {"type": "image", "src": "assets/images/solutions/electromap-inspiration.jpg", "alt": "梁子在一席演讲中提到 COLORS 杂志", "caption": "启发来源：梁子的一席演讲与《COLORS: A Magazine About the Rest of the World》。"},
         {"type": "meta", "items": [
           {"label": "一席演讲", "value": "「找一道缝隙，做一点小事」—— 梁子（链接待补充）"},
           {"label": "杂志", "value": "COLORS: A Magazine About the Rest of the World（链接待补充）"}
@@ -58,7 +60,7 @@
           "区别于媒体对世界有不同意图地渲染，这是一种主动的好奇与探索——希望在过程中能了解更真实的人与故事。",
           "地图上的灯颜色冷暖反馈了一个地区有多少人关注，呼吁大家关注一些被忽略的地区。"
         ]},
-        {"type": "image-placeholder", "label": "【图】"}
+        {"type": "image", "src": "assets/images/solutions/electromap-detail.jpg", "alt": "ElectroMap 的按钮、点阵屏与显示模块细节", "caption": "按钮、点阵屏与 LCD 的局部细节"}
       ]
     },
     {
@@ -151,6 +153,7 @@
       "eyebrow": "FEEDBACK",
       "blocks": [
         {"type": "paragraph", "text": "这场活动成功展示期的参与度比我想象的要高。这里分享一个留言——"},
+        {"type": "image", "src": "assets/images/solutions/electromap-feedback.png", "alt": "来自 Magdalena 的留言截图"},
         {"type": "quote", "text": "至此，这场活动对我来说就足够满足啦 :3", "cite": "来自 Magdalena"}
       ]
     },
