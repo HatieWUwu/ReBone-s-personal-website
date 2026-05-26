@@ -11,6 +11,18 @@
   ],
   "cards": [
     {
+      "title": "Keeping fish",
+      "subtitle": "Mosquitofish · zebrafish · golden algae eater",
+      "href": "solutions_fish.html",
+      "image": "",
+      "image_alt": "fish in the tank",
+      "tags": [
+        "Caring for life"
+      ],
+      "date": "2026.05 — ongoing",
+      "summary": "A care log that started with 5 mosquitofish my tutoring student scooped up — dechlorination, filtration, planted tank, cohabitation, gravid females, isolation. Counting fish every day, watching each individual."
+    },
+    {
       "title": "Restraint Glove for Disabled Elderly People",
       "subtitle": "Inside necessary restraint — return comfort, reassurance, and autonomy",
       "href": "solutions_restraint.html",
