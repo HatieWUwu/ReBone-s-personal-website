@@ -136,7 +136,16 @@ body {
     position: sticky;
     top: 5rem;
     padding-top: 0.5rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: var(--rule) transparent;
+    padding-right: 0.5rem;
 }
+.rail::-webkit-scrollbar { width: 6px; }
+.rail::-webkit-scrollbar-track { background: transparent; }
+.rail::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 3px; }
 .rail-label {
     font-family: var(--font-mono);
     font-size: 0.7rem;
