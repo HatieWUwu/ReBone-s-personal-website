@@ -11,6 +11,18 @@
   ],
   "cards": [
     {
+      "title": "养鱼",
+      "subtitle": "食蚊鱼 · 斑马鱼 · 金苔鼠",
+      "href": "solutions_fish.html",
+      "image": "",
+      "image_alt": "缸里的鱼",
+      "tags": [
+        "照料生命"
+      ],
+      "date": "2026.05 — 进行中",
+      "summary": "从家教学生捞回来的 5 只食蚊鱼开始的照护日志——除氯、过滤、生态缸、混养、孕鱼、隔离。每天数鱼，观察每一个个体。"
+    },
+    {
       "title": "失能老人约束手套",
       "subtitle": "在必要的约束中，提供舒适、安抚与自主权",
       "href": "solutions_restraint.html",
