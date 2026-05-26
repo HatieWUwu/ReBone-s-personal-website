@@ -1307,8 +1307,12 @@ body {
 .project-section figure { margin: 1.5rem 0; }
 .project-section figure img {
     width: 100%;
+    max-width: 560px;
+    max-height: 720px;
+    object-fit: contain;
     border: 1px solid var(--rule);
     display: block;
+    background: #FAFAF8;
 }
 .project-section figcaption {
     font-size: 0.82rem;
